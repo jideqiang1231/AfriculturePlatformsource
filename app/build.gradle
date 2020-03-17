@@ -55,4 +55,7 @@ dependencies {
     //implementation 'com.android.support:recyclerview-v7:27.1.1'
     //引入外部的搜索框https://github.com/Carson-Ho/Search_Layout
 
+//我的田的信息那块切换的布局引入
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
 }
