@@ -3,9 +3,10 @@
     <string name="register"><u>注册账号</u></string>
     <string name="forgetpass"><u>忘记密码？</u></string>
     <string name="title_activity_welcome">Welcome</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     ///////////////////////////////////////////////////
-
-
 
 
 </resources>
