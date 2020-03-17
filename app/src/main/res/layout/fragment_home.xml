@@ -1,0 +1,332 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.fragment.HomeFragment">
+    <!--顶部的搜索栏，及消息 ，用的include包含布局-->
+    <include
+        android:id="@+id/titlebar"
+        layout="@layout/titlebar" />
+    <LinearLayout
+        android:id="@+id/aaa"
+        android:layout_below="@id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tv_user_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/channel1"
+            android:gravity="center"
+            android:text="知识检索"
+            android:textColor="#5d5d5d" />
+
+        <TextView
+            android:id="@+id/tv_user_question"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/channel2"
+            android:gravity="center"
+            android:text="知识问答"
+            android:textColor="#5d5d5d" />
+
+        <TextView
+            android:id="@+id/tv_user_dingnosis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/channel3"
+            android:gravity="center"
+            android:text="营养诊断"
+            android:textColor="#5d5d5d" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bbb"
+        android:layout_below="@id/aaa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tv_user_identify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/channel4"
+            android:gravity="center"
+            android:text="病害识别"
+            android:textColor="#5d5d5d" />
+
+        <TextView
+            android:id="@+id/tv_user_budget"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/channel5"
+            android:gravity="center"
+            android:text="效益预算"
+            android:textColor="#5d5d5d" />
+
+        <TextView
+            android:id="@+id/tv_user_answer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/channel6"
+            android:gravity="center"
+            android:text="专家答疑"
+            android:textColor="#5d5d5d" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ccc"
+        android:layout_below="@id/bbb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tv_user_transaction"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/channel7"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="交易大厅"
+            android:textColor="#5d5d5d" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/ddd"
+        android:layout_below="@id/ccc"
+        android:background="#3E36F13D"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="智能推送"
+            android:textColor="#5d5d5d" />
+    </RelativeLayout>
+
+
+
+
+    <ScrollView
+        android:id="@+id/sv_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ddd">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_zhongzi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp">
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/recomend_zhongzi" />
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="86dp"
+                    android:text="种子"
+                    android:textSize="8pt"
+                    android:textColor="#5d5d5d" />
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="为您推荐热门种子，点击查看详情"
+                    android:textColor="#5d5d5d" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_nongshi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/recommend_nongshi" />
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="86dp"
+                    android:text="农时"
+                    android:textSize="8pt"
+                    android:textColor="#5d5d5d" />
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="此时您应该干点什么，点击查看详情"
+                    android:textColor="#5d5d5d" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_nongji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/recommend_nongji" />
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="86dp"
+                    android:text="农技"
+                    android:textSize="8pt"
+                    android:textColor="#5d5d5d" />
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="种植新技术，值得拥有，点击查看详情"
+                    android:textColor="#5d5d5d" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_nongzi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/recommend_nongzi" />
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="86dp"
+                    android:text="农资"
+                    android:textSize="8pt"
+                    android:textColor="#5d5d5d" />
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="您需要的农忙物资，点击查看详情"
+                    android:textColor="#5d5d5d" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_zhengce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/recommend_zhengce" />
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="86dp"
+                    android:text="政策"
+                    android:textSize="8pt"
+                    android:textColor="#5d5d5d" />
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="最新政策，点击查看详情"
+                    android:textColor="#5d5d5d" />
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+    <!--这是recycleview，中间那个布局-->
+    <!--layout_below就是放在这个titlebar下边-->
+<!--这里的recycleview记住是这个一个，另一个在初始化数据的时候报错-->
+    <!--<androidx.recyclerview.widget.RecyclerView-->
+        <!--android:id="@+id/rv_home"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@id/ll_channel" />-->
+
+    <!--置顶，top_btn图片被删除-->
+    <!--这就是回到顶部的布局-->
+    <!--<ImageButton-->
+    <!--android:id="@+id/ib_backtop"-->
+    <!--android:layout_width="40dp"-->
+    <!--android:layout_height="40dp"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_marginBottom="20dp"-->
+    <!--android:layout_marginRight="20dp"-->
+    <!--android:background="@drawable/top_btn"-->
+    <!--android:visibility="gone" />-->
+</RelativeLayout>

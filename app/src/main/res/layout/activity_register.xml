@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/new_login_background"
+    android:orientation="vertical"
+    tools:context=".home.activity.RegisterActivity">
+        <!--<ImageButton-->
+        <!--android:id="@+id/ib_login_back"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/top_bar_left_back" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageButton
+        android:id="@+id/ib_register_back"
+        android:layout_width="44dp"
+        android:layout_height="35dp"
+        android:background="@drawable/top_bar_left_back"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="注册"
+            android:paddingRight="50dp"
+            android:textColor="#464646"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+    <!--为了解决layout——alignParentStart=true错误，现编的alignparentlefe也设置为true-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名："
+            android:textColor="#464646"
+            android:textSize="15sp" />
+        <!--android:inputType="phone"-->
+
+        <EditText
+            android:id="@+id/et_register_name"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@null"
+            android:hint="请输入账号"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:gravity="center_vertical"
+            android:text="密码："
+            android:textColor="#464646"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/et_register_pass"
+            android:singleLine="true"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_password_drawable_invisible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:gravity="center_vertical"
+            android:text="确认密码："
+            android:textColor="#464646"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/et_register_passagain"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="再次输入密码"
+            android:inputType="textPassword"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_password_drawable_invisible" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号："
+            android:textColor="#464646"
+            android:inputType="phone"
+            android:textSize="15sp" />
+        <!--android:inputType="phone"-->
+        <EditText
+            android:id="@+id/et_register_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:layout_marginLeft="10dp"
+            android:background="@null"
+            android:hint="请输入手机号"
+            android:inputType="phone"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="总亩数："
+            android:textColor="#464646"
+            android:textSize="15sp" />
+        <!--android:inputType="phone"-->
+        <EditText
+            android:id="@+id/et_register_acres"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:layout_marginLeft="10dp"
+            android:background="@null"
+            android:hint="田的亩数"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="地理位置："
+            android:textColor="#464646"
+            android:textSize="15sp" />
+        <!--android:inputType="phone"-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:singleLine="true"
+            android:background="@null"
+            android:drawableLeft="@drawable/field_location"
+            android:hint="请输入地理位置"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="作物一："
+                android:textColor="#464646"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/crops1"
+                android:layout_width="198dp"
+                android:layout_height="44dp"
+                android:entries="@array/crops"
+                android:layout_gravity="center" />
+
+            <EditText
+                android:id="@+id/et_cropacres1"
+                android:layout_width="86dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:hint="输入亩数" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="   品 种：   "
+                android:textColor="#464646"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/cropstype1"
+                android:layout_width="241dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:entries="@array/typedefault" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="作物二："
+                android:textColor="#464646"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/crops2"
+                android:layout_width="204dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:entries="@array/crops" />
+
+            <EditText
+                android:id="@+id/et_cropacres2"
+                android:layout_width="86dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:hint="输入亩数" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="   品 种：   "
+                android:textColor="#464646"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/cropstype2"
+                android:layout_width="245dp"
+                android:layout_height="39dp"
+                android:layout_gravity="center"
+                android:entries="@array/typedefault" />
+
+        </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#eeee" />
+
+    <Button
+        android:id="@+id/b_register"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/loginbutton_background"
+        android:padding="10dp"
+        android:text="注册"
+        android:textColor="#fff" />
+    </LinearLayout>
+</LinearLayout>
+
+
+<!--<LinearLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_marginLeft="10dp"-->
+<!--android:layout_marginRight="10dp"-->
+<!--android:background="#fff"-->
+<!--android:orientation="horizontal"-->
+<!--android:padding="10dp">-->
+
+<!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="作物二："-->
+    <!--android:textColor="#464646"-->
+    <!--android:textSize="15sp" />-->
+
+
+<!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+    <!--<RadioGroup-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+        <!--<RadioButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+
+            <!--android:text="水稻" />-->
+
+        <!--<RadioButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+
+            <!--android:text="玉米" />-->
+
+        <!--<RadioButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="小麦" />-->
+
+        <!--<RadioButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="大豆" />-->
+    <!--</RadioGroup>-->
+    <!--<RadioGroup-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="horizontal">-->
+        <!--<RadioButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="枸杞" />-->
+
+        <!--<RadioButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="葡萄" />-->
+        <!--<RadioButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="向日葵" />-->
+    <!--</RadioGroup>-->
+<!--</LinearLayout>-->
+<!--</LinearLayout>-->

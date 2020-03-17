@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "crops">
+        <!--上来默认是不选的-->
+        <item></item>
+        <item>水稻</item>
+        <item>小麦</item>
+        <item>玉米</item>
+        <item>大豆</item>
+        <item>葡萄</item>
+        <item>枸杞</item>
+        <item>向日葵</item>
+    </string-array>
+    <!--默认的作为-->
+    <string-array name = "typedefault">
+        <!--上来默认是不选的-->
+        <item></item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name = "shuidaotype">
+        <!--上来默认是不选的-->
+        <item></item>
+        <item>水稻1</item>
+        <item>水稻2</item>
+        <item>水稻3</item>
+        <item>水稻4</item>
+        <item>水稻5</item>
+    </string-array>
+    <string-array name = "xiaomaitype">
+        <!--上来默认是不选的-->
+        <item></item>
+        <item>小麦1</item>
+        <item>小麦2</item>
+        <item>小麦3</item>
+        <item>小麦4</item>
+        <item>小麦5</item>
+    </string-array>
+    <string-array name = "yumitype">
+        <!--上来默认是不选的-->
+        <item></item>
+        <item>玉米1</item>
+        <item>玉米2</item>
+        <item>玉米3</item>
+        <item>玉米4</item>
+    </string-array>
+    <string-array name = "dadoutype">
+        <!--上来默认是不选的-->
+        <item></item>
+        <item>大豆1</item>
+        <item>大豆2</item>
+        <item>大豆3</item>
+        <item>大豆4</item>
+        <item>大豆5</item>
+    </string-array>
+
+    <string-array name = "putaotype">
+        <!--上来默认是不选的-->
+        <item></item>
+        <item>红葡萄</item>
+        <item>青葡萄</item>
+        <item>大葡萄</item>
+    </string-array>
+    <string-array name = "gouqitype">
+        <!--上来默认是不选的-->
+        <item></item>
+        <item>枸杞1</item>
+        <item>枸杞2</item>
+        <item>枸杞3</item>
+    </string-array>
+    <string-array name = "xiangrikuitype">
+        <!--上来默认是不选的-->
+        <item></item>
+        <item>向日葵1</item>
+        <item>向日葵2</item>
+        <item>向日葵3</item>
+    </string-array>
+
+
+</resources>
