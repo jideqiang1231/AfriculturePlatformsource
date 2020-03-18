@@ -25,7 +25,6 @@ public class HomeFragment extends BaseFragment {
     //把这个东西生成为类的变量，能用，直接写在下边不好把
     private ResultBeanData.LoginresultBean loginresultBean;
     //删除了回到顶部ib_backtop与右上角问答tv_message_home
-
     //$$$$$$$$$$$$$$$$$$$$$$$$把创建的homefragmentadapter给拉过来
     private HomeFragmentAdapter adapter;//就叫adapter，随便起
 
@@ -65,7 +64,7 @@ public class HomeFragment extends BaseFragment {
     public void initData() {
         super.initData();
         Log.e(TAG, "主页的fragment数据被初始化了");
-//        //抽取方法，联网的
+   //抽取方法，联网的
    //    getDataFromNet();
     }
 //

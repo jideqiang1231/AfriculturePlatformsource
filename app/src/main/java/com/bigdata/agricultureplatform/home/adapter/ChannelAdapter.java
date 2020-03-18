@@ -13,6 +13,7 @@ import com.bigdata.agricultureplatform.home.bean.ResultBeanData;
 /**
  * @description：$des$
  **/
+//上边这块
 public class ChannelAdapter extends BaseAdapter {
     private final Context mcontext;
     private final String userName;

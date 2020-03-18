@@ -3,6 +3,7 @@ package com.bigdata.agricultureplatform.home.bean;
 /**
  * @description：$des$
  **/
+//实验：user表后端返回的内容
 public class ResultBeanData {
     /**
      * msg : get请求成功

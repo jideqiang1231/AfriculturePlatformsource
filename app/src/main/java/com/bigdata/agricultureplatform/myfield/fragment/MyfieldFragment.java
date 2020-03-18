@@ -1,12 +1,14 @@
 package com.bigdata.agricultureplatform.myfield.fragment;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bigdata.agricultureplatform.R;
+import com.bigdata.agricultureplatform.app.MainActivity;
 import com.bigdata.agricultureplatform.base.BaseFragment;
 import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
@@ -15,9 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-
+import butterknife.ButterKnife;
 //我的田的fragment
 public class MyfieldFragment extends BaseFragment {
+
 
     private List<Fragment> fragmentList;
     private Fragment tempFragment;
@@ -33,10 +36,12 @@ public class MyfieldFragment extends BaseFragment {
     @Override
     public View initView() {
         View view = View.inflate(mContext, R.layout.fragment_myfield, null);
+        // sswitch = (SegmentTabLayout) view.findViewById(R.id.s_switch);
+        //要么上面这种方法，只要butterknife绑定在fragment中，不会自动绑定，声明view即可
+       ButterKnife.bind(this,view);
 
         return view;
     }
-
 
 //当需要数据时候调用此方法   静态数据也是如此
     @Override
@@ -44,14 +49,13 @@ public class MyfieldFragment extends BaseFragment {
         super.initData();
         initFragment();
 //增加投入产出估算，但是没有加入新的fragmnt
-        String[] titles = {"田的信息", "田间管理","投产估算"};
+        String[] titles = {"田的管理", "田间管理","投产估算"};
         sswitch.setTabData(titles);
         sswitch.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
                 switchFragment(tempFragment, fragmentList.get(position));
             }
-
             @Override
             public void onTabReselect(int position) {
 

@@ -119,7 +119,16 @@
             android:rating="0"
             android:stepSize="0.5" />
 
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="99dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:hint="等级"
+            android:textSize="25dp" />
         />
+
     </TableRow>
 
     <!--评论框-->

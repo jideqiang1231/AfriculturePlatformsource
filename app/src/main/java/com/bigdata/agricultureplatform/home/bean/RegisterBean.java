@@ -3,6 +3,7 @@ package com.bigdata.agricultureplatform.home.bean;
 /**
  * @description：$des$
  **/
+//注册这块的bean返回的信息：注册成功
 public class RegisterBean {
 
     /**
