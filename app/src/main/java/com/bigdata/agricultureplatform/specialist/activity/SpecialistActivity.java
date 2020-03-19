@@ -1,4 +1,4 @@
-package com.bigdata.agricultureplatform.app.bean;
+package com.bigdata.agricultureplatform.specialist.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,11 +7,12 @@ import android.os.Bundle;
 
 import com.bigdata.agricultureplatform.R;
 
-public class SpecialistloginActivity extends Activity {
+public class SpecialistActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_specialistlogin);
+        setContentView(R.layout.activity_specialist);
+
     }
 }

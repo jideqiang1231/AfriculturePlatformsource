@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.bean.SpecialistloginActivity"></activity>
+        <activity android:name=".specialist.activity.SpecialistActivity"></activity>
+        <activity android:name=".specialist.activity.SpecialistloginActivity" />
         <activity android:name=".home.activity.PushActivity" />
         <activity
             android:name=".home.activity.RegisterActivity"

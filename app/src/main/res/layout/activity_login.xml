@@ -150,7 +150,7 @@
                 android:layout_alignParentRight="true"
                 android:clickable="true"
                 android:text="@string/forgetpass"
-                android:textColor="#92DF3B" />
+                android:textColor="#F44336" />
         </RelativeLayout>
         <TextView
             android:id="@+id/tv_specialist_login"
@@ -160,7 +160,7 @@
             android:clickable="true"
             android:layout_gravity="center_horizontal"
             android:text="@string/specialist"
-            android:textColor="#DD4211" />
+            android:textColor="#21449E" />
         <!--<TextView-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->
