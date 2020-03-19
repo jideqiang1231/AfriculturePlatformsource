@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="肥药：" />
+            android:text="种子：" />
 
         <EditText
             android:layout_width="250dp"
@@ -32,14 +32,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="种子：" />
+            android:text="化肥：" />
 
         <EditText
             android:layout_width="250dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
             android:hint="成本" />
     </TableRow>
+    <TableRow>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="农药：" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="成本" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="灌溉：" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="成本" />
+    </TableRow>
     <TableRow>
 
         <TextView
@@ -51,6 +79,7 @@
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:hint="成本" />
     </TableRow>
 
@@ -67,6 +96,7 @@
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:hint="￥0.00" />
         <!--android:singleLine="true"-->
         <!--android:inputType="textPassword"-->
@@ -84,6 +114,7 @@
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:hint="约值" />
     </TableRow>
     <!--预期收益-->
@@ -98,6 +129,7 @@
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:hint="自动填充" />
     </TableRow>
 
@@ -151,13 +183,13 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:gravity="top"
-            android:hint="请填写您的评价"
+            android:hint="请填写您的评价:字数不得超过50字"
             android:minLines="5"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:textColorHint="#999999"
             android:textCursorDrawable="@null"
-            android:textSize="14dp" />
+            android:textSize="14dp"/>
 
         <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">农业一体化服务管理平台</string>
     <string name="register"><u>注册账号</u></string>
+    <string name="specialist"><u>我是专家</u></string>
     <string name="forgetpass"><u>忘记密码？</u></string>
     <string name="title_activity_welcome">Welcome</string>
 

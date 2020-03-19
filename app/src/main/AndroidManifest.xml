@@ -12,8 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home.activity.RegisterActivity"
-            android:exported="true"></activity>
+        <activity android:name=".app.bean.SpecialistloginActivity"></activity>
+        <activity android:name=".home.activity.PushActivity" />
+        <activity
+            android:name=".home.activity.RegisterActivity"
+            android:exported="true" />
         <activity android:name=".home.activity.SearchActivity" /> <!-- 。。。。。。加入singletask。。。。。。。。。。 -->
         <activity
             android:name=".app.LoginActivity"

@@ -152,7 +152,15 @@
                 android:text="@string/forgetpass"
                 android:textColor="#92DF3B" />
         </RelativeLayout>
-
+        <TextView
+            android:id="@+id/tv_specialist_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:clickable="true"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/specialist"
+            android:textColor="#DD4211" />
         <!--<TextView-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->

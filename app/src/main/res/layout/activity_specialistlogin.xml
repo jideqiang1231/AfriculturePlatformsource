@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/new_login_background"
+    tools:context=".app.bean.SpecialistloginActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/ib_specialist_back"
+            android:layout_width="44dp"
+            android:layout_height="35dp"
+            android:background="@drawable/top_bar_left_back"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="专家登录"
+            android:paddingRight="50dp"
+            android:textColor="#464646"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#3C53D5" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true">
+
+        <ImageView
+            android:layout_width="89dp"
+            android:layout_height="83dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/specialisticon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账号："
+                android:textColor="#464646"
+                android:textSize="15sp" />
+            <!--android:inputType="phone"-->
+            <EditText
+                android:id="@+id/et_specialist_loginname"
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:hint="请输入账号"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#eeee" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:gravity="center_vertical"
+                android:text="密码："
+                android:textColor="#464646"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_specialist_loginpass"
+                android:singleLine="true"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:textSize="15sp" />
+
+            <ImageButton
+                android:id="@+id/ib_login_visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/new_password_drawable_invisible" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_registerlogin"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_margin="10dp"
+            android:background="#4479D5"
+            android:padding="10dp"
+            android:text="登录"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="点击登录，表示同意《农业智能化服务平台APP协议》" />
+
+    </LinearLayout>
+    </LinearLayout>

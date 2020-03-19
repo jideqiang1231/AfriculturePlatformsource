@@ -3,25 +3,41 @@ package com.bigdata.agricultureplatform.home.fragment;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-
 import com.bigdata.agricultureplatform.R;
-import com.bigdata.agricultureplatform.home.activity.SearchActivity;
+import com.bigdata.agricultureplatform.app.MainActivity;
 import com.bigdata.agricultureplatform.base.BaseFragment;
+import com.bigdata.agricultureplatform.home.activity.PushActivity;
+import com.bigdata.agricultureplatform.home.activity.SearchActivity;
 import com.bigdata.agricultureplatform.home.adapter.HomeFragmentAdapter;
 import com.bigdata.agricultureplatform.home.bean.ResultBeanData;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 //主页的fragment
-public class HomeFragment extends BaseFragment {
-//    实例化布局啊一个子页面titlebar.xml一个是homefragmentxml
-
-    private ScrollView sv_home;
-    private TextView tv_search_home;
+public class HomeFragment extends BaseFragment implements View.OnClickListener {
+    @Bind(R.id.tv_search_home)
+    TextView tvSearchHome;
+    @Bind(R.id.sv_home)
+    ScrollView svHome;
+    @Bind(R.id.rl_zhongzi)
+    RelativeLayout rlZhongzi;
+    @Bind(R.id.rl_nongshi)
+    RelativeLayout rlNongshi;
+    @Bind(R.id.rl_nongji)
+    RelativeLayout rlNongji;
+    @Bind(R.id.rl_nongzi)
+    RelativeLayout rlNongzi;
+    @Bind(R.id.rl_zhengce)
+    RelativeLayout rlZhengce;
+    //    实例化布局啊一个子页面titlebar.xml一个是homefragmentxml
     //把这个东西生成为类的变量，能用，直接写在下边不好把
     private ResultBeanData.LoginresultBean loginresultBean;
     //删除了回到顶部ib_backtop与右上角问答tv_message_home
@@ -30,11 +46,9 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public View initView() {
+        View view = View.inflate(mContext, R.layout.fragment_home, null);
         Log.e(TAG, "主页的fragmentui被初始化了");
-        View view = View.inflate(mContext,R.layout.fragment_home,null);
-
-        sv_home=view.findViewById(R.id.sv_home);
-        tv_search_home=view.findViewById(R.id.tv_search_home);
+        ButterKnife.bind(this, view);
         initListner();
         return view;
     }
@@ -48,25 +62,32 @@ public class HomeFragment extends BaseFragment {
 //            }
 //        });
         //顶部搜索
-        tv_search_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e(TAG,"点击的搜索，跳入searchactivity");
-                Intent intent = new Intent(mContext,SearchActivity.class);
-                mContext.startActivity(intent);
-            }
-        });
+        rlZhongzi.setOnClickListener(this);
+        tvSearchHome.setOnClickListener(this);
     }
-//注意：联网需要加权限
+    @Override
+    public void onClick(View view) {
+        if (view==rlZhongzi){
+            Intent intent = new Intent(mContext, PushActivity.class);
+            mContext.startActivity(intent);
+        }else if (view==tvSearchHome){
+            Log.e(TAG, "点击的搜索，跳入searchactivity");
+            Intent intent = new Intent(mContext, SearchActivity.class);
+            mContext.startActivity(intent);
+        }
+    }
+    //注意：联网需要加权限
     /////////////////////////////////////////////////////////////////////////////////////////////////
     //（1）取消页面加载的recycleview的布局，换成咱的其它布局，从这里往下，所有的方法没有被调用，注释掉
     @Override
     public void initData() {
         super.initData();
         Log.e(TAG, "主页的fragment数据被初始化了");
-   //抽取方法，联网的
-   //    getDataFromNet();
+        //抽取方法，联网的
+        //    getDataFromNet();
     }
+
+
 //
 //    //被抽取的联网okhttputils方法，在initdata里面调用
 //    private void getDataFromNet() {

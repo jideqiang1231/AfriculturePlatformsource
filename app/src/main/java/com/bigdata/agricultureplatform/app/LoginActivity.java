@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.app.bean.LoginBean;
+import com.bigdata.agricultureplatform.app.bean.SpecialistloginActivity;
 import com.bigdata.agricultureplatform.home.activity.RegisterActivity;
 import com.bigdata.agricultureplatform.util.Constants;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -39,6 +40,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     TextView tvLoginRegister;
     @Bind(R.id.tv_login_forget_pwd)
     TextView tvLoginForgetPwd;
+    @Bind(R.id.tv_specialist_login)
+    TextView tvSpecialistLogin;
     private String user_name;
     private String user_pass;
     @Bind(R.id.et_login_name)
@@ -56,21 +59,20 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         tvLoginRegister.setOnClickListener(this);
-
-//        Log.e(TAG,userName+userPass);
+        tvSpecialistLogin.setOnClickListener(this);
     }
 
-
+//butterknife代码测试click方法，剩余的click在最底下
     @OnClick(R.id.btn_login)
     public void onViewClicked() {
         //先不跳转，请求数据验证成功之后跳转,值一定要对
         user_name = etLoginName.getText().toString().trim();
         user_pass = etLoginPwd.getText().toString().trim();
 
-        Log.e(TAG,user_name+user_pass);
-        if (TextUtils.isEmpty(user_name)|| TextUtils.isEmpty(user_pass)) {
+        Log.e(TAG, user_name + user_pass);
+        if (TextUtils.isEmpty(user_name) || TextUtils.isEmpty(user_pass)) {
             Toast.makeText(this, "用户名密码不能为空", Toast.LENGTH_LONG).show();
-        }else{
+        } else {
             //Toast.makeText(this, user_name+user_pass,Toast.LENGTH_LONG).show();
             //初始化数据，点击登录获取后台数据
             initLoginData();
@@ -106,7 +108,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 .addParams("userName", user_name)
                 .addParams("userPass", user_pass)
                 .build()
-                .execute(new StringCallback(){
+                .execute(new StringCallback() {
                     /*
                      * 当请求失败的时候回调，打
                      */
@@ -122,20 +124,19 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                     @Override
                     public void onResponse(String response, int id) {
                         //请求成功打印
-                       Log.e(TAG, "登录数据请求数据成功==" + response);
+                        Log.e(TAG, "登录数据请求数据成功==" + response);
                         //22222222222222222222222222请求完数据，需要解析
                         //抽出出来一个方法，传入response
                         loginprocessData(response);
                         if (loginBean.getMsg().equals("登录失败")) {
                             Toast.makeText(LoginActivity.this, "用户名密码错误", Toast.LENGTH_LONG).show();
-                        }else {
+                        } else {
                             Intent intent = new Intent();
                             intent.setClass(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                         }
-                        }
-
+                    }
 //                    这是github中的方法，已经过时了，提示的implementmethod生成了上边的这两个
 //                    @Overridepublic void onError(Request request, Exception e){ }@Overridepublic void onResponse(String response){ }
                 });
@@ -143,19 +144,21 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     }
 
     private void loginprocessData(String json) {
-        Log.e(TAG,"aslkdjf;aldkjf;lasjdfl;askdjfl;askdjfkl");
+        Log.e(TAG, "aslkdjf;aldkjf;lasjdfl;askdjfl;askdjfkl");
         loginBean = JSON.parseObject(json, LoginBean.class);
-
         //咱只要咱的admin这个人的信息，如果想要code或者想要msg，来这里拿就行，重新定义变量接受
         //获取后端返回的有用信息
         loginReslutBean = loginBean.getLoginresult();
-        Log.e(TAG,loginBean.getMsg());
+        Log.e(TAG, loginBean.getMsg());
     }
 
     @Override
     public void onClick(View view) {
-        if(view==tvLoginRegister){
-            Intent intent=new Intent(this, RegisterActivity.class);
+        if (view == tvLoginRegister) {
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
+        }else if (view ==tvSpecialistLogin){
+            Intent intent = new Intent(this, SpecialistloginActivity.class);
             startActivity(intent);
         }
     }
