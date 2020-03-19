@@ -11,15 +11,21 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
+            android:id="@+id/tv_sprcialist_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp"
-            android:text="专家类型:"/>
+            android:text="专家类型"/>
         <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="专家信息"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="专家"/>
+        <TextView
+            android:id="@+id/tv_sprcialist_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="专家信息"/>
     </LinearLayout>
 
 
@@ -29,7 +35,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
     <TextView
-        android:id="@+id/tv_search_home"
+        android:id="@+id/tv_specialist_search"
         android:layout_width="401dp"
         android:layout_height="35dp"
         android:layout_marginLeft="5dp"

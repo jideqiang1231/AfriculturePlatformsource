@@ -111,8 +111,12 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
                         if (specialistloginBean.getMsg().equals("登录失败")) {
                             Toast.makeText(getBaseContext(), "用户名密码错误", Toast.LENGTH_LONG).show();
                         } else {
+
                             Intent intent = new Intent();
                             intent.setClass(SpecialistloginActivity.this,SpecialistActivity.class);
+//                             向着专家界面传值specialistacitvity
+                            intent.putExtra("专家姓名",specialistloginresultBean.getSpecialistName());
+                            intent.putExtra("专家类型",specialistloginresultBean.getSpecialistType());
                             startActivity(intent);
                             finish();
                         }
@@ -121,7 +125,6 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
 //                    @Overridepublic void onError(Request request, Exception e){ }@Overridepublic void onResponse(String response){ }
                 });
     }
-
     private void loginprocessData(String json) {
         specialistloginBean = JSON.parseObject(json, SpecialistloginBean.class);
         specialistloginresultBean=specialistloginBean.getSpecialistloginresult();
