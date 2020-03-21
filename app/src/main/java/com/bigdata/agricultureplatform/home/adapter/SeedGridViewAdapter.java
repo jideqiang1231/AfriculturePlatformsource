@@ -1,16 +1,24 @@
 package com.bigdata.agricultureplatform.home.adapter;
 
 import android.content.Context;
+import android.nfc.Tag;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.home.activity.PushActivity;
 import com.bigdata.agricultureplatform.home.bean.SeedinfoBean;
+import com.bigdata.agricultureplatform.util.Constants;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.util.Util;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.List;
@@ -25,13 +33,15 @@ public class SeedGridViewAdapter extends BaseAdapter {
 //    private final Context seedContext;
     private final List<SeedinfoBean.SeedresultBean> datas;
     private LayoutInflater layoutInflater;
+    private Context seedcontext;
 
-    public SeedGridViewAdapter(Context seedcontext, List<SeedinfoBean.SeedresultBean> seedresultBeanList) {
+    public SeedGridViewAdapter(Context mcontext, List<SeedinfoBean.SeedresultBean> seedresultBeanList) {
         //2 得到上下文和数据，并且创建参数
 //        this.seedContext = seedcontext;
         //注释原来的context
-        layoutInflater = LayoutInflater.from(seedcontext);
+        layoutInflater = LayoutInflater.from(mcontext);
         this.datas = seedresultBeanList;
+        this.seedcontext=mcontext;
         //mLayoutInflater= LayoutInflater.from(seedContext);
     }
 
@@ -63,10 +73,10 @@ public class SeedGridViewAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.item_zhongzipush_gridview, null);
             //7.然后把viewholder new出来
             viewHolder = new ViewHolder();
-            viewHolder.iv_zhongzipush_image = (ImageView)convertView.findViewById(R.id.iv_zhongzipush_image);
-            viewHolder.tv_zhongzipush_name = (TextView) convertView.findViewById(R.id.tv_zhongzipush_name);
-            viewHolder.tv_zhongzipush_type = (TextView) convertView.findViewById(R.id.tv_zhongzipush_name);
-            viewHolder.tv_zhongzi_context = (TextView) convertView.findViewById(R.id.tv_zhongzi_context);
+            viewHolder.iv_zhongzipush_image = convertView.findViewById(R.id.iv_zhongzipush_image);
+            viewHolder.tv_zhongzipush_name =  convertView.findViewById(R.id.tv_zhongzipush_name);
+            viewHolder.tv_zhongzipush_type =  convertView.findViewById(R.id.tv_zhongzipush_type);
+            viewHolder.tv_zhongzi_context =  convertView.findViewById(R.id.tv_zhongzi_context);
 //            viewHolder.tvZhongzipushType = convertView.findViewById(R.id.tv_zhongzicontext);
             convertView.setTag(viewHolder);
         } else {
@@ -75,7 +85,17 @@ public class SeedGridViewAdapter extends BaseAdapter {
         //8根据位置得到对应的数据//这里的position是上边的position
         SeedinfoBean.SeedresultBean seedresultBean = datas.get(position);
         //使用Glide加载图片
-//        Glide.with(mcontext).load(Constants.ImageBASE_URL+seedresultBean.getSeedImage()).into(viewHolder.ivZhongzipushImage);
+//*****************************************************************************************
+    //  1.  这个pushActivity中传来的mcontext上下文，有两个用处，一个是传值给了layouginflate用于加载下面的布局
+    //  2.  为了能够用到上下文，刚才没有this.seedcontext=mcontext,所以报错，用处是给本文中的上下文使用pushactivity中的
+//*****************************************************************************************
+        // 必须得判是否为空，只要有空值，就不执行就不会崩溃了，玩意数据库请求为空
+        if(Util.isOnMainThread()&&!TextUtils.isEmpty(Constants.ImageBASE_URL + seedresultBean.getSeedImage()) && seedcontext != null && viewHolder.iv_zhongzipush_image != null && viewHolder.iv_zhongzipush_image.getContext() != null)
+        {   Glide.with(seedcontext).load(Constants.ImageBASE_URL + seedresultBean.getSeedImage())
+                .diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolder.iv_zhongzipush_image);
+            Toast.makeText(seedcontext,"zhongzitupianxinxi"+seedresultBean.getSeedImage(),Toast.LENGTH_SHORT).show();
+           // Glide.with(context).load(Constants.ImageBASE_URL + seedresultBean.getSeedImage()).into(viewHolder.iv_zhongzipush_image);
+        }
         viewHolder.tv_zhongzipush_name.setText(seedresultBean.getSeedName());
         viewHolder.tv_zhongzipush_type.setText(seedresultBean.getSeedType());
         viewHolder.tv_zhongzi_context.setText(seedresultBean.getSeedNote());
