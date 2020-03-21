@@ -30,9 +30,10 @@
             android:layout_marginTop="10dp" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/lv_zhongzipush"
+    <GridView
+        android:id="@+id/gv_zhongzipush"
         android:layout_width="match_parent"
+        android:numColumns="1"
         android:layout_height="match_parent" />
 
 </LinearLayout>
