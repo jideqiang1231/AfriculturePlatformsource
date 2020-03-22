@@ -56,8 +56,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
     //这中抽取的方法在其它的activity中可以调用。
     //*************************************************************
 //    private void startseedinfoActivity(SeedinfoBean seedinfoBean) {
-//        Intent intent=new Intent(this,SeedinfoActivity.class);
-//        startActivity(intent);
+
 //    }
     private void initZhongziData() {
         getZhongziDataFormat();
@@ -98,21 +97,39 @@ public class PushActivity extends Activity implements View.OnClickListener {
                         gvZhongzipush.setAdapter(adapter);
                         Log.e("TAG","2222222222"+seedresultBeanList.get(0).getSeedName());
 //监听事件设置在这里比较好
-//                        gvZhongzipush.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                            //这里所有默认的i都改成position   long l都改成id
-//                            @Override
-//                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                                //activity中的context不能写this，必须写本activity.this
-//                                Toast.makeText(PushActivity.this,"position"+position,Toast.LENGTH_SHORT).show();
-//                                //往seedinfoactivity中传入数据
-//                                //点那个咱就传入哪个，seedinfobean里边有一个msg，一个list<seedreslutbean>
-//                                //而我们的seedresultBeanList.get(position);早就获得了，
-//                                //根据位置，点一个获取一个的，一枪一个小朋友。
-//                                SeedinfoBean.SeedresultBean seedresultBean=seedresultBeanList.get(position);
-//                                //抽取启动种子详情这个activity这个方法
-//                               // startseedinfoActivity(seedresultBean);
-//                            }
-//                        });
+                        gvZhongzipush.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            //这里所有默认的i都改成position   long l都改成id
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                                //activity中的context不能写this，必须写本activity.this
+                                Toast.makeText(PushActivity.this,"position"+position,Toast.LENGTH_SHORT).show();
+                                //往seedinfoactivity中传入数据
+                                //点那个咱就传入哪个，seedinfobean里边有一个msg，一个list<seedreslutbean>
+                                //而我们的seedresultBeanList.get(position);早就获得了，
+                                //根据位置，点一个获取一个的，一枪一个小朋友。
+                                SeedinfoBean.SeedresultBean seedresultBean=seedresultBeanList.get(position);
+                                //抽取启动种子详情这个activity这个方法
+                                startseedinfoActivity(seedresultBean);
+                            }
+
+                            private void startseedinfoActivity(SeedinfoBean.SeedresultBean seedresultBean) {
+                                //不再用传值的方式，
+//                                        Intent intent=new Intent(PushActivity.this,SeedinfoActivity.class);
+//                                        startActivity(intent);
+                                //带有参数的intent
+                                Intent intent=new Intent();
+                                intent.setClass(PushActivity.this,SeedinfoActivity.class);
+                                intent.putExtra("图片信息",seedresultBean.getSeedImage());
+                                intent.putExtra("种子名称",seedresultBean.getSeedName());
+                                intent.putExtra("种子类型",seedresultBean.getSeedType());
+                                intent.putExtra("种子详情",seedresultBean.getSeedIntroduce());
+                                intent.putExtra("种植方式",seedresultBean.getSeedMethod());
+                                intent.putExtra("种子价格",seedresultBean.getSeedPrice());
+                                intent.putExtra("适种区域",seedresultBean.getSeedPlantarea());
+                                intent.putExtra("联系电话",seedresultBean.getSeedPhone());
+                                startActivity(intent);
+                            }
+                        });
                     }
 //                    这是github中的方法，已经过时了，提示的implementmethod生成了上边的这两个
 //                    @Overridepublic void onError(Request request, Exception e){ }@Overridepublic void onResponse(String response){ }
