@@ -90,10 +90,13 @@ public class SeedGridViewAdapter extends BaseAdapter {
     //  2.  为了能够用到上下文，刚才没有this.seedcontext=mcontext,所以报错，用处是给本文中的上下文使用pushactivity中的
 //*****************************************************************************************
         // 必须得判是否为空，只要有空值，就不执行就不会崩溃了，玩意数据库请求为空
+        // 下边这个imgfebase_url已经到了http:服务器/zhongziinfo（file:G:/nongye_image/zhongzi/）
         if(Util.isOnMainThread()&&!TextUtils.isEmpty(Constants.ImageBASE_URL + seedresultBean.getSeedImage()) && seedcontext != null && viewHolder.iv_zhongzipush_image != null && viewHolder.iv_zhongzipush_image.getContext() != null)
         {   Glide.with(seedcontext).load(Constants.ImageBASE_URL + seedresultBean.getSeedImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolder.iv_zhongzipush_image);
-            Toast.makeText(seedcontext,"zhongzitupianxinxi"+seedresultBean.getSeedImage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(seedcontext,                              //咱这里是为了toast咱请求的种子地址，shuidao/1.jpg 只是为了拼接它前边用/
+                    "http:服务器地址/config拦截地址zhongziinfo（拦截以后让其访问到file:G:/nongye_image/zhongzi/）/"
+                            +seedresultBean.getSeedImage(),Toast.LENGTH_SHORT).show();
            // Glide.with(context).load(Constants.ImageBASE_URL + seedresultBean.getSeedImage()).into(viewHolder.iv_zhongzipush_image);
         }
         viewHolder.tv_zhongzipush_name.setText(seedresultBean.getSeedName());

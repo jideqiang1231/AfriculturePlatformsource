@@ -16,7 +16,7 @@ public class Constants {
     //测试的直接路径
     //public static  String LOGIN_URL=BASE_URL+"/login1?userName=admin&userPass=123456";
     //后端图片的直接路径：(水稻)
-    public static  String ImageBASE_URL =BASE_URL+"/zhongziinfo/shuidao/";
+    public static  String ImageBASE_URL =BASE_URL+"/zhongziinfo/";
 //public static final String BASE = "http://10.0.2.2:8080";
 
 }
