@@ -2,11 +2,14 @@ package com.bigdata.agricultureplatform.home.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.bigdata.agricultureplatform.R;
@@ -25,7 +28,7 @@ import okhttp3.Call;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class PushActivity extends Activity implements View.OnClickListener {
-
+    
     @Bind(R.id.ib_zhongzipush_back)
     ImageButton ibZhongzipushBack;
     @Bind(R.id.gv_zhongzipush)
@@ -45,9 +48,17 @@ public class PushActivity extends Activity implements View.OnClickListener {
         ibZhongzipushBack.setOnClickListener(this);
         //1.首先定义在view上定义一个viewadpter，并且像其构造方法中传递上下文及数据
         initZhongziData();
-
+        //不敢在这里设置监听了，先试试
+       
     }
-
+    //启动种子详细信息界面
+    //*************************************************************
+    //这中抽取的方法在其它的activity中可以调用。
+    //*************************************************************
+//    private void startseedinfoActivity(SeedinfoBean seedinfoBean) {
+//        Intent intent=new Intent(this,SeedinfoActivity.class);
+//        startActivity(intent);
+//    }
     private void initZhongziData() {
         getZhongziDataFormat();
     }
@@ -69,7 +80,6 @@ public class PushActivity extends Activity implements View.OnClickListener {
                     public void onError(Call call, Exception e, int id) {
                         Log.e(TAG, "登录数据请求数据失败==" + e.getMessage());
                     }
-
                     /*当联网成功回调，这里的
                     @param response表示成功请求的数据，
                     @param id 区分http100和https101
@@ -87,12 +97,28 @@ public class PushActivity extends Activity implements View.OnClickListener {
                         Log.e("TAG","333333333"+seedresultBeanList.get(0).getSeedName());
                         gvZhongzipush.setAdapter(adapter);
                         Log.e("TAG","2222222222"+seedresultBeanList.get(0).getSeedName());
+//监听事件设置在这里比较好
+//                        gvZhongzipush.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                            //这里所有默认的i都改成position   long l都改成id
+//                            @Override
+//                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                                //activity中的context不能写this，必须写本activity.this
+//                                Toast.makeText(PushActivity.this,"position"+position,Toast.LENGTH_SHORT).show();
+//                                //往seedinfoactivity中传入数据
+//                                //点那个咱就传入哪个，seedinfobean里边有一个msg，一个list<seedreslutbean>
+//                                //而我们的seedresultBeanList.get(position);早就获得了，
+//                                //根据位置，点一个获取一个的，一枪一个小朋友。
+//                                SeedinfoBean.SeedresultBean seedresultBean=seedresultBeanList.get(position);
+//                                //抽取启动种子详情这个activity这个方法
+//                               // startseedinfoActivity(seedresultBean);
+//                            }
+//                        });
                     }
 //                    这是github中的方法，已经过时了，提示的implementmethod生成了上边的这两个
 //                    @Overridepublic void onError(Request request, Exception e){ }@Overridepublic void onResponse(String response){ }
                 });
-
     }
+
     private void seedprocessData(String jsonarray) {
         SeedinfoBean seedinfoBean=JSON.parseObject(jsonarray,SeedinfoBean.class);
         seedresultBeanList=seedinfoBean.getSeedresult();
@@ -100,8 +126,6 @@ public class PushActivity extends Activity implements View.OnClickListener {
         //知识用get位置来获取，当然不能直接打印所有
         //打印第一条种子数据的name
         Log.e(TAG,"数组显示用.get0"+seedresultBeanList.get(0).getSeedName());
-
-
 
 //哎全废了，白浪费两个小时，基础知识很重要，
 //        if (!TextUtils.isEmpty(jsonarray)) {
