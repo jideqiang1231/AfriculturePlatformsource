@@ -43,150 +43,155 @@
             android:layout_weight="1">
             <!--帧布局里边有三部分：线性，线性，更多-->
             <!--1-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+
                 <!--为了让两个scroview同时起作用，应用外部库实现,这里用一个足够了-->
                 <!--<com.atguigu.shoppingmall.home.view.ScrollViewContainer-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="match_parent">-->
 
-                <ScrollView
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="532dp"
+                android:scrollbars="none">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    >
-                    <!--android:scrollbars="none"-->
+                    android:background="#fff"
+                    android:orientation="vertical">
+                    <!--图片-->
+                    <ImageView
+                        android:id="@+id/iv_seedinfo_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="296dp"
+                        android:layout_gravity="center_horizontal" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#fff"
-                        android:orientation="vertical">
-                        <!--图片-->
-                        <ImageView
-                            android:id="@+id/iv_seedinfo_image"
-                            android:layout_width="match_parent"
-                            android:layout_height="308dp"
-                            android:layout_gravity="center_horizontal" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tv_seedinfo_name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="15dp"
-                                android:hint="种子名称："
-                                android:textColor="#323427" />
-
-                            <TextView
-                                android:id="@+id/tv_seedinfo_type"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint="种子型号"
-                                android:padding="10dp"
-                                android:textColor="#767f86" />
-
-                            <TextView
-                                android:id="@+id/tv_seedinfo_price"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="160dp"
-                                android:hint="￥10.00"
-                                android:padding="10dp"
-                                android:textColor="#4CAF50" />
-                        </LinearLayout>
-
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="#386EF7" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp">
-
-                            <TextView
-                                android:id="@+id/tv_seedinfo_introduce"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:hint="种子描述信息介绍"
-                                android:textColor="#3c3d40" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="2dp"
-                                android:background="#38F741" />
-
-                            <TextView
-                                android:id="@+id/tv_seedinfo_plantmethod"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:hint="种子种植方式介绍"
-                                android:textColor="#3c3d40" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="2dp"
-                                android:background="#38F741" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="#386EF7" />
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint="适种区域："
-                                android:padding="10dp"
-                                android:textColor="#3c3d40" />
-                            <TextView
-                                android:id="@+id/tv_seedinfo_plantarea"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint="种植区域"
-                                android:padding="10dp"
-                                android:textColor="#3c3d40" />
-                        </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/tv_seedinfo_phone"
-                            android:layout_width="match_parent"
+                            android:id="@+id/tv_seedinfo_name"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:hint="手机号："
+                            android:layout_marginLeft="15dp"
+                            android:hint="种子名称："
+                            android:textColor="#323427" />
+
+                        <TextView
+                            android:id="@+id/tv_seedinfo_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="种子型号"
                             android:padding="10dp"
-                            android:textColor="#3c3d40"
-                            android:textSize="15sp" />
+                            android:textColor="#767f86" />
+
+                        <TextView
+                            android:id="@+id/tv_seedinfo_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="160dp"
+                            android:hint="￥10.00"
+                            android:padding="10dp"
+                            android:textColor="#4CAF50" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#386EF7" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_seedinfo_introduce"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:hint="种子描述信息介绍"
+                            android:textColor="#3c3d40" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
                             android:background="#38F741" />
 
+                        <TextView
+                            android:id="@+id/tv_seedinfo_plantmethod"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:hint="种子种植方式介绍"
+                            android:textColor="#3c3d40" />
+
                     </LinearLayout>
-                </ScrollView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#386EF7" />
 
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="适种区域："
+                            android:padding="10dp"
+                            android:textColor="#3c3d40" />
+
+                        <TextView
+                            android:id="@+id/tv_seedinfo_plantarea"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="种植区域"
+                            android:padding="10dp"
+                            android:textColor="#3c3d40" />
+                    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint="手机号："
+                        android:padding="10dp"
+                        android:textColor="#3c3d40" />
+
+                    <TextView
+                        android:id="@+id/tv_seedinfo_phone"
+                        android:layout_width="256dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint="=====手机========"
+
+                        android:textColor="#3c3d40"
+                        android:textSize="15sp" />
+                </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#38F741" />
+                </LinearLayout>
+            </ScrollView>
                 <!--<ScrollView-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="match_parent">-->
-
                 <!--<WebView-->
                 <!--android:id="@+id/wb_good_info_more"-->
                 <!--android:layout_width="match_parent"-->
@@ -195,7 +200,7 @@
                 <!--</ScrollView>-->
 
                 <!--</com.atguigu.shoppingmall.home.view.ScrollViewContainer>-->
-            </LinearLayout>
+
             <!--2-->
             <!--下方四个图标布局-->
             <LinearLayout
@@ -214,7 +219,6 @@
                     android:padding="2dp"
                     android:text="联系专家"
                     android:textColor="#393b3e" />
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -236,7 +240,6 @@
                 <!--android:padding="2dp"-->
                 <!--android:text="购物车"-->
                 <!--android:textColor="#393b3e" />-->
-
                 <!--<Button-->
                 <!--android:layout_width="120dp"-->
                 <!--android:layout_height="51dp"-->
@@ -245,9 +248,7 @@
                 <!--android:gravity="center"-->
                 <!--android:text="加入购物车"-->
                 <!--android:textColor="#F78024" />-->
-
             <!--3-->
-
             <!--<include layout="@layout/more_layout" />-->
         </FrameLayout>
 
