@@ -3,6 +3,7 @@ package com.bigdata.agricultureplatform.specialist.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,7 +12,7 @@ import com.bigdata.agricultureplatform.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SpecialistActivity extends Activity {
+public class SpecialistActivity extends Activity implements View.OnClickListener {
 
 
     @Bind(R.id.tv_sprcialist_type)
@@ -20,8 +21,8 @@ public class SpecialistActivity extends Activity {
     TextView tvSprcialistName;
     @Bind(R.id.tv_specialist_search)
     TextView tvSpecialistSearch;
-    @Bind(R.id.tv_push)
-    Button tvPush;
+    @Bind(R.id.tv_specialist_seedpush)
+    Button tvSpecialistSeedpush;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +36,17 @@ public class SpecialistActivity extends Activity {
         String specialisttype = intent.getStringExtra("专家类型");
         tvSprcialistName.setText(specialistname);
         tvSprcialistType.setText(specialisttype);
+//监听事件，专家发布信息列表跳转
+        tvSpecialistSeedpush.setOnClickListener(this);
+
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view==tvSpecialistSeedpush){
+            Intent intent=new Intent(this,SpecialistseedpushActivity.class);
+            startActivity(intent);
+        }
     }
 }
