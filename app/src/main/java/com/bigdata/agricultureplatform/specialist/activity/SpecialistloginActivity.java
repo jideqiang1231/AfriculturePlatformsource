@@ -115,8 +115,11 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
                             Intent intent = new Intent();
                             intent.setClass(SpecialistloginActivity.this,SpecialistActivity.class);
 //                             向着专家界面传值specialistacitvity
+                            //注意putExtra和putExtras方法的区别.
                             intent.putExtra("专家姓名",specialistloginresultBean.getSpecialistName());
                             intent.putExtra("专家类型",specialistloginresultBean.getSpecialistType());
+                            //注意类型，传过去的是int类型id，接受一定注意
+                            intent.putExtra("专家id",specialistloginresultBean.getSpecialistId());
                             startActivity(intent);
                             finish();
                         }
