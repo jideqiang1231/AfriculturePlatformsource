@@ -5,17 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.bigdata.agricultureplatform.R;
-import com.bigdata.agricultureplatform.home.activity.PushActivity;
-import com.bigdata.agricultureplatform.home.activity.SeedinfoActivity;
-import com.bigdata.agricultureplatform.home.adapter.SeedGridViewAdapter;
-import com.bigdata.agricultureplatform.home.bean.SeedinfoBean;
 import com.bigdata.agricultureplatform.specialist.adapter.SpecialistPushListViewAdapter;
 import com.bigdata.agricultureplatform.specialist.bean.SpecialistseedlistBean;
 import com.bigdata.agricultureplatform.util.Constants;
@@ -36,6 +31,8 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
     ImageButton ibSpecialistseedpushBack;
     @Bind(R.id.lv_specialist_zhongzipush)
     ListView lvSpecialistZhongzipush;
+    @Bind(R.id.ib_pecialist_seed_addpush)
+    ImageButton ibPecialistSeedAddpush;
     //前边两个activity逐级传过来的id，用于数据库查询
     private Integer specialistId;
     //SpecialistseedlistBean和它list中的bean
@@ -51,7 +48,7 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
         //获取前边specialistactivity中传来的id,
         //注意：id是整型值，一定要妥善接受，有个deaultvalue设置为0，或者传送的时候用bundle或者intent绑定一下
         Intent intent = getIntent();
-        specialistId=intent.getIntExtra("专家的id",0);
+        specialistId = intent.getIntExtra("专家的id", 0);
         Log.e("TAG", String.valueOf(specialistId));
         //int类型连土司都要注意
         Toast.makeText(this, String.valueOf(specialistId), Toast.LENGTH_SHORT).show();
@@ -60,6 +57,7 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
         initSpecialistpushzhongziData(String.valueOf(specialistId));
         //返回的监听事件
         ibSpecialistseedpushBack.setOnClickListener(this);
+        ibPecialistSeedAddpush.setOnClickListener(this);
     }
 
     private void initSpecialistpushzhongziData(String specialistId) {
@@ -78,12 +76,13 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
                     public void onError(Call call, Exception e, int id) {
                         Log.e(TAG, "专家请求种子发布历史数据失败==" + e.getMessage());
                     }
+
                     @Override
                     public void onResponse(String response, int id) {
                         Log.e(TAG, "专家获取发布过得历史数据成功==" + response);
                         specialistpushzhongziprocessData(response);
 
-                       adapter = new SpecialistPushListViewAdapter(SpecialistseedpushActivity.this,specialistseedresultBeans);
+                        adapter = new SpecialistPushListViewAdapter(SpecialistseedpushActivity.this, specialistseedresultBeans);
                         lvSpecialistZhongzipush.setAdapter(adapter);
 //                        gvZhongzipush.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //                            //这里所有默认的i都改成position   long l都改成id
@@ -123,21 +122,27 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
 //                    @Overridepublic void onError(Request request, Exception e){ }@Overridepublic void onResponse(String response){ }
                 });
     }
-//解析专家发布得种子数据->SpecialistseedlistBean
+
+    //解析专家发布得种子数据->SpecialistseedlistBean
     //补充,这里截取有用的信息，
     private void specialistpushzhongziprocessData(String json) {
         //表面bean
-        specialistseedlistBean= JSON.parseObject(json, SpecialistseedlistBean.class);
+        specialistseedlistBean = JSON.parseObject(json, SpecialistseedlistBean.class);
         //表面bean里面的listbean
-        specialistseedresultBeans=specialistseedlistBean.getSpecialistseedresult();
+        specialistseedresultBeans = specialistseedlistBean.getSpecialistseedresult();
         //打印一下
-        Log.e(TAG,"数组显示用.get0"+specialistseedresultBeans.get(0).getSeedIntroduce());
+        Log.e(TAG, "数组显示用.get0" + specialistseedresultBeans.get(0).getSeedIntroduce());
 
     }
+
     @Override
     public void onClick(View view) {
         if (view == ibSpecialistseedpushBack) {
             finish();
+        }
+        if (view == ibPecialistSeedAddpush) {
+            Intent intent=new Intent(SpecialistseedpushActivity.this,SpecialistaddpushActivity.class);
+            startActivity(intent);
         }
     }
 }

@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bigdata.agricultureplatform.R;
-import com.bigdata.agricultureplatform.home.adapter.SeedGridViewAdapter;
 import com.bigdata.agricultureplatform.specialist.activity.SpecialistseedpushActivity;
 import com.bigdata.agricultureplatform.specialist.bean.SpecialistseedlistBean;
 import com.bigdata.agricultureplatform.util.Constants;
@@ -31,7 +30,6 @@ public class SpecialistPushListViewAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater;
     private final List<SpecialistseedlistBean.SpecialistseedresultBean> datas;
     private  SpecialistseedpushActivity seedlistcontext;
-
     //在SpecialistseedpushActivity中
     //可以把SpecialistseedpushActivity specialistseedpushActivity改成mcontext，因为这就是默认得前边传来的context
     public SpecialistPushListViewAdapter(SpecialistseedpushActivity specialistseedpushActivity, List<SpecialistseedlistBean.SpecialistseedresultBean> specialistseedresultBeans) {
@@ -39,7 +37,6 @@ public class SpecialistPushListViewAdapter extends BaseAdapter {
         this.datas = specialistseedresultBeans;
         this.seedlistcontext = specialistseedpushActivity;
     }
-
     //固定写法
     @Override
     public int getCount() {
@@ -91,14 +88,12 @@ public class SpecialistPushListViewAdapter extends BaseAdapter {
             //连续吐司被注释：i详情可调式
 //            Toast.makeText(seedcontext,                              //咱这里是为了toast咱请求的种子地址，shuidao/1.jpg 只是为了拼接它前边用/
 //                    "http:服务器地址/config拦截地址zhongziinfo（拦截以后让其访问到file:G:/nongye_image/zhongzi/）/"
-//                            +seedresultBean.getSeedImage(),Toast.LENGTH_SHORT).show();
+//                     +seedresultBean.getSeedImage(),Toast.LENGTH_SHORT).show();
             // Glide.with(context).load(Constants.ImageBASE_URL + seedresultBean.getSeedImage()).into(viewHolder.iv_zhongzipush_image);
         }
         viewHolder.tvSpecialistZhongzipushName.setText(specialistseedresultBean.getSeedName());
         viewHolder.tvSpecialistZhongzipushType.setText(specialistseedresultBean.getSeedType());
         viewHolder.tvSpecialistZhongzipushContext.setText(specialistseedresultBean.getSeedNote());
-
-
         return convertView;
     }
 //这里不可以用butterknife
