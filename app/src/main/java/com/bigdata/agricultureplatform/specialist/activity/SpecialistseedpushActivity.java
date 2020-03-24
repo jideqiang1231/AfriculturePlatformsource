@@ -10,14 +10,19 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.home.activity.PushActivity;
 import com.bigdata.agricultureplatform.home.activity.SeedinfoActivity;
 import com.bigdata.agricultureplatform.home.adapter.SeedGridViewAdapter;
 import com.bigdata.agricultureplatform.home.bean.SeedinfoBean;
+import com.bigdata.agricultureplatform.specialist.adapter.SpecialistPushListViewAdapter;
+import com.bigdata.agricultureplatform.specialist.bean.SpecialistseedlistBean;
 import com.bigdata.agricultureplatform.util.Constants;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,6 +38,10 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
     ListView lvSpecialistZhongzipush;
     //前边两个activity逐级传过来的id，用于数据库查询
     private Integer specialistId;
+    //SpecialistseedlistBean和它list中的bean
+    SpecialistseedlistBean specialistseedlistBean;
+    private List<SpecialistseedlistBean.SpecialistseedresultBean> specialistseedresultBeans;
+    private SpecialistPushListViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +58,6 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
 
         //开始根据“专家的id"获取种子列表数据
         initSpecialistpushzhongziData(String.valueOf(specialistId));
-
-
         //返回的监听事件
         ibSpecialistseedpushBack.setOnClickListener(this);
     }
@@ -74,12 +81,10 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
                     @Override
                     public void onResponse(String response, int id) {
                         Log.e(TAG, "专家获取发布过得历史数据成功==" + response);
+                        specialistpushzhongziprocessData(response);
 
-                        //seedprocessData(response);
-
-                        //adapter = new SeedGridViewAdapter(PushActivity.this,seedresultBeanList);
-                        //gvZhongzipush.setAdapter(adapter);
-                        //Log.e("TAG","2222222222"+seedresultBeanList.get(0).getSeedName());
+                       adapter = new SpecialistPushListViewAdapter(SpecialistseedpushActivity.this,specialistseedresultBeans);
+                        lvSpecialistZhongzipush.setAdapter(adapter);
 //                        gvZhongzipush.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //                            //这里所有默认的i都改成position   long l都改成id
 //                            @Override
@@ -118,8 +123,17 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
 //                    @Overridepublic void onError(Request request, Exception e){ }@Overridepublic void onResponse(String response){ }
                 });
     }
+//解析专家发布得种子数据->SpecialistseedlistBean
+    //补充,这里截取有用的信息，
+    private void specialistpushzhongziprocessData(String json) {
+        //表面bean
+        specialistseedlistBean= JSON.parseObject(json, SpecialistseedlistBean.class);
+        //表面bean里面的listbean
+        specialistseedresultBeans=specialistseedlistBean.getSpecialistseedresult();
+        //打印一下
+        Log.e(TAG,"数组显示用.get0"+specialistseedresultBeans.get(0).getSeedIntroduce());
 
-
+    }
     @Override
     public void onClick(View view) {
         if (view == ibSpecialistseedpushBack) {

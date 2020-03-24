@@ -48,8 +48,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
         ibZhongzipushBack.setOnClickListener(this);
         //1.首先定义在view上定义一个viewadpter，并且像其构造方法中传递上下文及数据
         initZhongziData();
-        //不敢在这里设置监听了，先试试
-       
+        //adpter和对应的数据传输都放到获取数据内部
     }
     //启动种子详细信息界面
     //*************************************************************
