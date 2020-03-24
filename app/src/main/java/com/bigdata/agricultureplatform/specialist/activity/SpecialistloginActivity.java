@@ -104,7 +104,7 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
                     @Override
                     public void onResponse(String response, int id) {
                         //请求成功打印
-                        Log.e(TAG, "登录数据请求数据成功==" + response);
+                        Log.e(TAG, "专家登录数据请求数据成功==" + response);
                         //22222222222222222222222222请求完数据，需要解析
                         //抽出出来一个方法，传入response
                         loginprocessData(response);

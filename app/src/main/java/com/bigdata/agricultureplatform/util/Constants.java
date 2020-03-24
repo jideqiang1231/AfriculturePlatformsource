@@ -13,6 +13,8 @@ public class Constants {
     public static  String SPECIALISTLOGIN_URL=BASE_URL+"/specialists/login";
     //种子接口
     public static  String ZHONGZIINFO_URL=BASE_URL+"/seeds/zhongziinfo";
+    //根据专家id获取种子信息得接口
+    public static  String SPECIALISTZHONGZIINFO_URL=BASE_URL+"/seeds/specialistzhongzilist";
     //测试的直接路径
     //public static  String LOGIN_URL=BASE_URL+"/login1?userName=admin&userPass=123456";
     //后端图片的直接路径：(水稻)
