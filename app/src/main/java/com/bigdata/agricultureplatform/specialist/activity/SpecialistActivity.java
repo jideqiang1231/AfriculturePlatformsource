@@ -57,9 +57,9 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
             //把从specialistloginacitvity中传到本specialistactivity中的参数
             //传到下一个specilistseedpushactivity中用于外键查找，查找此专家发布过的产品，用于删除和发布
             Log.e("TAG", String.valueOf(specialistid));//打印一下整形值
-
             Intent intent = new Intent();
             intent.putExtra("专家的id",specialistid);
+            intent.putExtra("专家的类型",specialisttype);
             intent.setClass(SpecialistActivity.this,SpecialistseedpushActivity.class);
             startActivity(intent);
         }

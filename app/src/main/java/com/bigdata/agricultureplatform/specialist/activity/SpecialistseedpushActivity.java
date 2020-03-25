@@ -35,6 +35,7 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
     ImageButton ibPecialistSeedAddpush;
     //前边两个activity逐级传过来的id，用于数据库查询
     private Integer specialistId;
+    private String specialistType;
     //SpecialistseedlistBean和它list中的bean
     SpecialistseedlistBean specialistseedlistBean;
     private List<SpecialistseedlistBean.SpecialistseedresultBean> specialistseedresultBeans;
@@ -49,7 +50,9 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
         //注意：id是整型值，一定要妥善接受，有个deaultvalue设置为0，或者传送的时候用bundle或者intent绑定一下
         Intent intent = getIntent();
         specialistId = intent.getIntExtra("专家的id", 0);
+        specialistType=intent.getStringExtra("专家的类型");
         Log.e("TAG", String.valueOf(specialistId));
+        Log.e("TAG", specialistType);
         //int类型连土司都要注意
         Toast.makeText(this, String.valueOf(specialistId), Toast.LENGTH_SHORT).show();
 
@@ -141,7 +144,11 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
             finish();
         }
         if (view == ibPecialistSeedAddpush) {
-            Intent intent=new Intent(SpecialistseedpushActivity.this,SpecialistaddpushActivity.class);
+            Log.e("TAG", String.valueOf(specialistId));//打印一下整形值
+            Intent intent = new Intent();
+            intent.putExtra("专家的id",specialistId);
+            intent.putExtra("专家的类型",specialistType);
+            intent.setClass(SpecialistseedpushActivity.this,SpecialistaddpushActivity.class);
             startActivity(intent);
         }
     }
