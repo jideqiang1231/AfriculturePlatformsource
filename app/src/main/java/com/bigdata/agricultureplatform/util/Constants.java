@@ -21,4 +21,7 @@ public class Constants {
     public static  String ImageBASE_URL =BASE_URL+"/zhongziinfo/";
 //public static final String BASE = "http://10.0.2.2:8080";
 
+
+    //种子图片地址
+    public static  String SEEDIMAGE =BASE_URL+"/seeds/zhongziimagesave";
 }

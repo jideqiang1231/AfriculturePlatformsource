@@ -22,15 +22,20 @@ import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.specialist.util.FileUtils;
 import com.bigdata.agricultureplatform.specialist.util.ImageDeal;
 import com.bigdata.agricultureplatform.specialist.util.RealPathFromUriUtils;
+import com.bigdata.agricultureplatform.util.Constants;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
@@ -77,10 +82,12 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
     //    //相册100，相机101
 //    private static final int REQUEST_CODE_ALBUM = 100;
 //    private static final int REQUEST_CODE_CAMERA = 101;
-
+    private File outputImage;
     private Integer specialistId;
     private String specialistType;
-    private Bitmap headImage = null;
+    String back;
+    private Bitmap bitmap;
+    private Bitmap headImage ;
     public static final int TAKE_PHOTO = 1;
     public static final int CROP_PHOTO = 2;
     public static final int SELECT_PIC = 0;
@@ -88,7 +95,7 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
     private String filename; //图片名称
     private CharSequence[] its = {"拍照", "从相册选择"};
     //返回值
-    String back;
+
     //提取本地值
     private String nickname;
     private String name;
@@ -137,7 +144,7 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
             //这里第一行代码用的是这个path//后期缓过来试试
             //File path=getExternalCacheDir();
             File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-            File outputImage = new File(path, filename + ".jpg");
+            outputImage = new File(path, filename + ".jpg");
             filename = filename + ".jpg";
             try {
                 if (outputImage.exists()) {
@@ -179,9 +186,38 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
             startActivityForResult(intent, SELECT_PIC);
 
         } else if (view == bSpecialistPushinfoSubmitpush) { //点击提交功能插入图片
+            Map<String, String> params=null;
+            //这里的ouloadimage是后端要get的表示，filename是咱这个名称，也要用到outputimage是这个image文件地址
+            OkHttpUtils.post()//*************************由于此处是根据专家的类型起的后端文件名字，所以，涉及到专家注册的时候，类型不能错，包括多一个少一个空格。
+                    .addFile("uploadimage", specialistType+"/"+filename,outputImage)//
+                    .url(Constants.SEEDIMAGE)
+                    .params(params)//
+                    .build()//
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onError(Call call, Exception e, int id) {
+                            Log.e(TAG, "种子图片插入失败==" + e.getMessage());
+                        }
+
+                        @Override
+                        public void onResponse(String response, int id) {
+                            Log.e(TAG, "种子图片插入成功==" + response);
+                        }
+                    });
+            Toast.makeText(this, "图片插入完成", Toast.LENGTH_SHORT).show();
+
+            //接着是另一个请求，请求插入种子信息
+
+
+
+
+
+
+
 
         }
-    }
+        }
+
 
     //这个是第一行代码中德，注释了
 //    private void openAlbum() {
@@ -197,18 +233,18 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
             case SELECT_PIC://相册
                 //这里也省略了不少
                 String path = RealPathFromUriUtils.getRealPathFromUri(this, data.getData());
-                File file = new File(path);
-                filename = file.getName();
+                outputImage = new File(path);
+                filename = outputImage.getName();
                 //    imageUri = Uri.fromFile(file);
                 if (Build.VERSION.SDK_INT >= 24) {
                     try {
-                        imageUri = FileUtils.getUriForFile(SpecialistaddpushActivity.this, file);
+                        imageUri = FileUtils.getUriForFile(SpecialistaddpushActivity.this, outputImage);
                     } catch (NullPointerException e) {
                         e.printStackTrace();
                     }
 
                 } else {
-                    imageUri = Uri.fromFile(file);
+                    imageUri = Uri.fromFile(outputImage);
                 }
                 Intent intent1 = new Intent("com.android.camera.action.CROP");
                 intent1.setDataAndType(imageUri, "image/*");
@@ -267,9 +303,6 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
                     Log.e(TAG, String.valueOf(headImage.getByteCount()/1024));
                     Log.e(TAG, String.valueOf(imageUri));
                     Log.e(TAG, filename);
-
-
-
 
                     // updatePicture();   //上传头像
                     //    touxiang.setImageBitmap(headImage); //将剪裁后照片显示出来\
