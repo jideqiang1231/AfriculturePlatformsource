@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -83,11 +84,11 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
 //    private static final int REQUEST_CODE_ALBUM = 100;
 //    private static final int REQUEST_CODE_CAMERA = 101;
     private File outputImage;
-    private Integer specialistId;
+
     private String specialistType;
     String back;
     private Bitmap bitmap;
-    private Bitmap headImage ;
+    private Bitmap headImage;
     public static final int TAKE_PHOTO = 1;
     public static final int CROP_PHOTO = 2;
     public static final int SELECT_PIC = 0;
@@ -97,16 +98,21 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
     //返回值
 
     //提取本地值
-    private String nickname;
-    private String name;
-    private String image;
-    private String address;
-    private float Balance;
-    private String Tel;
-    private int Vip;
-    private int sex;
-    private int Uid;
-    private String pwd;
+    private String seedName;
+    private String seedIntroduce;
+    private String seedPlantarea;
+    private String seedMethod;
+    private String seedPrice;
+    private String seedManufacturer;
+    private String seedNote;
+    private String seedStore;
+    private String seedPhone;
+    private String seedProductiondate;
+    private String seedShelflife;
+    private String seedPlantnumber;
+    private String seedType;
+    private String seedImage;
+    private Integer specialistId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,40 +192,107 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
             startActivityForResult(intent, SELECT_PIC);
 
         } else if (view == bSpecialistPushinfoSubmitpush) { //点击提交功能插入图片
-            Map<String, String> params=null;
-            //这里的ouloadimage是后端要get的表示，filename是咱这个名称，也要用到outputimage是这个image文件地址
-            OkHttpUtils.post()//*************************由于此处是根据专家的类型起的后端文件名字，所以，涉及到专家注册的时候，类型不能错，包括多一个少一个空格。
-                    .addFile("uploadimage", specialistType+"/"+filename,outputImage)//
-                    .url(Constants.SEEDIMAGE)
-                    .params(params)//
-                    .build()//
+
+            if (ivSpecialistPushinfoImage.getDrawable().equals(null)){
+                Toast.makeText(SpecialistaddpushActivity.this,"内容不能为空偶",Toast.LENGTH_SHORT);
+            }else {
+
+                Map<String, String> params = null;
+                //这里的ouloadimage是后端要get的表示，filename是咱这个名称，也要用到outputimage是这个image文件地址
+                OkHttpUtils.post()//*************************由于此处是根据专家的类型起的后端文件名字，所以，涉及到专家注册的时候，类型不能错，包括多一个少一个空格。
+                        .addFile("uploadimage", specialistType + "/" + filename, outputImage)//
+                        .url(Constants.SEEDIMAGE)
+                        .params(params)//
+                        .build()//
+                        .execute(new StringCallback() {
+                            @Override
+                            public void onError(Call call, Exception e, int id) {
+                                Log.e(TAG, "种子图片插入失败==" + e.getMessage());
+                            }
+
+                            @Override
+                            public void onResponse(String response, int id) {
+                                Log.e(TAG, "种子图片插入成功==" + response);
+                            }
+                        });
+                Toast.makeText(this, "图片插入完成", Toast.LENGTH_SHORT).show();
+            }
+//*****************************************************************************************************
+//            //接着是另一个请求，请求插入种子信息//突然想起，专家那块的空格可以用trim去除
+            seedType = tvSpecialistPushinfoType.getText().toString().trim();
+            seedName = etSpecialistPushinfoName.getText().toString().trim();
+            seedIntroduce = etSpecialistPushinfoIntroduce.getText().toString().trim();
+            seedMethod = etSpecialistPushinfoPlantmethod.getText().toString().trim();
+            seedPlantarea = etSpecialistPushinfoPlantarea.getText().toString().trim();
+            seedNote = etSpecialistPushinfoNote.getText().toString().trim();
+            seedPrice = etSpecialistPushinfoPrice.getText().toString().trim();
+            seedManufacturer = etSpecialistPushinfoManufacture.getText().toString().trim();
+            seedStore = etSpecialistPushinfoStore.getText().toString().trim();
+            seedPhone = etSpecialistPushinfoPhone.getText().toString().trim();
+            seedProductiondate = etSpecialistPushinfoProductdata.getText().toString().trim();
+            seedShelflife = etSpecialistPushinfoShelflife.getText().toString().trim();
+            seedPlantnumber = etSpecialistPushinfoPlantnumber.getText().toString().trim();
+
+            seedImage = specialistType+"/"+filename;
+            //specialistId;
+            if (TextUtils.isEmpty(seedName)
+                    || TextUtils.isEmpty(seedIntroduce)
+                    || TextUtils.isEmpty(seedPlantarea)
+                    || TextUtils.isEmpty(seedMethod)
+                    || TextUtils.isEmpty(seedPrice)
+                    || TextUtils.isEmpty(seedManufacturer)
+                    || TextUtils.isEmpty(seedNote)
+                    || TextUtils.isEmpty(seedStore)
+                    || TextUtils.isEmpty(seedPhone)
+                    || TextUtils.isEmpty(seedProductiondate)
+                    || TextUtils.isEmpty(seedShelflife)
+                    || TextUtils.isEmpty(seedPlantnumber)
+                    || TextUtils.isEmpty(seedType)
+                    || TextUtils.isEmpty(seedImage)) {
+                Toast.makeText(this, "请检查哪里没有填写", Toast.LENGTH_LONG).show();
+            }
+            String url = Constants.SEEDINFO;
+            OkHttpUtils
+                    .post()
+                    .url(url)
+                    //先干掉
+                    .addParams("specialistId", String.valueOf(specialistId))
+                    .addParams("seedName", seedName)
+                    .addParams("seedIntroduce", seedIntroduce)
+                    .addParams("seedPlantarea", seedPlantarea)
+                    .addParams("seedMethod", seedMethod)
+                    .addParams("seedPrice", seedPrice)
+                    .addParams("seedManufacturer", seedManufacturer)
+                    .addParams("seedNote", seedNote)
+                    .addParams("seedStore", seedStore)
+                    .addParams("seedPhone", seedPhone)
+                    .addParams("seedProductiondate", seedProductiondate)
+                    .addParams("seedShelflife", seedShelflife)
+                    .addParams("seedPlantnumber", seedPlantnumber)
+                    .addParams("seedType", seedType)
+                    .addParams("seedImage", seedImage)
+                    .build()
                     .execute(new StringCallback() {
                         @Override
                         public void onError(Call call, Exception e, int id) {
-                            Log.e(TAG, "种子图片插入失败==" + e.getMessage());
+                            Log.e(TAG, "登录数据请求数据失败==" + e.getMessage());
+                            Toast.makeText(SpecialistaddpushActivity.this, "完蛋了，崩了", Toast.LENGTH_LONG).show();
                         }
 
                         @Override
                         public void onResponse(String response, int id) {
-                            Log.e(TAG, "种子图片插入成功==" + response);
+                            Log.e(TAG, "注册成功后的response==" + response);
+                            Toast.makeText(SpecialistaddpushActivity.this, "成功发布", Toast.LENGTH_LONG).show();
+
                         }
                     });
-            Toast.makeText(this, "图片插入完成", Toast.LENGTH_SHORT).show();
-
-            //接着是另一个请求，请求插入种子信息
-
-
-
-
-
-
 
 
         }
-        }
 
+    }
 
-    //这个是第一行代码中德，注释了
+    //这个是第一行代码中，注释
 //    private void openAlbum() {
 //        Intent	intent	=	new	Intent("android.intent.action.GET_CONTENT");
 //        intent.setType("image/*");
@@ -300,7 +373,7 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
 //                            "KB宽度为" + headImage.getHeight() + "高度为：" + headImage.getWidth());
 //                    System.out.println(imageUri);
 //                    System.out.println(filename);
-                    Log.e(TAG, String.valueOf(headImage.getByteCount()/1024));
+                    Log.e(TAG, String.valueOf(headImage.getByteCount() / 1024));
                     Log.e(TAG, String.valueOf(imageUri));
                     Log.e(TAG, filename);
 

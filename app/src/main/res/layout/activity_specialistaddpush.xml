@@ -342,7 +342,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:background="@null"
-                    android:hint=" 日期"
+                    android:hint="格式：****-**-**"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -371,7 +371,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:background="@null"
-                    android:hint="日期"
+                    android:hint="格式：****-**-**"
                     android:textSize="15sp" />
 
             </LinearLayout>
