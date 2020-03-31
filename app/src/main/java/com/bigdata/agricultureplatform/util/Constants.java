@@ -26,5 +26,7 @@ public class Constants {
     public static  String SEEDIMAGE =BASE_URL+"/seeds/zhongziimagesave";
     //种子信息地址
     public static  String SEEDINFO =BASE_URL+"/seeds/seedinfoinsert";
+    //种子根据外键获取（专家基本信息）
+    public static  String SPECIALISTINFOFORSEEDINFO =BASE_URL+"/specialists/specialistinfo";
 
 }

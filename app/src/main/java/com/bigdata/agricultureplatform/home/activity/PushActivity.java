@@ -126,6 +126,8 @@ public class PushActivity extends Activity implements View.OnClickListener {
                                 intent.putExtra("种子价格",seedresultBean.getSeedPrice());
                                 intent.putExtra("适种区域",seedresultBean.getSeedPlantarea());
                                 intent.putExtra("联系电话",seedresultBean.getSeedPhone());
+                                intent.putExtra("专家id",seedresultBean.getSpecialistId());
+
                                 startActivity(intent);
                             }
                         });
