@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.specialist.util.FileUtils;
-import com.bigdata.agricultureplatform.specialist.util.ImageDeal;
 import com.bigdata.agricultureplatform.specialist.util.RealPathFromUriUtils;
 import com.bigdata.agricultureplatform.util.Constants;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -72,14 +71,16 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
     EditText etSpecialistPushinfoPlantnumber;
     @Bind(R.id.iv_specialist_pushinfo_image)
     ImageView ivSpecialistPushinfoImage;
-    @Bind(R.id.et_specialist_pushinfo_image)
-    EditText etSpecialistPushinfoImage;
+    //这个为了可视化文件名
+
     @Bind(R.id.ib_specialist_pushinfo_camera)
     ImageButton ibSpecialistPushinfoCamera;
     @Bind(R.id.ib_specialist_pushinfo_photo)
     ImageButton ibSpecialistPushinfoPhoto;
     @Bind(R.id.b_specialist_pushinfo_submitpush)
     Button bSpecialistPushinfoSubmitpush;
+    @Bind(R.id.tv_specialist_pushinfo_imagename)
+    TextView tvSpecialistPushinfoImagename;
     //    //相册100，相机101
 //    private static final int REQUEST_CODE_ALBUM = 100;
 //    private static final int REQUEST_CODE_CAMERA = 101;
@@ -192,10 +193,9 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
             startActivityForResult(intent, SELECT_PIC);
 
         } else if (view == bSpecialistPushinfoSubmitpush) { //点击提交功能插入图片
-
-            if (ivSpecialistPushinfoImage.getDrawable().equals(null)){
-                Toast.makeText(SpecialistaddpushActivity.this,"内容不能为空偶",Toast.LENGTH_SHORT);
-            }else {
+            if (ivSpecialistPushinfoImage.getDrawable() == null || TextUtils.isEmpty(filename) || !outputImage.exists() || outputImage.length() == 0) {
+                Toast.makeText(SpecialistaddpushActivity.this, "内容不能为空偶", Toast.LENGTH_SHORT);
+            } else {
 
                 Map<String, String> params = null;
                 //这里的ouloadimage是后端要get的表示，filename是咱这个名称，也要用到outputimage是这个image文件地址
@@ -233,7 +233,7 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
             seedShelflife = etSpecialistPushinfoShelflife.getText().toString().trim();
             seedPlantnumber = etSpecialistPushinfoPlantnumber.getText().toString().trim();
 
-            seedImage = specialistType+"/"+filename;
+            seedImage = specialistType + "/" + filename;
             //specialistId;
             if (TextUtils.isEmpty(seedName)
                     || TextUtils.isEmpty(seedIntroduce)
@@ -248,48 +248,52 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
                     || TextUtils.isEmpty(seedShelflife)
                     || TextUtils.isEmpty(seedPlantnumber)
                     || TextUtils.isEmpty(seedType)
-                    || TextUtils.isEmpty(seedImage)) {
+                    || TextUtils.isEmpty(seedImage)
+                    //新增逻辑
+                    || ivSpecialistPushinfoImage.getDrawable() == null
+                    || TextUtils.isEmpty(filename)
+                    || !outputImage.exists() || outputImage.length() == 0) {
                 Toast.makeText(this, "请检查哪里没有填写", Toast.LENGTH_LONG).show();
+            } else {
+                String url = Constants.SEEDINFO;
+                OkHttpUtils
+                        .post()
+                        .url(url)
+                        //先干掉
+                        .addParams("specialistId", String.valueOf(specialistId))
+                        .addParams("seedName", seedName)
+                        .addParams("seedIntroduce", seedIntroduce)
+                        .addParams("seedPlantarea", seedPlantarea)
+                        .addParams("seedMethod", seedMethod)
+                        .addParams("seedPrice", seedPrice)
+                        .addParams("seedManufacturer", seedManufacturer)
+                        .addParams("seedNote", seedNote)
+                        .addParams("seedStore", seedStore)
+                        .addParams("seedPhone", seedPhone)
+                        .addParams("seedProductiondate", seedProductiondate)
+                        .addParams("seedShelflife", seedShelflife)
+                        .addParams("seedPlantnumber", seedPlantnumber)
+                        .addParams("seedType", seedType)
+                        .addParams("seedImage", seedImage)
+                        .build()
+                        .execute(new StringCallback() {
+                            @Override
+                            public void onError(Call call, Exception e, int id) {
+                                Log.e(TAG, "登录数据请求数据失败==" + e.getMessage());
+                                Toast.makeText(SpecialistaddpushActivity.this, "完蛋了，崩了", Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onResponse(String response, int id) {
+                                Log.e(TAG, "注册成功后的response==" + response);
+                                Toast.makeText(SpecialistaddpushActivity.this, "成功发布种子的信息", Toast.LENGTH_LONG).show();
+
+                            }
+                        });
+
+
             }
-            String url = Constants.SEEDINFO;
-            OkHttpUtils
-                    .post()
-                    .url(url)
-                    //先干掉
-                    .addParams("specialistId", String.valueOf(specialistId))
-                    .addParams("seedName", seedName)
-                    .addParams("seedIntroduce", seedIntroduce)
-                    .addParams("seedPlantarea", seedPlantarea)
-                    .addParams("seedMethod", seedMethod)
-                    .addParams("seedPrice", seedPrice)
-                    .addParams("seedManufacturer", seedManufacturer)
-                    .addParams("seedNote", seedNote)
-                    .addParams("seedStore", seedStore)
-                    .addParams("seedPhone", seedPhone)
-                    .addParams("seedProductiondate", seedProductiondate)
-                    .addParams("seedShelflife", seedShelflife)
-                    .addParams("seedPlantnumber", seedPlantnumber)
-                    .addParams("seedType", seedType)
-                    .addParams("seedImage", seedImage)
-                    .build()
-                    .execute(new StringCallback() {
-                        @Override
-                        public void onError(Call call, Exception e, int id) {
-                            Log.e(TAG, "登录数据请求数据失败==" + e.getMessage());
-                            Toast.makeText(SpecialistaddpushActivity.this, "完蛋了，崩了", Toast.LENGTH_LONG).show();
-                        }
-
-                        @Override
-                        public void onResponse(String response, int id) {
-                            Log.e(TAG, "注册成功后的response==" + response);
-                            Toast.makeText(SpecialistaddpushActivity.this, "成功发布", Toast.LENGTH_LONG).show();
-
-                        }
-                    });
-
-
         }
-
     }
 
     //这个是第一行代码中，注释
@@ -380,7 +384,10 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
                     // updatePicture();   //上传头像
                     //    touxiang.setImageBitmap(headImage); //将剪裁后照片显示出来\
                     //并且将这个图片通过ImageDeal中的toroundBitmap方法弄成原型
-                    ivSpecialistPushinfoImage.setImageBitmap(bitmap); //将剪裁后照片显示出来
+                    ivSpecialistPushinfoImage.setImageBitmap(bitmap);
+                    tvSpecialistPushinfoImagename.setText(filename);
+                    //将剪裁后照片显示出来
+
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -391,97 +398,4 @@ public class SpecialistaddpushActivity extends Activity implements View.OnClickL
 
     }
 
-
 }
-
-//            public static void upLoadToServer(final Context context, HashMap<String,String >params,final String url, String filePath, final ArrayList<String> list,final HttpCallBackListener listener) {
-//                if (NetUtils.isConnected(context)) {
-//                    Map<String, String> headers = new HashMap<>();
-//                    headers.put("Content-Disposition", "form-data;filename=enctype");
-//                    File file = new File(filePath);
-//                    if (!file.exists()) {
-//                        MyToast.showMessage("文件不存在，请修改文件路径");
-//                        return;
-//                    }
-//                    String filename = file.getName();
-//                    OkHttpUtils.post().params(params)
-//                            .headers(headers)
-//                            .addFile("mFile", filename, file)
-//                            .build()
-//                            .execute(new StringCallback() {
-//                                @Override
-//                                public void onError(Call call, Exception e, int id) {
-//
-//                                }
-//
-//                                @Override
-//                                public void onResponse(String response, int id) {
-//                                }
-//                            });
-//                }
-//            }
-////照相机
-//    private void openCamera1() {
-//        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        startActivityForResult(intent, REQUEST_CODE_CAMERA);
-//    }
-////相册
-//    private void openAlbum() {
-//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-//        intent.setType("image/*");
-//        startActivityForResult(intent, REQUEST_CODE_ALBUM);
-//    }
-//    //回调方法，使用相机相册获得文件
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode == REQUEST_CODE_ALBUM && resultCode == RESULT_OK){
-//            if (data != null) {
-//                // 照片的原始资源地址
-//                Uri uri = data.getData();
-//                String path = uri.getPath();
-//                //原本context报错，加入了private
-//                ContentResolver cr = SpecialistaddpushActivity.this.getContentResolver();
-//                try {
-//                    Bitmap bitmap = BitmapFactory.decodeStream(cr.openInputStream(uri));
-//                    /* 将Bitmap设定到ImageView */
-//                    ibSpecialistPushinfoImage.setImageBitmap(bitmap);
-//                    etSpecialistPushinfoImage.setText(path);
-//                } catch (FileNotFoundException e) {
-//                    Log.e("Exception", e.getMessage(), e);
-//                }
-//            }
-//        }else if(requestCode == REQUEST_CODE_CAMERA && resultCode == RESULT_OK){
-//            if(data != null && data.getData() != null){
-//                    Bundle extras = data.getExtras();
-//                    Log.e(TAG, String.valueOf(extras));
-//
-//                        Bitmap bitmap = extras.getParcelable("data");
-//                        /* 将Bitmap设定到ImageView */
-//                        ibSpecialistPushinfoImage.setImageBitmap(bitmap);
-//                        //可将图片保存下来，用于上传或其他操作（如果不需要可以省略此步）
-//                        //这里得image也是自己定义的
-//                 String path = savePicToSdcard(image,Environment.getExternalStorageDirectory().getPath(),System.currentTimeMillis() + ".jpg");
-//
-//            }
-//        }
-//    }
-//    public static String savePicToSdcard(Bitmap bitmap, String path, String fileName) {
-//        String filePath = "";
-//        if (bitmap != null) {
-//            filePath = path + File.separator + fileName;
-//            File destFile = new File(filePath);
-//            OutputStream os = null;
-//            try {
-//                os = new FileOutputStream(destFile);
-//                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
-//                os.flush();
-//                os.close();
-//            } catch (IOException e) {
-//                filePath = "";
-//            }
-//        }
-//        return filePath;
-//    }
-//
-//}

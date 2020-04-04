@@ -73,8 +73,8 @@
                     <!--图片-->
                     <ImageView
                         android:id="@+id/iv_seedinfo_image"
-                        android:layout_width="213dp"
-                        android:layout_height="164dp"
+                        android:layout_width="183dp"
+                        android:layout_height="157dp"
                         android:layout_gravity="center_horizontal" />
 
                     <LinearLayout
@@ -134,14 +134,25 @@
                             android:layout_height="2dp"
                             android:background="#38F741" />
 
-                        <TextView
-                            android:id="@+id/tv_seedinfo_plantmethod"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:hint="种子种植方式介绍"
-                            android:textColor="#3c3d40" />
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="种植方式："/>
+
+                            <TextView
+                                android:id="@+id/tv_seedinfo_plantmethod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:hint="种子种植方式介绍"
+                                android:textColor="#3c3d40" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -171,11 +182,12 @@
                             android:padding="10dp"
                             android:textColor="#3c3d40" />
                     </LinearLayout>
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -183,17 +195,17 @@
                         android:text="手机号："
                         android:padding="10dp"
                         android:textColor="#3c3d40" />
-
                     <TextView
                         android:id="@+id/tv_seedinfo_phone"
                         android:layout_width="256dp"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:hint="=====手机========"
-
                         android:textColor="#3c3d40"
                         android:textSize="15sp" />
                 </LinearLayout>
+
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
@@ -219,7 +231,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:hint="专家姓名"/>
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -230,7 +241,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="18888888888"/>
-
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -269,8 +279,6 @@
 
 
 
-
-
                 </LinearLayout>
             </ScrollView>
                 <!--<ScrollView-->
@@ -280,9 +288,7 @@
                 <!--android:id="@+id/wb_good_info_more"-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="match_parent"></WebView>-->
-
                 <!--</ScrollView>-->
-
                 <!--</com.atguigu.shoppingmall.home.view.ScrollViewContainer>-->
 
             <!--2-->
@@ -292,6 +298,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:background="#fff">
+
+
+
 
                 <TextView
                     android:layout_width="0dp"

@@ -226,6 +226,7 @@
                     android:layout_marginLeft="10dp"
                     android:background="@null"
                     android:hint=" 0.0￥/公斤"
+                    android:inputType="numberDecimal"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -314,6 +315,7 @@
                     android:layout_marginLeft="10dp"
                     android:background="@null"
                     android:hint="生产厂家得联系方式"
+                    android:inputType="phone"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -343,6 +345,7 @@
                     android:layout_marginLeft="10dp"
                     android:background="@null"
                     android:hint="格式：****-**-**"
+                    android:inputType="date"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -372,6 +375,7 @@
                     android:layout_marginLeft="10dp"
                     android:background="@null"
                     android:hint="格式：****-**-**"
+                    android:inputType="date"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -388,7 +392,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="播种数量"
+                    android:text="播种数量："
                     android:textColor="#464646"
                     android:textSize="15sp" />
                 <!--android:inputType="phone"-->
@@ -401,6 +405,7 @@
                     android:layout_marginLeft="10dp"
                     android:background="@null"
                     android:hint=" 0个数/坑"
+                    android:inputType="number"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -419,13 +424,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/et_specialist_pushinfo_image"
+                <TextView
+                    android:id="@+id/tv_specialist_pushinfo_imagename"
                     android:layout_width="293dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:hint="图片名称"
+                    android:hint="请拍照或者相册选择"
                     android:paddingRight="50dp"
                     android:textColor="#464646" />
 

@@ -40,6 +40,8 @@ public class EstimateFragment extends BaseFragment {
                 }
             }
         });
+
+
         return view;
     }
 
