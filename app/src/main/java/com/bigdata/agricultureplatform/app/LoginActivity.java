@@ -131,8 +131,12 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                         if (loginBean.getMsg().equals("登录失败")) {
                             Toast.makeText(LoginActivity.this, "用户名密码错误", Toast.LENGTH_LONG).show();
                         } else {
+
                             Intent intent = new Intent();
-                            intent.setClass(LoginActivity.this, MainActivity.class);
+                            intent.setClass(LoginActivity.this,MainActivity.class);
+//                             向着专家界面传值specialistacitvity
+                            //注意putExtra和putExtras方法的区别.
+                            intent.putExtra("用户名",loginReslutBean.getUserName());
                             startActivity(intent);
                             finish();
                         }

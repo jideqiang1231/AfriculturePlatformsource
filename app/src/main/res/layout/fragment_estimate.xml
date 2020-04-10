@@ -160,7 +160,6 @@
             android:hint="等级"
             android:textSize="25dp" />
         />
-
     </TableRow>
 
     <!--评论框-->
