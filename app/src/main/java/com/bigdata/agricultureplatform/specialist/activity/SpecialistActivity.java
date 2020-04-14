@@ -24,11 +24,15 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
     TextView tvSpecialistSearch;
     @Bind(R.id.tv_specialist_seedpush)
     Button tvSpecialistSeedpush;
+    //农技信息发布
+    @Bind(R.id.tv_specialist_agritech_push)
+    Button tvSpecialistAgritechPush;
 
-//    private String specialistid;
+    //    private String specialistid;
     private String specialistname;
     private String specialisttype;
     private Integer specialistid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,29 +43,35 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
 //用intent.getXXXExtra("key-name")或是intent.getXXXExtra("key-name", default-value)获取值
 
         //这里的id传过来的是integer类型一定注意不然 nullpointexception
-        specialistid=intent.getIntExtra("专家id",0);
+        specialistid = intent.getIntExtra("专家id", 0);
 
         specialistname = intent.getStringExtra("专家姓名");
         specialisttype = intent.getStringExtra("专家类型");
         tvSprcialistName.setText(specialistname);
         tvSprcialistType.setText(specialisttype);
 
-       Log.e("TAG", String.valueOf(specialistid));
-//监听事件，专家发布信息列表跳转
+        Log.e("TAG", String.valueOf(specialistid));
+        //监听事件，专家发布信息列表跳转
         tvSpecialistSeedpush.setOnClickListener(this);
+        //发布农技信息点击事件
+        tvSpecialistAgritechPush.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if (view==tvSpecialistSeedpush){
+        if (view == tvSpecialistSeedpush) {
             //把从specialistloginacitvity中传到本specialistactivity中的参数
             //传到下一个specilistseedpushactivity中用于外键查找，查找此专家发布过的产品，用于删除和发布
             Log.e("TAG", String.valueOf(specialistid));//打印一下整形值
             Intent intent = new Intent();
-            intent.putExtra("专家的id",specialistid);
-            intent.putExtra("专家的类型",specialisttype);
-            intent.setClass(SpecialistActivity.this,SpecialistseedpushActivity.class);
+            intent.putExtra("专家的id", specialistid);
+            intent.putExtra("专家的类型", specialisttype);
+            intent.setClass(SpecialistActivity.this, SpecialistseedpushActivity.class);
             startActivity(intent);
+        } else if (view == tvSpecialistAgritechPush) {
+            Intent intent = new Intent(this, SpeclistagritechpushActivity.class);
+            startActivity(intent);
+
         }
     }
 }

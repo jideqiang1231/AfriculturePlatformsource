@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.app.MainActivity;
 import com.bigdata.agricultureplatform.base.BaseFragment;
+import com.bigdata.agricultureplatform.home.activity.AgritechpushActivity;
 import com.bigdata.agricultureplatform.home.activity.PushActivity;
 import com.bigdata.agricultureplatform.home.activity.SearchActivity;
 import com.bigdata.agricultureplatform.home.adapter.HomeFragmentAdapter;
@@ -64,6 +65,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         //顶部搜索
         rlZhongzi.setOnClickListener(this);
         tvSearchHome.setOnClickListener(this);
+        rlNongji.setOnClickListener(this);
     }
     @Override
     public void onClick(View view) {
@@ -73,6 +75,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         }else if (view==tvSearchHome){
             Log.e(TAG, "点击的搜索，跳入searchactivity");
             Intent intent = new Intent(mContext, SearchActivity.class);
+            mContext.startActivity(intent);
+        }else if (view==rlNongji){
+            Intent intent = new Intent(mContext, AgritechpushActivity.class);
             mContext.startActivity(intent);
         }
     }
