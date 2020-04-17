@@ -9,11 +9,12 @@ public class Constants {
     //
     public static  String LOGIN1_URL =BASE_URL+"/users/login1";
     public static  String REGISTER_URL =BASE_URL+"/users/register";
-    //专家登录接口
+    //专家登录
     public static  String SPECIALISTLOGIN_URL=BASE_URL+"/specialists/login";
-    //种子接口
+
+    //种子信息获取
     public static  String ZHONGZIINFO_URL=BASE_URL+"/seeds/zhongziinfo";
-    //根据专家id获取种子信息得接口
+    //根据专家id获取种子信息得
     public static  String SPECIALISTZHONGZIINFO_URL=BASE_URL+"/seeds/specialistzhongzilist";
     //测试的直接路径
     //public static  String LOGIN_URL=BASE_URL+"/login1?userName=admin&userPass=123456";
@@ -24,9 +25,11 @@ public class Constants {
 
     //种子图片地址
     public static  String SEEDIMAGE =BASE_URL+"/seeds/zhongziimagesave";
-    //种子信息地址
+    //插入种子信息种子信息地址
     public static  String SEEDINFO =BASE_URL+"/seeds/seedinfoinsert";
     //种子根据外键获取（专家基本信息）
     public static  String SPECIALISTINFOFORSEEDINFO =BASE_URL+"/specialists/specialistinfo";
 
+    //用户获得农技信息(返回列表信息)
+    public static  String NONGJIINFO_URL=BASE_URL+"/recommends/nongjiinfo";
 }

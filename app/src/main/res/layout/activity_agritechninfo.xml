@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".home.activity.AgritechninfoActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/ib_agritechinfo_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/top_bar_left_back" />
+
+        <TextView
+            android:id="@+id/tv_top_type_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="80dp"
+            android:gravity="center"
+            android:text="星星skdjfl"
+            android:textColor="#464646"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="详情"
+            android:textColor="#464646"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#9EE74A"
+        android:layout_height="1dp" />
+    <!--第二部分-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
+        <!--帧布局里边有三部分：线性，线性，更多-->
+        <!--1-->
+
+        <!--为了让两个scroview同时起作用，应用外部库实现,这里用一个足够了-->
+        <!--<com.atguigu.shoppingmall.home.view.ScrollViewContainer-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="532dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:orientation="vertical">
+                <!--图片-->
+                <!--<ImageView-->
+                    <!--android:id="@+id/iv_seedinfo_image"-->
+                    <!--android:layout_width="183dp"-->
+                    <!--android:layout_height="157dp"-->
+                    <!--android:layout_gravity="center_horizontal" />-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/tv_agritechinfo_name"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="15dp"-->
+                        <!--android:hint="种子名称："-->
+                        <!--android:textColor="#323427" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/tv_agritechinfo_type"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="种子型号"-->
+                        <!--android:padding="10dp"-->
+                        <!--android:textColor="#767f86" />-->
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#386EF7" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="217dp"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_agritechinfo_introduce"
+                        android:layout_width="384dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:hint="种子描述信息介绍"
+                        android:textColor="#3c3d40" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#38F741" />
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#386EF7" />
+
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#38F741" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_agritechinfo_specialist_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="类型"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="专家:"/>
+                    <TextView
+                        android:id="@+id/tv_agritechinfo_specialist_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:hint="专家姓名"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:text="联系电话："/>
+                    <TextView
+                        android:id="@+id/tv_agritechinfo_specialist_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="18888888888"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="专家简介："/>
+
+                    <TextView
+                        android:id="@+id/tv_agritechinfo_specialist_introduce"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="zhuaalsdjf;asdjkflasjdf;lasdjkfiowns" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="专家地址："/>
+                    <TextView
+                        android:id="@+id/tv_agritechinfo_specialist_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint="山东省临沂市"/>
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+        </ScrollView>
+        <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+        <!--<WebView-->
+        <!--android:id="@+id/wb_good_info_more"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"></WebView>-->
+        <!--</ScrollView>-->
+        <!--</com.atguigu.shoppingmall.home.view.ScrollViewContainer>-->
+
+        <!--2-->
+        <!--下方四个图标布局-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#fff">
+
+
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/icon_callspecialist"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="联系专家"
+                android:textColor="#393b3e" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/icon_seed_collected"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="收藏"
+                android:textColor="#393b3e" />
+        </LinearLayout>
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:drawableTop="@drawable/icon_seed_cart"-->
+        <!--android:drawablePadding="5dp"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="2dp"-->
+        <!--android:text="购物车"-->
+        <!--android:textColor="#393b3e" />-->
+        <!--<Button-->
+        <!--android:layout_width="120dp"-->
+        <!--android:layout_height="51dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:background="#fff"-->
+        <!--android:gravity="center"-->
+        <!--android:text="加入购物车"-->
+        <!--android:textColor="#F78024" />-->
+        <!--3-->
+        <!--<include layout="@layout/more_layout" />-->
+    </FrameLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
