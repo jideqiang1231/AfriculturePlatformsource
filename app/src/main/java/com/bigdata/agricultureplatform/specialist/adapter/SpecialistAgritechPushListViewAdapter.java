@@ -24,8 +24,8 @@ public class SpecialistAgritechPushListViewAdapter extends BaseAdapter {
     private final LayoutInflater layoutInflater;
 
     public SpecialistAgritechPushListViewAdapter(SpeclistagritechpushActivity speclistagritechpushActivity, List<SpecialistagritechlistBean.SpecialistnongjiresultBean> specialistnongjiresultBeans) {
-        this.datas=specialistnongjiresultBeans;
-        this.nongjicontext=speclistagritechpushActivity;
+        this.datas = specialistnongjiresultBeans;
+        this.nongjicontext = speclistagritechpushActivity;
         layoutInflater = LayoutInflater.from(speclistagritechpushActivity);
     }
 
@@ -48,7 +48,7 @@ public class SpecialistAgritechPushListViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.item_specialistpush_nongjilist_listview,null);
+            convertView = layoutInflater.inflate(R.layout.item_specialistpush_nongjilist_listview, null);
             //7.然后把viewholder new出来
             /////////////////////////////////////////////////////////////////
             viewHolder = new ViewHolder();/////纪念再次出错，虽然viewholder已经设置为null了，但是想用还得new出来
@@ -70,15 +70,16 @@ public class SpecialistAgritechPushListViewAdapter extends BaseAdapter {
 //                .diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolder.ivSpecialistZhongzipushImage);
 //        }
         viewHolder.tvSpecialistNongjipushName.setText(specialistnongjiresultBean.getSeedName());
-    //    viewHolder.tvSpecialistZhongzipushType.setText(specialistseedresultBean.getSeedType());
+        //    viewHolder.tvSpecialistZhongzipushType.setText(specialistseedresultBean.getSeedType());
         viewHolder.tvSpecialistNongjipushContext.setText(specialistnongjiresultBean.getRecommendContent());
         return convertView;
     }
+
     //这里不可以用butterknife
-    static class ViewHolder{
-      //  ImageView ivSpecialistZhongzipushImage;
+    static class ViewHolder {
+        //  ImageView ivSpecialistZhongzipushImage;
         TextView tvSpecialistNongjipushName;
-       // TextView tvSpecialistZhongzipushType;
+        // TextView tvSpecialistZhongzipushType;
         TextView tvSpecialistNongjipushContext;
     }
 }

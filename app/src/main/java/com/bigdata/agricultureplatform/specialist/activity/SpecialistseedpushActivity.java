@@ -146,9 +146,9 @@ public class SpecialistseedpushActivity extends Activity implements View.OnClick
         if (view == ibPecialistSeedAddpush) {
             Log.e("TAG", String.valueOf(specialistId));//打印一下整形值
             Intent intent = new Intent();
-            intent.putExtra("专家的id",specialistId);
-            intent.putExtra("专家的类型",specialistType);
-            intent.setClass(SpecialistseedpushActivity.this,SpecialistaddpushActivity.class);
+            intent.putExtra("专家的id", specialistId);
+            intent.putExtra("专家的类型", specialistType);
+            intent.setClass(SpecialistseedpushActivity.this, SpecialistaddpushActivity.class);
             startActivity(intent);
         }
     }

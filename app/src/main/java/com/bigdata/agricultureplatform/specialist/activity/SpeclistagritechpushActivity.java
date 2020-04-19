@@ -98,11 +98,11 @@ public class SpeclistagritechpushActivity extends Activity implements View.OnCli
     public void onClick(View view) {
         if (view == ibSpecialistagritechpushBack) {
             finish();
-        } else if (view==ibSpecialistagritechpushAddpush) {
+        } else if (view == ibSpecialistagritechpushAddpush) {
             //传入专家的参数id,添加信息时候要插入
             Intent intent = new Intent();
-            intent.putExtra("专家的id",specialistId);
-            intent.setClass(this,SpecialistaddagritechpushActivity.class);
+            intent.putExtra("专家的id", specialistId);
+            intent.setClass(this, SpecialistaddagritechpushActivity.class);
             startActivity(intent);
         }
     }

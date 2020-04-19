@@ -41,7 +41,7 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
     private String specialist_pass;
     private String specialist_name;
     //把bean对象声明过来才可以用
-    private  SpecialistloginBean specialistloginBean;
+    private SpecialistloginBean specialistloginBean;
     private SpecialistloginBean.SpecialistloginresultBean specialistloginresultBean;
 
     @Override
@@ -58,7 +58,7 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
     public void onClick(View view) {
         if (view == ibLoginVisible) {
             finish();
-        }else if (view==btnSpecialistlogin){
+        } else if (view == btnSpecialistlogin) {
             //接收输入信息
             specialist_name = etSpecialistLoginname.getText().toString().trim();
             specialist_pass = etSpecialistLoginpass.getText().toString().trim();
@@ -113,13 +113,13 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
                         } else {
 
                             Intent intent = new Intent();
-                            intent.setClass(SpecialistloginActivity.this,SpecialistActivity.class);
+                            intent.setClass(SpecialistloginActivity.this, SpecialistActivity.class);
 //                             向着专家界面传值specialistacitvity
                             //注意putExtra和putExtras方法的区别.
-                            intent.putExtra("专家姓名",specialistloginresultBean.getSpecialistName());
-                            intent.putExtra("专家类型",specialistloginresultBean.getSpecialistType());
+                            intent.putExtra("专家姓名", specialistloginresultBean.getSpecialistName());
+                            intent.putExtra("专家类型", specialistloginresultBean.getSpecialistType());
                             //注意类型，传过去的是int类型id，接受一定注意
-                            intent.putExtra("专家id",specialistloginresultBean.getSpecialistId());
+                            intent.putExtra("专家id", specialistloginresultBean.getSpecialistId());
                             startActivity(intent);
                             finish();
                         }
@@ -128,9 +128,10 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
 //                    @Overridepublic void onError(Request request, Exception e){ }@Overridepublic void onResponse(String response){ }
                 });
     }
+
     private void loginprocessData(String json) {
         specialistloginBean = JSON.parseObject(json, SpecialistloginBean.class);
-        specialistloginresultBean=specialistloginBean.getSpecialistloginresult();
+        specialistloginresultBean = specialistloginBean.getSpecialistloginresult();
         Log.e(TAG, specialistloginBean.getMsg());
     }
 }

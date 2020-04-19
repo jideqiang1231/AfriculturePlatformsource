@@ -49,6 +49,7 @@ public class AgritechninfoActivity extends Activity implements View.OnClickListe
     //加入专家信息
     private SpecialistloginBean specialistloginBean;
     private SpecialistloginBean.SpecialistloginresultBean specialistloginresultBean;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,25 +58,28 @@ public class AgritechninfoActivity extends Activity implements View.OnClickListe
         ibAgritechinfoBack.setOnClickListener(this);
 
 
-    Intent intent = getIntent();
-   // String seedimage = intent.getStringExtra("图片信息");
-    String seedname = intent.getStringExtra("种子名称");
-   // String seedtype = intent.getStringExtra("种子类型");
-    String pushinfo = intent.getStringExtra("农技推送详情");
-    Integer specialistId = intent.getIntExtra("专家id", 0);
+        Intent intent = getIntent();
+        // String seedimage = intent.getStringExtra("图片信息");
+        String seedname = intent.getStringExtra("种子名称");
+        // String seedtype = intent.getStringExtra("种子类型");
+        String pushinfo = intent.getStringExtra("农技推送详情");
+        Integer specialistId = intent.getIntExtra("专家id", 0);
 //  照片先不要
 //        if (Util.isOnMainThread() && !TextUtils.isEmpty(Constants.ImageBASE_URL + seedimage) && this != null && ivSeedinfoImage != null && ivSeedinfoImage.getContext() != null) {
 //        Glide.with(this).load(Constants.ImageBASE_URL + seedimage)
 //                .diskCacheStrategy(DiskCacheStrategy.ALL).into(ivSeedinfoImage);
 //    }
         tvTopTypeInfo.setText(seedname);
-      //  tvSeedinfoType.setText(seedtype);
+        //  tvSeedinfoType.setText(seedtype);
         tvAgritechinfoIntroduce.setText(pushinfo);
-    //注意int的id造成的java.lang.RuntimeException+Resources$NotFoundException:
+        //注意int的id造成的java.lang.RuntimeException+Resources$NotFoundException:
         Toast.makeText(this, String.valueOf(specialistId), Toast.LENGTH_SHORT).show();
-    //在种子详情信息中加入专家的基本信息：
-    addSpecialistinfoinseedinfo(specialistId);
-};
+        //在种子详情信息中加入专家的基本信息：
+        addSpecialistinfoinseedinfo(specialistId);
+    }
+
+    ;
+
     //抽取方法，增加专家的基本信息
     private void addSpecialistinfoinseedinfo(Integer specialistId) {
         String url = Constants.SPECIALISTINFOFORSEEDINFO;
@@ -117,9 +121,6 @@ public class AgritechninfoActivity extends Activity implements View.OnClickListe
         specialistloginresultBean = specialistloginBean.getSpecialistloginresult();
         Log.e(TAG, specialistloginBean.getMsg());
     }
-
-
-
 
 
     @Override

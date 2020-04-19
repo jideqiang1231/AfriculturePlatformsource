@@ -100,8 +100,9 @@ public class SpecialistPushListViewAdapter extends BaseAdapter {
         viewHolder.tvSpecialistZhongzipushContext.setText(specialistseedresultBean.getSeedNote());
         return convertView;
     }
-//这里不可以用butterknife
-    static class ViewHolder{
+
+    //这里不可以用butterknife
+    static class ViewHolder {
         ImageView ivSpecialistZhongzipushImage;
         TextView tvSpecialistZhongzipushName;
         TextView tvSpecialistZhongzipushType;
