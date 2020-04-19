@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.bigdata.agricultureplatform.R;
@@ -23,10 +22,10 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
     @Bind(R.id.tv_specialist_search)
     TextView tvSpecialistSearch;
     @Bind(R.id.tv_specialist_seedpush)
-    Button tvSpecialistSeedpush;
-    //农技信息发布
+    TextView tvSpecialistSeedpush;
     @Bind(R.id.tv_specialist_agritech_push)
-    Button tvSpecialistAgritechPush;
+    TextView tvSpecialistAgritechPush;
+
 
     //    private String specialistid;
     private String specialistname;
@@ -41,10 +40,8 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
 //intent要用this的getIntent()获取,specialistacitvity获取speclistloginactivity传过来的信息
         Intent intent = getIntent();
 //用intent.getXXXExtra("key-name")或是intent.getXXXExtra("key-name", default-value)获取值
-
         //这里的id传过来的是integer类型一定注意不然 nullpointexception
         specialistid = intent.getIntExtra("专家id", 0);
-
         specialistname = intent.getStringExtra("专家姓名");
         specialisttype = intent.getStringExtra("专家类型");
         tvSprcialistName.setText(specialistname);
@@ -69,9 +66,15 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
             intent.setClass(SpecialistActivity.this, SpecialistseedpushActivity.class);
             startActivity(intent);
         } else if (view == tvSpecialistAgritechPush) {
-            Intent intent = new Intent(this, SpeclistagritechpushActivity.class);
+//            Intent intent = new Intent(this, SpeclistagritechpushActivity.class);
+//            startActivity(intent);
+            //同上传入专家的id
+            Intent intent = new Intent();
+            intent.putExtra("专家的id", specialistid);
+            //不需要类型
+            // intent.putExtra("专家的类型", specialisttype);
+            intent.setClass(SpecialistActivity.this, SpeclistagritechpushActivity.class);
             startActivity(intent);
-
         }
     }
 }

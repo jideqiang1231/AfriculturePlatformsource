@@ -52,26 +52,41 @@
             android:textSize="13sp" />
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <Button
+        android:padding="5dp">
+
+        <TextView
             android:id="@+id/tv_specialist_seedpush"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:drawablePadding="10dp"
-            android:text="种子信息发布功能"
-            android:padding="5dp"
-            android:textSize="13sp" />
-        <Button
+            android:drawableTop="@drawable/specialist_seedpush"
+            android:gravity="center"
+            android:text="种子推送"
+            android:textColor="#5d5d5d" />
+
+        <TextView
             android:id="@+id/tv_specialist_agritech_push"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:drawablePadding="10dp"
-            android:text="农技信息发布功能"
-            android:padding="5dp"
-            android:textSize="13sp" />
+            android:drawableTop="@drawable/specialist_agritechpush"
+            android:gravity="center"
+            android:text="农技推送"
+            android:textColor="#5d5d5d" />
     </LinearLayout>
+
+
+
+
+
+
+
+
 
 </LinearLayout>

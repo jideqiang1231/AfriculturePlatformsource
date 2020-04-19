@@ -30,7 +30,7 @@ wrap_content 和29 变成了00隐藏    -->
     <TextView
         android:id="@+id/tv_specialist_zhongzipush_name"
         android:layout_width="135dp"
-        android:layout_height="46dp"
+        android:layout_height="58dp"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
         android:gravity="center"

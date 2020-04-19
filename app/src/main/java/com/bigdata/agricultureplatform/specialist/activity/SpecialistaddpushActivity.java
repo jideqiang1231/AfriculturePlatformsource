@@ -1,6 +1,5 @@
 package com.bigdata.agricultureplatform.specialist.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,6 +26,7 @@ import com.bigdata.agricultureplatform.specialist.util.RealPathFromUriUtils;
 import com.bigdata.agricultureplatform.util.Constants;
 import com.jzxiang.pickerview.TimePickerDialog;
 import com.jzxiang.pickerview.data.Type;
+import com.jzxiang.pickerview.listener.OnDateSetListener;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -42,11 +42,8 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
-import com.jzxiang.pickerview.TimePickerDialog;
-import com.jzxiang.pickerview.data.Type;
-import com.jzxiang.pickerview.listener.OnDateSetListener;
 
-public class SpecialistaddpushActivity extends AppCompatActivity implements View.OnClickListener , OnDateSetListener{
+public class SpecialistaddpushActivity extends AppCompatActivity implements View.OnClickListener, OnDateSetListener {
     @Bind(R.id.ib_specialist_addpushinfo_back)
     ImageButton ibSpecialistAddpushinfoBack;
     @Bind(R.id.tv_specialist_pushinfo_type)
@@ -86,14 +83,10 @@ public class SpecialistaddpushActivity extends AppCompatActivity implements View
     Button bSpecialistPushinfoSubmitpush;
     @Bind(R.id.tv_specialist_pushinfo_imagename)
     TextView tvSpecialistPushinfoImagename;
+    @Bind(R.id.tv_specialist_pushinfo_productdata)
+    TextView tvSpecialistPushinfoProductdata;
     //点击选择日期
-    @Bind(R.id.b_specialist_pushinfo_productdata)
-    Button bSpecialistPushinfoProductdata;
 
-
-//    相册100，相机101
-//    private static final int REQUEST_CODE_ALBUM = 100;
-//    private static final int REQUEST_CODE_CAMERA = 101;
     private File outputImage;
     private String specialistType;
     String back;
@@ -128,7 +121,6 @@ public class SpecialistaddpushActivity extends AppCompatActivity implements View
     SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,19 +132,17 @@ public class SpecialistaddpushActivity extends AppCompatActivity implements View
         //时间选择may be no use
         //mDialogYearMonthDay1和mDialogYearMonthDay2分别是生产日期和保质期
         long tenYears = 10L * 365 * 1000 * 60 * 60 * 24L;
-
         mDialogYearMonthDay1 = new TimePickerDialog.Builder()
                 .setType(Type.YEAR_MONTH_DAY)
                 .setCallBack(this)
                 .build();
-
         /////////////////接收一下前边传来的参数，push的时候会用到////////////////////////////////////
         Intent intent = getIntent();
         specialistId = intent.getIntExtra("专家的id", 0);
         specialistType = intent.getStringExtra("专家的类型");
         Log.e("TAG", String.valueOf(specialistId));
         Log.e("TAG", specialistType);
-        //////////先把能放的参数设置上（专家的id,type到时候直接okhttp发送）///////////////
+        ///////先把能放的参数设置上（专家的id,type到时候直接okhttp发送）///////////
         tvSpecialistPushinfoType.setText(specialistType);
         ////////////////////////////////////////////////////////////////
         ibSpecialistAddpushinfoBack.setOnClickListener(this);
@@ -160,7 +150,7 @@ public class SpecialistaddpushActivity extends AppCompatActivity implements View
         ibSpecialistPushinfoCamera.setOnClickListener(this);
         bSpecialistPushinfoSubmitpush.setOnClickListener(this);
         //日期点击事件
-        bSpecialistPushinfoProductdata.setOnClickListener(this);
+        tvSpecialistPushinfoProductdata.setOnClickListener(this);
     }
 
     @Override
@@ -169,9 +159,9 @@ public class SpecialistaddpushActivity extends AppCompatActivity implements View
         if (view == ibSpecialistAddpushinfoBack) {
             finish();
 
-        }else if (view==bSpecialistPushinfoProductdata){
+        } else if (view == tvSpecialistPushinfoProductdata) {
             mDialogYearMonthDay1.show(getSupportFragmentManager(), "year_month_day");
-        }else if (view == ibSpecialistPushinfoCamera) {//点击相机功能调用图片
+        } else if (view == ibSpecialistPushinfoCamera) {//点击相机功能调用图片
 //            openCamera1();
             //图片名称 时间命名
             SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -426,8 +416,9 @@ public class SpecialistaddpushActivity extends AppCompatActivity implements View
                 break;
         }
     }
+
     @Override
-    public void onDateSet(com.jzxiang.pickerview.TimePickerDialog timePickerDialog, long millseconds) {
+    public void onDateSet(TimePickerDialog timePickerDialog, long millseconds) {
         String text = getDateToString(millseconds);
         etSpecialistPushinfoProductdata.setText(text);
     }

@@ -333,25 +333,33 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="生产日期："
+                    android:layout_gravity="center"
                     android:textColor="#464646"
                     android:textSize="15sp" />
                 <!--android:inputType="phone"-->
 
                 <EditText
                     android:id="@+id/et_specialist_pushinfo_productdata"
-                    android:layout_width="194dp"
+                    android:layout_width="196dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
                     android:background="@null"
                     android:hint="格式：****-**-**"
                     android:inputType="date"
                     android:singleLine="true"
                     android:textSize="15sp" />
-                <Button
-                    android:id="@+id/b_specialist_pushinfo_productdata"
-                    android:layout_width="wrap_content"
+                <!--<Button-->
+                    <!--android:id="@+id/b_specialist_pushinfo_productdata"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="选择日期"/>-->
+                <TextView
+                    android:id="@+id/tv_specialist_pushinfo_productdata"
+                    android:layout_width="96dp"
                     android:layout_height="wrap_content"
-                    android:text="选择日期"/>
+                    android:drawableTop="@drawable/calender1"
+                    android:text="点击选择日期" />
 
             </LinearLayout>
 
@@ -473,13 +481,7 @@
 
         </LinearLayout>
 
-
-
-
-
     </ScrollView>
-
-
 
 
 </LinearLayout>

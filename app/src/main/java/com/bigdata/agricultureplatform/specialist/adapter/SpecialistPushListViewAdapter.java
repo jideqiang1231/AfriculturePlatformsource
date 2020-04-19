@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.specialist.activity.SpecialistseedpushActivity;
+import com.bigdata.agricultureplatform.specialist.activity.SpeclistagritechpushActivity;
+import com.bigdata.agricultureplatform.specialist.bean.SpecialistagritechlistBean;
 import com.bigdata.agricultureplatform.specialist.bean.SpecialistseedlistBean;
 import com.bigdata.agricultureplatform.util.Constants;
 import com.bumptech.glide.Glide;
@@ -37,6 +39,8 @@ public class SpecialistPushListViewAdapter extends BaseAdapter {
         this.datas = specialistseedresultBeans;
         this.seedlistcontext = specialistseedpushActivity;
     }
+
+
     //固定写法
     @Override
     public int getCount() {
