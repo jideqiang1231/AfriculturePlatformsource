@@ -111,7 +111,6 @@ public class AgritechninfoActivity extends Activity implements View.OnClickListe
                             tvAgritechinfoSpecialistPhone.setText(specialistloginresultBean.getSpecialistPhone());
                             tvAgritechinfoSpecialistAddress.setText(specialistloginresultBean.getSpecialistAddress());
                         }
-
                     }
                 });
     }

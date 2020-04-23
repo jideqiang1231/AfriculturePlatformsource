@@ -81,7 +81,22 @@
             android:textColor="#5d5d5d" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
 
+        <TextView
+            android:layout_width="198dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/specialist_other"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="其它"
+            android:textColor="#5d5d5d" />
+
+
+    </LinearLayout>
 
 
 
