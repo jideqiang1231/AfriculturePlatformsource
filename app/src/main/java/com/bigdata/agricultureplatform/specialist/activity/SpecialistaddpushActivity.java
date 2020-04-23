@@ -416,15 +416,15 @@ public class SpecialistaddpushActivity extends AppCompatActivity implements View
                 break;
         }
     }
-
+//日期这块必须执行的方法，不然没法显示text
     @Override
     public void onDateSet(TimePickerDialog timePickerDialog, long millseconds) {
         String text = getDateToString(millseconds);
         etSpecialistPushinfoProductdata.setText(text);
     }
 
-    public String getDateToString(long time) {
-        Date d = new Date(time);
-        return sf.format(d);
+    public String getDateToString(long millseconds) {
+        Date date = new Date(millseconds);
+        return sf.format(date);
     }
 }

@@ -34,4 +34,6 @@ public class Constants {
     public static String NONGJIINFO_URL = BASE_URL + "/recommends/nongjiinfo";
     //专家根据其id获取他发布过的农技信息
     public static String SPECIALISTNONGJIINFO_URL = BASE_URL + "/recommends/nongjilistfromspecialistId";
+    //专家插入农技信息
+    public static String INSERTNONGJIINFO_URL=BASE_URL+"/recommends/nongjiinfoinsert";
 }
