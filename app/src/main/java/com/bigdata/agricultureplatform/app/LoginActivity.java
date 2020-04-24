@@ -1,7 +1,9 @@
 package com.bigdata.agricultureplatform.app;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -50,18 +52,33 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     EditText etLoginPwd;
     private LoginBean loginBean;
     private LoginBean.LoginresultBean loginReslutBean;
-//    private LoginfailedBean loginfailedBean;
-
+    //private LoginfailedBean loginfailedBean;
+    //获取sharepreferences 对象
+      private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        //1.得到sp对象,用于存储登录状态
+        //userinfo:存在底层的文件名，读取要用到
+        sp = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        //5.保存用户登录信息///////////////////////////////////
+        String username=sp.getString("username",null);
+        String userpass=sp.getString("userpass",null);
+        String userid=sp.getString("userid",null);
+        if (username==null||userpass==null|userid==null){
+            Toast.makeText(this,"首次登录，请输入用户信息或者注册",Toast.LENGTH_SHORT).show();
+        }else{
+            etLoginName.setText(username);
+            etLoginPwd.setText(userpass);
+        }
+        //////////////////////////////////////////////////////////
+        //点击事件
         tvLoginRegister.setOnClickListener(this);
         tvSpecialistLogin.setOnClickListener(this);
     }
-
 //butterknife代码测试click方法，剩余的click在最底下
     @OnClick(R.id.btn_login)
     public void onViewClicked() {
@@ -92,12 +109,10 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 //            Toast.makeText(this, "用户名密码错误", Toast.LENGTH_LONG).show();
 //        }
     }
-
     private void initLoginData() {
         //获取数据
         getLoginDataFormat();
     }
-
     private void getLoginDataFormat() {
         //这里是Constans里边的咱的路径的url
         String url = Constants.LOGIN1_URL;
@@ -116,7 +131,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                     public void onError(Call call, Exception e, int id) {
                         Log.e(TAG, "登录数据请求数据失败==" + e.getMessage());
                     }
-
                     /*当联网成功回调，这里的
                     @param response表示成功请求的数据，
                     @param id 区分http100和https101
@@ -125,16 +139,28 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                     public void onResponse(String response, int id) {
                         //请求成功打印
                         Log.e(TAG, "登录数据请求数据成功==" + response);
-                        //22222222222222222222222222请求完数据，需要解析
-                        //抽出出来一个方法，传入response
+                        //请求完数据，需要解析，抽取方法，传入response
                         loginprocessData(response);
                         if (loginBean.getMsg().equals("登录失败")) {
                             Toast.makeText(LoginActivity.this, "用户名密码错误", Toast.LENGTH_LONG).show();
                         } else {
+                            //把请求来的登录信息放入到sheraperfernce中保存用户状态！
+                            //得到edtior,用于保存用户的id,name,pass这里多了一步获取这个Editor的前缀SharePreferences
+                            SharedPreferences.Editor editor = sp.edit();
+                            //得到输入用户名和密码的key和value
+                            String loginusernamevalue = loginReslutBean.getUserName();
+                            String loginuserpassvalue=loginReslutBean.getUserPass();
+                            Integer loginuseridvalue=loginReslutBean.getUserId();
+                            //此处用到的apply与commit有所区别，注意对照网上
+                            editor.putString("username", loginusernamevalue).apply();
+                            editor.putString("userpass", loginuserpassvalue).apply();
+                            editor.putString("userid", String.valueOf(loginuseridvalue)).apply();
+                            //提示
+                            Log.e(TAG,"用户基本状态id,name，pass保存成功");
 
                             Intent intent = new Intent();
                             intent.setClass(LoginActivity.this,MainActivity.class);
-//                             向着专家界面传值specialistacitvity
+                             //向着专家界面传值specialistacitvity
                             //注意putExtra和putExtras方法的区别.
                             intent.putExtra("用户名",loginReslutBean.getUserName());
                             startActivity(intent);
@@ -144,9 +170,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 //                    这是github中的方法，已经过时了，提示的implementmethod生成了上边的这两个
 //                    @Overridepublic void onError(Request request, Exception e){ }@Overridepublic void onResponse(String response){ }
                 });
-
     }
-
     private void loginprocessData(String json) {
         Log.e(TAG, "aslkdjf;aldkjf;lasjdfl;askdjfl;askdjfkl");
         loginBean = JSON.parseObject(json, LoginBean.class);
@@ -155,7 +179,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         loginReslutBean = loginBean.getLoginresult();
         Log.e(TAG, loginBean.getMsg());
     }
-
     @Override
     public void onClick(View view) {
         if (view == tvLoginRegister) {
