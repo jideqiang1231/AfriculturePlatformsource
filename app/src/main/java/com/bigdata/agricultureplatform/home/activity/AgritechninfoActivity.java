@@ -3,22 +3,16 @@ package com.bigdata.agricultureplatform.home.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.alibaba.fastjson.JSON;
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.specialist.bean.SpecialistloginBean;
 import com.bigdata.agricultureplatform.util.Constants;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.util.Util;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -46,6 +40,8 @@ public class AgritechninfoActivity extends Activity implements View.OnClickListe
     TextView tvAgritechinfoSpecialistIntroduce;
     @Bind(R.id.tv_agritechinfo_specialist_address)
     TextView tvAgritechinfoSpecialistAddress;
+    @Bind(R.id.tv_agritechinfo_time)
+    TextView tvAgritechinfoTime;
     //加入专家信息
     private SpecialistloginBean specialistloginBean;
     private SpecialistloginBean.SpecialistloginresultBean specialistloginresultBean;
@@ -64,6 +60,7 @@ public class AgritechninfoActivity extends Activity implements View.OnClickListe
         // String seedtype = intent.getStringExtra("种子类型");
         String pushinfo = intent.getStringExtra("农技推送详情");
         Integer specialistId = intent.getIntExtra("专家id", 0);
+        String pushtime = intent.getStringExtra("推送时间");
 //  照片先不要
 //        if (Util.isOnMainThread() && !TextUtils.isEmpty(Constants.ImageBASE_URL + seedimage) && this != null && ivSeedinfoImage != null && ivSeedinfoImage.getContext() != null) {
 //        Glide.with(this).load(Constants.ImageBASE_URL + seedimage)
@@ -72,6 +69,7 @@ public class AgritechninfoActivity extends Activity implements View.OnClickListe
         tvTopTypeInfo.setText(seedname);
         //  tvSeedinfoType.setText(seedtype);
         tvAgritechinfoIntroduce.setText(pushinfo);
+        tvAgritechinfoTime.setText(pushtime);
         //注意int的id造成的java.lang.RuntimeException+Resources$NotFoundException:
         Toast.makeText(this, String.valueOf(specialistId), Toast.LENGTH_SHORT).show();
         //在种子详情信息中加入专家的基本信息：

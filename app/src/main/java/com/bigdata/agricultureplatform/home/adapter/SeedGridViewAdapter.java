@@ -101,7 +101,7 @@ public class SeedGridViewAdapter extends BaseAdapter {
            // Glide.with(context).load(Constants.ImageBASE_URL + seedresultBean.getSeedImage()).into(viewHolder.iv_zhongzipush_image);
         }
         viewHolder.tv_zhongzipush_name.setText(seedresultBean.getSeedName());
-        viewHolder.tv_zhongzipush_type.setText(seedresultBean.getSeedType());
+        viewHolder.tv_zhongzipush_type.setText("("+seedresultBean.getSeedType()+")");
         viewHolder.tv_zhongzi_context.setText(seedresultBean.getSeedNote());
         return convertView;
 

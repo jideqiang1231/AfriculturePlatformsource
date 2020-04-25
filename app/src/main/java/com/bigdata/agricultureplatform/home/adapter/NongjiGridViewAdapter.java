@@ -68,6 +68,7 @@ public class NongjiGridViewAdapter extends BaseAdapter {
             //viewHolder.iv_nongjipush_image = convertView.findViewById(R.id.iv_nongjipush_image);
             viewHolder.tv_nongjipush_name =  convertView.findViewById(R.id.tv_nongjipush_name);
             //种子类型先不要
+            viewHolder.tv_nongjipush_time=convertView.findViewById(R.id.tv_nongjipush_time);
             //viewHolder.tv_nongjipush_type =  convertView.findViewById(R.id.tv_nongjipush_type);
             viewHolder.tv_nongji_context =  convertView.findViewById(R.id.tv_nongji_context);
             convertView.setTag(viewHolder);
@@ -88,6 +89,9 @@ public class NongjiGridViewAdapter extends BaseAdapter {
 //                .diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolder.iv_nongjipush_image);
 //
 //        }
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //设置推送时间，用substr函数截取字符串（因为日期固定格式了）
+        viewHolder.tv_nongjipush_time.setText(nongjiresultBean.getRecommendTime().substring(5,7)+"月");
         viewHolder.tv_nongjipush_name.setText(nongjiresultBean.getSeedName());
         //viewHolder.tv_zhongzipush_type.setText(nongjiresultBean.getSpecialistId());
         viewHolder.tv_nongji_context.setText(nongjiresultBean.getRecommendContent());
@@ -97,6 +101,7 @@ public class NongjiGridViewAdapter extends BaseAdapter {
         //种子图片先不要
 //        ImageView iv_nongjipush_image;
         TextView tv_nongjipush_name;
+        TextView tv_nongjipush_time;
         //种子类型先不要
 //        TextView tv_nongjipush_type;
         TextView tv_nongji_context;

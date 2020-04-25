@@ -112,6 +112,8 @@ public class AgritechpushActivity extends Activity implements View.OnClickListen
                                 //intent.putExtra("种子类型",seedresultBean.getSeedType());
                                 intent.putExtra("农技推送详情",nongjiresultBean.getRecommendContent());
                                 intent.putExtra("专家id",nongjiresultBean.getSpecialistId());
+                                //截取日期substring函数
+                                intent.putExtra("推送时间",nongjiresultBean.getRecommendTime().substring(5,7)+"月"+nongjiresultBean.getRecommendTime().substring(8,10)+"日");
 
                                 startActivity(intent);
                             }

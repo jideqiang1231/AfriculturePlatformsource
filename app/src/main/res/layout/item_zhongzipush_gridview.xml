@@ -29,24 +29,24 @@
 
         <TextView
             android:id="@+id/tv_zhongzipush_name"
-            android:layout_width="135dp"
-            android:layout_height="46dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="种子名称"
             android:textColor="#000"
-            android:textSize="18dp" />
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/tv_zhongzipush_type"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="种子类型"
-            android:textColor="#000"
+            android:textColor="#80000000"
             android:textSize="15dp" />
 
     </LinearLayout>
@@ -54,15 +54,16 @@
 
     <TextView
         android:id="@+id/tv_zhongzi_context"
-        android:layout_width="182dp"
-        android:layout_height="100dp"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:layout_gravity="center"
-        android:gravity="center"
         android:ellipsize="end"
-        android:lines="2"
+        android:gravity="center"
+        android:lines="1"
         android:padding="10dp"
         android:text="种子内容"
-        android:textColor="#000"
+        android:textColor="#81000000"
         android:textSize="18dp" />
 
 
