@@ -117,7 +117,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ib_login_visible"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/new_password_drawable_invisible" />

@@ -7,6 +7,11 @@
     <include
         android:id="@+id/titlebar"
         layout="@layout/titlebar" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/titlebar"
+        android:background="#7BDA8F" />
     <LinearLayout
         android:id="@+id/aaa"
         android:layout_below="@id/titlebar"
@@ -94,6 +99,7 @@
         android:layout_below="@id/bbb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:padding="5dp">
 
         <TextView
@@ -107,10 +113,11 @@
             android:textColor="#5d5d5d" />
     </LinearLayout>
 
+
+
     <RelativeLayout
         android:id="@+id/ddd"
         android:layout_below="@id/ccc"
-        android:background="#3E36F13D"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp">
@@ -122,8 +129,17 @@
             android:textColor="#5d5d5d" />
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/ddd"
+        android:background="#7BDA8F" />
 
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/ccc"
+        android:background="#7BDA8F" />
 
     <ScrollView
         android:id="@+id/sv_home"

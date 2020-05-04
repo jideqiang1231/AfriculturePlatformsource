@@ -147,6 +147,7 @@
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:progressTint="#47FD1E"
             android:numStars="5"
             android:rating="0"
             android:stepSize="0.5" />
@@ -166,7 +167,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#C52929" />
+        android:background="#BCDB90" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -209,12 +210,15 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#C52929" />
+        android:background="#98E06B" />
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="提交" />
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:background="#E7F1E7"
+        android:text="更新"
+        android:textSize="18dp"
+        android:textColor="#070707" />
 
 
     <!--<GridView-->

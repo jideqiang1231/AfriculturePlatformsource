@@ -34,8 +34,6 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
     EditText etSpecialistLoginname;
     @Bind(R.id.et_specialist_loginpass)
     EditText etSpecialistLoginpass;
-    @Bind(R.id.ib_login_visible)
-    ImageButton ibLoginVisible;
     @Bind(R.id.btn_specialistlogin)
     Button btnSpecialistlogin;
     private String specialist_pass;
@@ -49,16 +47,14 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specialistlogin);
         ButterKnife.bind(this);
-        ibLoginVisible.setOnClickListener(this);
-        btnSpecialistlogin.setOnClickListener(this);
 
+        btnSpecialistlogin.setOnClickListener(this);
+        ibSpecialistBack.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if (view == ibLoginVisible) {
-            finish();
-        } else if (view == btnSpecialistlogin) {
+        if (view == btnSpecialistlogin) {
             //接收输入信息
             specialist_name = etSpecialistLoginname.getText().toString().trim();
             specialist_pass = etSpecialistLoginpass.getText().toString().trim();
@@ -71,6 +67,8 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
                 initLoginData();
 
             }
+        }else if(view==ibSpecialistBack){
+            finish();
         }
     }
 

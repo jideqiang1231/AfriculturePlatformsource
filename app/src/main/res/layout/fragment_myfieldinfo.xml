@@ -61,7 +61,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="地理位置："
+                    android:text="  位  置： "
                     android:textColor="#464646"
                     android:textSize="15sp" />
                 <!--android:inputType="phone"-->
@@ -85,16 +85,15 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#eeee" />
+                android:background="#82DD85" />
 
             <Button
                 android:id="@+id/b_myfieldinto_update"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/loginbutton_background"
-                android:padding="10dp"
+                android:background="#E7F1E7"
                 android:text="更新"
-                android:textColor="#fff" />
+                android:textSize="18dp"
+                android:textColor="#070707" />
         </LinearLayout>
     </LinearLayout>

@@ -29,7 +29,6 @@ public class Constants {
     public static String SEEDINFO = BASE_URL + "/seeds/seedinfoinsert";
     //种子根据外键获取（专家基本信息）
     public static String SPECIALISTINFOFORSEEDINFO = BASE_URL + "/specialists/specialistinfo";
-
     //用户获得农技信息(返回列表信息)
     public static String NONGJIINFO_URL = BASE_URL + "/recommends/nongjiinfo";
     //专家根据其id获取他发布过的农技信息

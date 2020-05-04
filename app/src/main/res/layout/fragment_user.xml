@@ -4,6 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".user.fragment.UserFragment">
+
+
+
         <ScrollView
             android:id="@+id/scrollview"
             android:layout_width="match_parent"
@@ -22,7 +25,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/user_icon_background" />
+                        android:background="@drawable/userbackgrounddown1" />
                     <!--这个是进入登录的个人中心的按钮图片，图片已经被删除-->
                     <ImageButton
                         android:id="@+id/ib_user_icon_avator"
@@ -243,19 +246,17 @@
             android:id="@+id/tv_usercenter"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:background="#70E945"
+            android:background="@drawable/userbackgroundup1"
             android:gravity="center"
             android:padding="10dp"
             android:text="个人中心"
-            android:textColor="#fff"
+            android:textColor="#070707"
             android:textSize="20sp" />
 
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
-
+            android:layout_height="wrap_content">
             <ImageButton
                 android:id="@+id/ib_user_setting"
                 android:layout_width="wrap_content"
