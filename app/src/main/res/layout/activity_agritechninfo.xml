@@ -133,10 +133,7 @@
                         android:hint="种子描述信息介绍"
                         android:textColor="#3c3d40" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#38F741" />
+
                 </LinearLayout>
 
 

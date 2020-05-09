@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/new_login_background"
+    android:background="@drawable/loginbackground"
     tools:context=".specialist.activity.SpecialistloginActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,13 +38,12 @@
         android:background="#3C53D5" />
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:orientation="vertical"
-        android:layout_alignParentLeft="true">
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="89dp"
@@ -72,12 +71,12 @@
             <!--android:inputType="phone"-->
             <EditText
                 android:id="@+id/et_specialist_loginname"
-                android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:background="@null"
                 android:hint="请输入账号"
+                android:singleLine="true"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -106,7 +105,6 @@
 
             <EditText
                 android:id="@+id/et_specialist_loginpass"
-                android:singleLine="true"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -114,6 +112,7 @@
                 android:background="@null"
                 android:hint="请输入密码"
                 android:inputType="textPassword"
+                android:singleLine="true"
                 android:textSize="15sp" />
 
             <ImageButton
@@ -128,10 +127,11 @@
             android:layout_width="match_parent"
             android:layout_height="41dp"
             android:layout_margin="10dp"
-            android:background="#4479D5"
+            android:background="#C9DCFC"
             android:padding="10dp"
             android:text="登录"
-            android:textColor="#fff" />
+            android:textSize="18dp"
+            android:textColor="#0E0D0D" />
 
         <TextView
             android:layout_width="match_parent"
