@@ -40,6 +40,9 @@
     android:layout_width="match_parent"
     android:background="#9EE74A"
     android:layout_height="1dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -228,140 +231,430 @@
             android:textSize="15sp" />
     </LinearLayout>
 
+<!--从这里开始加入我们设计的多选联动模块-->
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="你可以选择栽种五次农作物，请选择："/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioGroup
+                android:id="@+id/fivechoice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_1"
+                    android:layout_width="62dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:text="1" />
+
+                <RadioButton
+                    android:id="@+id/rb_2"
+                    android:layout_width="72dp"
+                    android:layout_height="43dp"
+                    android:layout_weight="1"
+                    android:text="2" />
+
+                <RadioButton
+                    android:id="@+id/rb_3"
+                    android:layout_width="76dp"
+                    android:layout_height="43dp"
+                    android:layout_weight="1"
+                    android:text="3" />
+
+                <RadioButton
+                    android:id="@+id/rb_4"
+                    android:layout_weight="1"
+                    android:layout_width="66dp"
+                    android:layout_height="45dp"
+                    android:text="4" />
+
+                <RadioButton
+                    android:id="@+id/rb_5"
+                    android:layout_width="78dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:text="5" />
+            </RadioGroup>
+        </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#fff"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/l_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="作物一："
-                android:textColor="#464646"
-                android:textSize="15sp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="invisible">
 
-            <Spinner
-                android:id="@+id/crops1"
-                android:layout_width="198dp"
-                android:layout_height="44dp"
-                android:entries="@array/crops"
-                android:layout_gravity="center" />
+                <Spinner
+                    android:id="@+id/s_croptype1"
+                    android:layout_width="150dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center"
+                    android:entries="@array/shuidaotype" />
 
-            <EditText
-                android:id="@+id/et_cropacres1"
-                android:layout_width="86dp"
-                android:layout_height="55dp"
-                android:layout_gravity="center"
-                android:hint="输入亩数" />
+                <Spinner
+                    android:id="@+id/s_cropname1"
+                    android:layout_width="145dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center"
+                    android:entries="@array/shuidaotype" />
+
+                <EditText
+                    android:id="@+id/et_croparea1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:hint="输入亩数"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/l_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="invisible">
+
+                <Spinner
+                    android:id="@+id/s_croptype2"
+                    android:layout_width="145dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center"
+                    android:entries="@array/shuidaotype" />
+
+                <Spinner
+                    android:id="@+id/s_cropname2"
+                    android:layout_width="145dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center"
+                    android:entries="@array/shuidaotype" />
+
+                <EditText
+                    android:id="@+id/et_croparea2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:hint="输入亩数"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/l_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="invisible">
+                <!--// 注意invisible和gone的区别-->
+                <Spinner
+                    android:id="@+id/s_croptype3"
+                    android:layout_width="145dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center"
+                    android:entries="@array/shuidaotype" />
+
+                <Spinner
+                    android:id="@+id/s_cropname3"
+                    android:layout_width="145dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center"
+                    android:entries="@array/shuidaotype" />
+
+                <EditText
+                    android:id="@+id/et_croparea3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:hint="输入亩数"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/l_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="invisible">
+
+                <Spinner
+                    android:id="@+id/s_croptype4"
+                    android:layout_width="145dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center"
+                    android:entries="@array/shuidaotype" />
+
+                <Spinner
+                    android:id="@+id/s_cropname4"
+                    android:layout_width="145dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center"
+                    android:entries="@array/shuidaotype" />
+
+                <EditText
+                    android:id="@+id/et_croparea4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:hint="输入亩数"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/l_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="invisible">
+
+                <Spinner
+                    android:id="@+id/s_croptype5"
+                    android:layout_width="145dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center"
+                    android:entries="@array/shuidaotype" />
+
+                <Spinner
+                    android:id="@+id/s_cropname5"
+                    android:layout_width="145dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center"
+                    android:entries="@array/shuidaotype" />
+
+                <EditText
+                    android:id="@+id/et_croparea5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:hint="输入亩数"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#fff"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="   品 种：   "
-                android:textColor="#464646"
-                android:textSize="15sp" />
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="种了什么："/>
+                <TextView
+                    android:id="@+id/tv_sumcrop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="水稻，小麦，玉米"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
 
-            <Spinner
-                android:id="@+id/cropstype1"
-                android:layout_width="241dp"
-                android:layout_height="44dp"
-                android:layout_gravity="center"
-                android:entries="@array/typedefault" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="对应的种类："/>
+                <TextView
+                    android:id="@+id/tv_sumcroptype"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="水稻1，小麦2，玉米3"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="对应的亩数："/>
+                <TextView
+                    android:id="@+id/tv_sumcroparea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="2，3，4"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/show_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="点击显示信息"/>
         </LinearLayout>
-        <LinearLayout
+
+
+
+
+
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#fff"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:layout_height="1dp"
+            android:background="#eeee" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="作物二："
-                android:textColor="#464646"
-                android:textSize="15sp" />
-
-            <Spinner
-                android:id="@+id/crops2"
-                android:layout_width="204dp"
-                android:layout_height="44dp"
-                android:layout_gravity="center"
-                android:entries="@array/crops" />
-
-            <EditText
-                android:id="@+id/et_cropacres2"
-                android:layout_width="86dp"
-                android:layout_height="55dp"
-                android:layout_gravity="center"
-                android:hint="输入亩数" />
-        </LinearLayout>
-
-
-
-        <LinearLayout
+        <Button
+            android:id="@+id/b_register"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#fff"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="   品 种：   "
-                android:textColor="#464646"
-                android:textSize="15sp" />
-
-            <Spinner
-                android:id="@+id/cropstype2"
-                android:layout_width="245dp"
-                android:layout_height="39dp"
-                android:layout_gravity="center"
-                android:entries="@array/typedefault" />
-
-        </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#eeee" />
-
-    <Button
-        android:id="@+id/b_register"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/loginbutton_background"
-        android:padding="10dp"
-        android:text="注册"
-        android:textColor="#fff" />
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/loginbutton_background"
+            android:padding="10dp"
+            android:text="注册"
+            android:textColor="#fff" />
     </LinearLayout>
+    </ScrollView>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="43dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="#fff"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:padding="10dp">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:text="作物一："-->
+                <!--android:textColor="#464646"-->
+                <!--android:textSize="15sp" />-->
+
+            <!--<Spinner-->
+                <!--android:id="@+id/crops1"-->
+                <!--android:layout_width="198dp"-->
+                <!--android:layout_height="44dp"-->
+                <!--android:entries="@array/crops"-->
+                <!--android:layout_gravity="center" />-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/et_cropacres1"-->
+                <!--android:layout_width="86dp"-->
+                <!--android:layout_height="55dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:hint="输入亩数" />-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="43dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="#fff"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:padding="10dp">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:text="   品 种：   "-->
+                <!--android:textColor="#464646"-->
+                <!--android:textSize="15sp" />-->
+
+            <!--<Spinner-->
+                <!--android:id="@+id/cropstype1"-->
+                <!--android:layout_width="241dp"-->
+                <!--android:layout_height="44dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:entries="@array/typedefault" />-->
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="43dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="#fff"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:padding="10dp">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:text="作物二："-->
+                <!--android:textColor="#464646"-->
+                <!--android:textSize="15sp" />-->
+
+            <!--<Spinner-->
+                <!--android:id="@+id/crops2"-->
+                <!--android:layout_width="204dp"-->
+                <!--android:layout_height="44dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:entries="@array/crops" />-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/et_cropacres2"-->
+                <!--android:layout_width="86dp"-->
+                <!--android:layout_height="55dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:hint="输入亩数" />-->
+        <!--</LinearLayout>-->
+
+
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="#fff"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:padding="10dp">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:text="   品 种：   "-->
+                <!--android:textColor="#464646"-->
+                <!--android:textSize="15sp" />-->
+
+            <!--<Spinner-->
+                <!--android:id="@+id/cropstype2"-->
+                <!--android:layout_width="245dp"-->
+                <!--android:layout_height="39dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:entries="@array/typedefault" />-->
+
+        <!--</LinearLayout>-->
+
+
 </LinearLayout>
 
 

@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.home.bean.ResultBeanData;
 
-
 /**
  * @description：$des$
  **/

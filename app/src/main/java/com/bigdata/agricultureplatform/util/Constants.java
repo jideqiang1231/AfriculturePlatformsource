@@ -34,5 +34,12 @@ public class Constants {
     //专家根据其id获取他发布过的农技信息
     public static String SPECIALISTNONGJIINFO_URL = BASE_URL + "/recommends/nongjilistfromspecialistId";
     //专家插入农技信息
-    public static String INSERTNONGJIINFO_URL=BASE_URL+"/recommends/nongjiinfoinsert";
+   public static String INSERTNONGJIINFO_URL=BASE_URL+"/recommends/nongjiinfoinsert";
+
+
+    //注册界面种子类型获取
+    public static String GETSEEDTYPE_URL=BASE_URL+"/seeds/getcropstype";
+    //注册界面种子名称获取
+    public static String GETSEEDNAME_URL=BASE_URL+"/seeds/getcropsname";
+
 }
