@@ -6,5 +6,5 @@
         android:id="@+id/item_registercropstype_spinner_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="123456"/>
+        android:text="这个界面被两个adapter复用，UserregisterspinnercropnameAdapter和UserregistercropspinnerAdapter"/>
 </LinearLayout>

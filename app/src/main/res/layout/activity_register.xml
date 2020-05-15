@@ -176,7 +176,35 @@
             android:inputType="phone"
             android:textSize="15sp" />
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="身份证："
+                android:textColor="#464646"
+                android:inputType="phone"
+                android:textSize="15sp" />
+            <!--android:inputType="phone"-->
+            <EditText
+                android:id="@+id/et_register_identity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:singleLine="true"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:hint="请输入身份证号（可不填）"
+                android:inputType="number"
+                android:digits="0123456789xyzXYZ"
+                android:textSize="15sp" />
+        </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -221,6 +249,7 @@
             android:textSize="15sp" />
         <!--android:inputType="phone"-->
         <EditText
+            android:id="@+id/et_register_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -236,12 +265,19 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:text="你可以选择栽种五次农作物，请选择："/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="395dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
             <RadioGroup
                 android:id="@+id/fivechoice"
                 android:layout_width="match_parent"
@@ -251,7 +287,7 @@
                 <RadioButton
                     android:id="@+id/rb_1"
                     android:layout_width="62dp"
-                    android:layout_height="45dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="1" />
 
@@ -271,14 +307,14 @@
 
                 <RadioButton
                     android:id="@+id/rb_4"
-                    android:layout_weight="1"
                     android:layout_width="66dp"
                     android:layout_height="45dp"
+                    android:layout_weight="1"
                     android:text="4" />
 
                 <RadioButton
                     android:id="@+id/rb_5"
-                    android:layout_width="78dp"
+                    android:layout_width="83dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
                     android:text="5" />
@@ -460,62 +496,6 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="种了什么："/>
-                <TextView
-                    android:id="@+id/tv_sumcrop"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="水稻，小麦，玉米"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="对应的种类："/>
-                <TextView
-                    android:id="@+id/tv_sumcroptype"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="水稻1，小麦2，玉米3"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="对应的亩数："/>
-                <TextView
-                    android:id="@+id/tv_sumcroparea"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="2，3，4"/>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/show_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="点击显示信息"/>
-        </LinearLayout>
 
 
 

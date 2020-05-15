@@ -105,19 +105,17 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
     EditText etCroparea5;
     @Bind(R.id.l_5)
     LinearLayout l5;
-    @Bind(R.id.tv_sumcrop)
-    TextView tvSumcrop;
-    @Bind(R.id.tv_sumcroptype)
-    TextView tvSumcroptype;
-    @Bind(R.id.tv_sumcroparea)
-    TextView tvSumcroparea;
-    @Bind(R.id.show_info)
-    Button showInfo;
+
+
+    @Bind(R.id.et_register_identity)
+    EditText etRegisterIdentity;
+    @Bind(R.id.et_register_address)
+    EditText etRegisterAddress;
     private String registername;
     private String registerpass1;
     private String registerpass2;
     private String registerphone;
-   // private RegisterBean registerBean;
+    // private RegisterBean registerBean;
     private String registersuccess;
     private seedtypeBean seedtypeBean;
     private seednameBean seednameBean;
@@ -135,7 +133,11 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
     private String Register_spinner_seedname3;
     private String Register_spinner_seedname4;
     private String Register_spinner_seedname5;
-
+    //虽然灰色，但是有用(只有被当作变量时颜色才变深)
+    private String userSumAcres;
+    private String userIdentityCard;
+    private String userAdress;
+    //acres 和area一个意思，打错单词（亩数）
     private String crop1area;
     private String crop2area;
     private String crop3area;
@@ -143,6 +145,12 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
     private String crop5area;
     private List<com.bigdata.agricultureplatform.home.bean.seedtypeBean.SeedtyperesultBean> seedtypelist;
     private List<com.bigdata.agricultureplatform.home.bean.seednameBean.SeednameresultBean> seednamelist;
+    private RegisterBean registerBean;
+    private String finalsumcroptype;
+    private String finalsumcropname;
+    private String finalsumcroparea;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,15 +165,12 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
         fivechoice.setOnCheckedChangeListener(this);
         //此时第一个已经选择了数据，根据此数据继续查询种子名称去数据库Register_spinner_seedtype
         //点击获取布局界面的数据：
-        showInfo.setOnClickListener(this);
-
 
         //设置监听事件
         ibRegisterBack.setOnClickListener(this);
         bRegister.setOnClickListener(this);
-
         //亩数的监听事件
-       //  tvCropacres.setOnClickListener(this);
+        //  tvCropacres.setOnClickListener(this);
 
         //作物对应类型监听事件
         //将可选内容与ArrayAdapter的连接(从资源数组文件中获取数据)
@@ -272,6 +277,7 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
 //            }
 //        });
     }
+
     private void getspinnerCropsData() {
         String url = Constants.GETSEEDTYPE_URL;
         OkHttpUtils
@@ -633,6 +639,7 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
                     }
                 });
     }
+
     private void userRegisterSpinnerCropdataprocessData(String response) {
         seedtypeBean = JSON.parseObject(response, seedtypeBean.class);
         //表面bean里面的listbean
@@ -647,17 +654,34 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
         if (view == ibRegisterBack) {
             finish();
         } else if (view == bRegister) {
+            //获取姓名,密码,手机号：
             registername = etRegisterName.getText().toString().trim();
             registerpass1 = etRegisterPass.getText().toString().trim();
             registerpass2 = etRegisterPassagain.getText().toString().trim();
             registerphone = etRegisterPhone.getText().toString().trim();
-//            Log.e(TAG, "?????");
+            //获取身份证号（可以为空）
+            userIdentityCard = etRegisterIdentity.getText().toString();
+            //总的亩数和地理位置
+            userSumAcres = etRegisterAcres.getText().toString();
+            userAdress=etRegisterAddress.getText().toString();
+            //五个种植得种类的分亩数
+            crop1area = etCroparea1.getText().toString();
+            crop2area = etCroparea2.getText().toString();
+            crop3area = etCroparea3.getText().toString();
+            crop4area = etCroparea4.getText().toString();
+            crop5area = etCroparea5.getText().toString();
             if (TextUtils.isEmpty(registername) || TextUtils.isEmpty(registerpass1)
-                    || TextUtils.isEmpty(registerpass2) || TextUtils.isEmpty(registerphone)) {
-                Toast.makeText(this, "用户名密码不能为空", Toast.LENGTH_LONG).show();
+                    || TextUtils.isEmpty(registerpass2) || TextUtils.isEmpty(registerphone)
+                    || TextUtils.isEmpty(userIdentityCard) || TextUtils.isEmpty(userAdress)
+                    || TextUtils.isEmpty(userSumAcres)
+            ) {
+                Toast.makeText(this, "请继续完善信息", Toast.LENGTH_LONG).show();
             } else if (!(registerpass1.equals(registerpass2))) {
                 Toast.makeText(this, "两次密码输入不一致，请重新输入密码", Toast.LENGTH_LONG).show();
             }
+            //抽取方法，字符串划分，并且显示结果，用于后端数据的传输
+            splitData_getData();
+            //像后端插入数据
             initRegisterdata();
 //                 Log.e(TAG,"aaaaa"+registersuccess);
 //                if(registersuccess.equals("用户已经存在")){
@@ -669,20 +693,15 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
 //                            Toast.makeText(this, "用户已经存在", Toast.LENGTH_LONG).show();
 //                            Log.e(TAG,registerBean.getRegistersuccess());
 //                        }
-        }else  if (view == showInfo) {
-            crop1area = etCroparea1.getText().toString();
-            crop2area = etCroparea2.getText().toString();
-            crop3area = etCroparea3.getText().toString();
-            crop4area = etCroparea4.getText().toString();
-            crop5area = etCroparea5.getText().toString();
-            //抽取方法，字符串划分，并且显示结果，用于后端数据的传输
-            splitData_getData();
+            //点击获取所有得信息往后端传输
         }
     }
+
     //注册小逻辑
     private void initRegisterdata() {
         getRegisterDataFormat();
     }
+
     //注册获取数据
     private void getRegisterDataFormat() {
         String url = Constants.REGISTER_URL;
@@ -693,6 +712,13 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
                 .addParams("userName", registername)
                 .addParams("userPass", registerpass1)
                 .addParams("userPhone", registerphone)
+
+                .addParams("userCard", userIdentityCard)
+                .addParams("userFieldadress", userAdress)
+                .addParams("userFieldacres", userSumAcres)
+                .addParams("userCropsname", finalsumcropname)
+                .addParams("userCropstype", finalsumcroptype)
+                .addParams("userCropsacres", finalsumcroparea)
                 .build()
                 .execute(new StringCallback() {
                     /*
@@ -731,12 +757,14 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
 //                    @Overridepublic void onError(Request request, Exception e){ }@Overridepublic void onResponse(String response){ }
                 });
     }
+
     //注册处理数据
     private void registerprocessData(String json) {
-        RegisterBean registerBean = JSON.parseObject(json, RegisterBean.class);
+        registerBean = JSON.parseObject(json, RegisterBean.class);
         registersuccess = registerBean.getRegistersuccess();
         Log.e(TAG, "注册之后==" + registersuccess);
     }
+
     //动态控制radiobutton的变化
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int position) {
@@ -872,15 +900,15 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
         //设置选中了啥,动态分割，因为原来的形式是：水稻，枸杞，null,null,null所以以“，null”分割
         String sumcroptype = Register_spinner_seedtype1 + "," + Register_spinner_seedtype2 + "," + Register_spinner_seedtype3 + "," + Register_spinner_seedtype4 + "," + Register_spinner_seedtype5;
         String[] a = sumcroptype.split(",null");
-        String finalsumcroptype = a[0];
+        finalsumcroptype = a[0];
         //finalsumcrop就是最终要插入到数据库的变量
-        tvSumcrop.setText(finalsumcroptype);
+        //tvSumcrop.setText(finalsumcroptype);
         //同上
         String sumcropname = Register_spinner_seedname1 + "," + Register_spinner_seedname2 + "," + Register_spinner_seedname3 + "," + Register_spinner_seedname4 + "," + Register_spinner_seedname5;
         String[] b = sumcropname.split(",null");
-        String finalsumcropname = b[0];
+        finalsumcropname = b[0];
         //finalsumcrop就是最终要插入到数据库的变量
-        tvSumcroptype.setText(finalsumcropname);
+        //tvSumcroptype.setText(finalsumcropname);
         //同上（有所区别）
         //if语句是为了让亩数这块的“空”设置为null用于“，null”分割出字符串；
         if (crop1area.equals("")) {
@@ -900,9 +928,9 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
         }
         String sumcroparea = crop1area + "," + crop2area + "," + crop3area + "," + crop4area + "," + crop5area;
         String[] c = sumcroparea.split(",null");
-        String finalsumcroparea = c[0];
+        finalsumcroparea = c[0];
         //finalsumcrop就是最终要插入到数据库的变量
-        tvSumcroparea.setText(finalsumcroparea);
+        //tvSumcroparea.setText(finalsumcroparea);
     }
 
 
