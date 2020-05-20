@@ -15,9 +15,11 @@
     <TextView
         android:id="@+id/myfield_username"
         android:layout_width="wrap_content"
-        android:layout_height="18dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="欢迎您" />
+        android:padding="10dp"
+        android:text="用户姓名"
+        android:textSize="18dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,11 +37,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="总亩数："
+                    android:text="总 亩  数:"
                     android:textColor="#464646"
                     android:textSize="15sp" />
                 <!--android:inputType="phone"-->
                 <EditText
+                    android:id="@+id/et_user_sumacres"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:singleLine="true"
@@ -61,11 +64,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="  位  置： "
+                    android:text="我的位置："
                     android:textColor="#464646"
                     android:textSize="15sp" />
                 <!--android:inputType="phone"-->
                 <EditText
+                    android:id="@+id/et_user_adress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -75,7 +79,82 @@
                     android:hint="请输入地理位置"
                     android:textSize="15sp" />
             </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="所种作物:"
+                android:textColor="#464646"
+                android:textSize="15sp" />
+            <!--android:inputType="phone"-->
+            <EditText
+                android:id="@+id/et_user_croptyes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:singleLine="true"
+                android:background="@null"
+                android:hint="所种作物得种类"
+                android:textSize="15sp" />
+        </LinearLayout><LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="对应品种:"
+            android:textColor="#464646"
+            android:textSize="15sp" />
+        <!--android:inputType="phone"-->
+        <EditText
+            android:id="@+id/et_user_cropnames"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:singleLine="true"
+            android:background="@null"
+            android:hint="所种得所有作物对应的名称"
+            android:textSize="15sp" />
+    </LinearLayout><LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="对应亩数:"
+            android:textColor="#464646"
+            android:textSize="15sp" />
+        <!--android:inputType="phone"-->
+        <EditText
+            android:id="@+id/et_user_cropacre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:singleLine="true"
+            android:background="@null"
+            android:hint="每个作物所占有得亩数"
+            android:textSize="15sp" />
+    </LinearLayout>
 
 
 

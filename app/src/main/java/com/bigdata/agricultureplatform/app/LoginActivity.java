@@ -155,9 +155,14 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                             editor.putString("username", loginusernamevalue).apply();
                             editor.putString("userpass", loginuserpassvalue).apply();
                             editor.putString("userid", String.valueOf(loginuseridvalue)).apply();
+                            //主要往我的田输送基本信息（都放到了sharepreference，随便用）
+                            editor.putString("usersumacres",loginReslutBean.getUserCropsacres()).apply();
+                            editor.putString("useradress",loginReslutBean.getUserFieldadress()).apply();
+                            editor.putString("usercroptypes",loginReslutBean.getUserCropsacres()).apply();
+                            editor.putString("usercropnames",loginReslutBean.getUserCropsname()).apply();
+                            editor.putString("usercropacre",loginReslutBean.getUserCropstype()).apply();
                             //提示
                             Log.e(TAG,"用户基本状态id,name，pass保存成功");
-
                             Intent intent = new Intent();
                             intent.setClass(LoginActivity.this,MainActivity.class);
                              //向着专家界面传值specialistacitvity

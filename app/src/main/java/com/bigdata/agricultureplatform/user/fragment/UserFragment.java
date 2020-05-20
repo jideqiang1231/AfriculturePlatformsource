@@ -62,6 +62,7 @@ public class UserFragment extends BaseFragment {
     private SharedPreferences sp;
     private String username;
 
+
     @Override
     public View initView() {
         View view = View.inflate(mContext, R.layout.fragment_user, null);
@@ -87,5 +88,8 @@ public class UserFragment extends BaseFragment {
         } else {
             tvUsername.setText(username);
         }
+
+
+
     }
 }
