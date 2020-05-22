@@ -23,7 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".specialist.activity.SpecialistaddagritechpushActivity"></activity>
+        <activity android:name=".home.activity.AgritimeinfoActivity"></activity>
+        <activity android:name=".home.activity.AgritimepushActivity" />
+        <activity android:name=".specialist.activity.SpecialistaddagritechpushActivity" />
         <activity android:name=".home.activity.AgritechninfoActivity" />
         <activity android:name=".home.activity.AgritechpushActivity" />
         <activity android:name=".specialist.activity.SpeclistagritechpushActivity" />

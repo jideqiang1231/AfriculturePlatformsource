@@ -11,6 +11,7 @@ import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.app.MainActivity;
 import com.bigdata.agricultureplatform.base.BaseFragment;
 import com.bigdata.agricultureplatform.home.activity.AgritechpushActivity;
+import com.bigdata.agricultureplatform.home.activity.AgritimepushActivity;
 import com.bigdata.agricultureplatform.home.activity.PushActivity;
 import com.bigdata.agricultureplatform.home.activity.SearchActivity;
 import com.bigdata.agricultureplatform.home.adapter.HomeFragmentAdapter;
@@ -64,20 +65,28 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 //        });
         //顶部搜索
         rlZhongzi.setOnClickListener(this);
+        //推送点击事件
         tvSearchHome.setOnClickListener(this);
         rlNongji.setOnClickListener(this);
+        rlNongshi.setOnClickListener(this);
     }
+    //主页点击事件，搜索，种子，农时，农技，农资，政策
     @Override
     public void onClick(View view) {
         if (view==rlZhongzi){
             Intent intent = new Intent(mContext, PushActivity.class);
             mContext.startActivity(intent);
         }else if (view==tvSearchHome){
-            Log.e(TAG, "点击的搜索，跳入searchactivity");
+            Log.e(TAG, "点击的搜索，跳入SearchActivity");
             Intent intent = new Intent(mContext, SearchActivity.class);
             mContext.startActivity(intent);
         }else if (view==rlNongji){
+            Log.e(TAG, "点击的搜索，跳入AgritechpushActivity");
             Intent intent = new Intent(mContext, AgritechpushActivity.class);
+            mContext.startActivity(intent);
+        }else if (view==rlNongshi) {
+            Log.e(TAG, "点击的搜索，跳入AgritimepushActivity");
+            Intent intent = new Intent(mContext, AgritimepushActivity.class);
             mContext.startActivity(intent);
         }
     }

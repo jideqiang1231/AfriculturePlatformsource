@@ -158,7 +158,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                             //主要往我的田输送基本信息（都放到了sharepreference，随便用）
                             editor.putString("usersumacres",loginReslutBean.getUserCropsacres()).apply();
                             editor.putString("useradress",loginReslutBean.getUserFieldadress()).apply();
-                            editor.putString("usercroptypes",loginReslutBean.getUserCropsacres()).apply();
+                            editor.putString("usercroptypes",loginReslutBean.getUserCropstype()).apply();
                             editor.putString("usercropnames",loginReslutBean.getUserCropsname()).apply();
                             editor.putString("usercropacre",loginReslutBean.getUserCropstype()).apply();
                             //提示

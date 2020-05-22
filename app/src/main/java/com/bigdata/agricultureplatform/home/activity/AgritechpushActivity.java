@@ -47,7 +47,7 @@ public class AgritechpushActivity extends Activity implements View.OnClickListen
         ButterKnife.bind(this);
         //1.首先定义在view上定义一个viewadpter，并且像其构造方法中传递上下文及数据
         initNongjiData();
-        //设置监听事件
+        //设置监听事件（返回）
         ibAgritechPushBack.setOnClickListener(this);
 
     }
