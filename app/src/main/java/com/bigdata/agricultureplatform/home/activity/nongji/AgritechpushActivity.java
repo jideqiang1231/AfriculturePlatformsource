@@ -1,4 +1,4 @@
-package com.bigdata.agricultureplatform.home.activity;
+package com.bigdata.agricultureplatform.home.activity.nongji;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.home.adapter.NongjiGridViewAdapter;
-import com.bigdata.agricultureplatform.home.adapter.SeedGridViewAdapter;
 import com.bigdata.agricultureplatform.home.bean.RecommendlistinfoBean;
 import com.bigdata.agricultureplatform.util.Constants;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -106,7 +105,7 @@ public class AgritechpushActivity extends Activity implements View.OnClickListen
 //                                        startActivity(intent);
                                // 带有参数的intent
                                 Intent intent=new Intent();
-                                intent.setClass(AgritechpushActivity.this,AgritechninfoActivity.class);
+                                intent.setClass(AgritechpushActivity.this, AgritechninfoActivity.class);
                                // intent.putExtra("图片信息",seedresultBean.getSeedImage());
                                 intent.putExtra("种子名称",nongjiresultBean.getSeedName());
                                 //intent.putExtra("种子类型",seedresultBean.getSeedType());

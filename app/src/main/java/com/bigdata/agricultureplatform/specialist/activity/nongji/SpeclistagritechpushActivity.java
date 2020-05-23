@@ -1,4 +1,4 @@
-package com.bigdata.agricultureplatform.specialist.activity;
+package com.bigdata.agricultureplatform.specialist.activity.nongji;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,6 @@ import android.widget.ListView;
 import com.alibaba.fastjson.JSON;
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.specialist.adapter.SpecialistAgritechPushListViewAdapter;
-import com.bigdata.agricultureplatform.specialist.adapter.SpecialistPushListViewAdapter;
 import com.bigdata.agricultureplatform.specialist.bean.SpecialistagritechlistBean;
 import com.bigdata.agricultureplatform.util.Constants;
 import com.zhy.http.okhttp.OkHttpUtils;

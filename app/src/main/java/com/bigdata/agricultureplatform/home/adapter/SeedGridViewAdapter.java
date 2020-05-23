@@ -1,30 +1,22 @@
 package com.bigdata.agricultureplatform.home.adapter;
 
 import android.content.Context;
-import android.nfc.Tag;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bigdata.agricultureplatform.R;
-import com.bigdata.agricultureplatform.home.activity.PushActivity;
 import com.bigdata.agricultureplatform.home.bean.SeedinfoBean;
 import com.bigdata.agricultureplatform.util.Constants;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.util.Util;
-import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.List;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * @description：$des$

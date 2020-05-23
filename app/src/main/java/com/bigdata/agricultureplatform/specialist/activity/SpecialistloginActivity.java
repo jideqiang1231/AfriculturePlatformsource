@@ -13,8 +13,7 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.bigdata.agricultureplatform.R;
-import com.bigdata.agricultureplatform.app.LoginActivity;
-import com.bigdata.agricultureplatform.app.MainActivity;
+import com.bigdata.agricultureplatform.specialist.activity.home.SpecialistActivity;
 import com.bigdata.agricultureplatform.specialist.bean.SpecialistloginBean;
 import com.bigdata.agricultureplatform.util.Constants;
 import com.zhy.http.okhttp.OkHttpUtils;

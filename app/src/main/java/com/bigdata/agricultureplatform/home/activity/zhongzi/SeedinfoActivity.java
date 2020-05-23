@@ -1,4 +1,4 @@
-package com.bigdata.agricultureplatform.home.activity;
+package com.bigdata.agricultureplatform.home.activity.zhongzi;
 
 import android.app.Activity;
 import android.content.Intent;

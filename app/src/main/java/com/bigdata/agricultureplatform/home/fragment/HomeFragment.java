@@ -8,11 +8,10 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bigdata.agricultureplatform.R;
-import com.bigdata.agricultureplatform.app.MainActivity;
 import com.bigdata.agricultureplatform.base.BaseFragment;
-import com.bigdata.agricultureplatform.home.activity.AgritechpushActivity;
-import com.bigdata.agricultureplatform.home.activity.AgritimepushActivity;
-import com.bigdata.agricultureplatform.home.activity.PushActivity;
+import com.bigdata.agricultureplatform.home.activity.nongji.AgritechpushActivity;
+import com.bigdata.agricultureplatform.home.activity.nongshi.AgritimepushActivity;
+import com.bigdata.agricultureplatform.home.activity.zhongzi.PushActivity;
 import com.bigdata.agricultureplatform.home.activity.SearchActivity;
 import com.bigdata.agricultureplatform.home.adapter.HomeFragmentAdapter;
 import com.bigdata.agricultureplatform.home.bean.ResultBeanData;

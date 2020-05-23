@@ -23,13 +23,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home.activity.AgritimeinfoActivity"></activity>
-        <activity android:name=".home.activity.AgritimepushActivity" />
-        <activity android:name=".specialist.activity.SpecialistaddagritechpushActivity" />
-        <activity android:name=".home.activity.AgritechninfoActivity" />
-        <activity android:name=".home.activity.AgritechpushActivity" />
-        <activity android:name=".specialist.activity.SpeclistagritechpushActivity" />
-        <activity android:name=".specialist.activity.SpecialistaddpushActivity" />
+        <activity android:name=".home.activity.nongshi.AgritimeinfoActivity"></activity>
+        <activity android:name=".home.activity.nongshi.AgritimepushActivity" />
+        <activity android:name=".specialist.activity.nongji.SpecialistaddagritechpushActivity" />
+        <activity android:name=".home.activity.nongji.AgritechninfoActivity" />
+        <activity android:name=".home.activity.nongji.AgritechpushActivity" />
+        <activity android:name=".specialist.activity.nongji.SpeclistagritechpushActivity" />
+        <activity android:name=".specialist.activity.zhongzi.SpecialistaddpushActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -41,11 +41,11 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".specialist.activity.SpecialistseedpushActivity" />
-        <activity android:name=".home.activity.SeedinfoActivity" />
-        <activity android:name=".specialist.activity.SpecialistActivity" />
+        <activity android:name=".specialist.activity.zhongzi.SpecialistseedpushActivity" />
+        <activity android:name=".home.activity.zhongzi.SeedinfoActivity" />
+        <activity android:name=".specialist.activity.home.SpecialistActivity" />
         <activity android:name=".specialist.activity.SpecialistloginActivity" />
-        <activity android:name=".home.activity.PushActivity" />
+        <activity android:name=".home.activity.zhongzi.PushActivity" />
         <activity
             android:name=".home.activity.RegisterActivity"
             android:exported="true" />

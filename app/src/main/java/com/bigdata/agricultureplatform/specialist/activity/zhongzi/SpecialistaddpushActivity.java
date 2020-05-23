@@ -1,4 +1,4 @@
-package com.bigdata.agricultureplatform.specialist.activity;
+package com.bigdata.agricultureplatform.specialist.activity.zhongzi;
 
 import android.content.Intent;
 import android.graphics.Bitmap;

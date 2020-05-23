@@ -11,9 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bigdata.agricultureplatform.R;
-import com.bigdata.agricultureplatform.specialist.activity.SpecialistseedpushActivity;
-import com.bigdata.agricultureplatform.specialist.activity.SpeclistagritechpushActivity;
-import com.bigdata.agricultureplatform.specialist.bean.SpecialistagritechlistBean;
+import com.bigdata.agricultureplatform.specialist.activity.zhongzi.SpecialistseedpushActivity;
 import com.bigdata.agricultureplatform.specialist.bean.SpecialistseedlistBean;
 import com.bigdata.agricultureplatform.util.Constants;
 import com.bumptech.glide.Glide;
@@ -21,9 +19,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.util.Util;
 
 import java.util.List;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * @description：$des$

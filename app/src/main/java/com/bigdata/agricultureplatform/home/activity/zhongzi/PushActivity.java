@@ -1,4 +1,4 @@
-package com.bigdata.agricultureplatform.home.activity;
+package com.bigdata.agricultureplatform.home.activity.zhongzi;
 
 import android.app.Activity;
 import android.content.Context;
@@ -117,7 +117,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
 //                                        startActivity(intent);
                                 //带有参数的intent
                                 Intent intent=new Intent();
-                                intent.setClass(PushActivity.this,SeedinfoActivity.class);
+                                intent.setClass(PushActivity.this, SeedinfoActivity.class);
                                 intent.putExtra("图片信息",seedresultBean.getSeedImage());
                                 intent.putExtra("种子名称",seedresultBean.getSeedName());
                                 intent.putExtra("种子类型",seedresultBean.getSeedType());

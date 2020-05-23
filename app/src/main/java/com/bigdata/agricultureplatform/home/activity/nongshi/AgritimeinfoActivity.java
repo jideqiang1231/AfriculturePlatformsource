@@ -1,4 +1,4 @@
-package com.bigdata.agricultureplatform.home.activity;
+package com.bigdata.agricultureplatform.home.activity.nongshi;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -22,38 +22,35 @@ import okhttp3.Call;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
-public class AgritechninfoActivity extends Activity implements View.OnClickListener {
-
-    @Bind(R.id.ib_agritechinfo_back)
-    ImageButton ibAgritechinfoBack;
+public class AgritimeinfoActivity extends Activity implements View.OnClickListener {
+    @Bind(R.id.ib_agritimeinfo_back)
+    ImageButton ibAgritimeinfoBack;
     @Bind(R.id.tv_top_type_info)
     TextView tvTopTypeInfo;
-    @Bind(R.id.tv_agritechinfo_introduce)
-    TextView tvAgritechinfoIntroduce;
-    @Bind(R.id.tv_agritechinfo_specialist_type)
-    TextView tvAgritechinfoSpecialistType;
-    @Bind(R.id.tv_agritechinfo_specialist_name)
-    TextView tvAgritechinfoSpecialistName;
-    @Bind(R.id.tv_agritechinfo_specialist_phone)
-    TextView tvAgritechinfoSpecialistPhone;
-    @Bind(R.id.tv_agritechinfo_specialist_introduce)
-    TextView tvAgritechinfoSpecialistIntroduce;
-    @Bind(R.id.tv_agritechinfo_specialist_address)
-    TextView tvAgritechinfoSpecialistAddress;
-    @Bind(R.id.tv_agritechinfo_time)
-    TextView tvAgritechinfoTime;
-    //加入专家信息
+    @Bind(R.id.tv_agritimeinfo_time)
+    TextView tvAgritimeinfoTime;
+    @Bind(R.id.tv_agritimeinfo_introduce)
+    TextView tvAgritimeinfoIntroduce;
+    @Bind(R.id.tv_agritimeinfo_specialist_type)
+    TextView tvAgritimeinfoSpecialistType;
+    @Bind(R.id.tv_agritimeinfo_specialist_name)
+    TextView tvAgritimeinfoSpecialistName;
+    @Bind(R.id.tv_agritimeinfo_specialist_phone)
+    TextView tvAgritimeinfoSpecialistPhone;
+    @Bind(R.id.tv_agritimeinfo_specialist_introduce)
+    TextView tvAgritimeinfoSpecialistIntroduce;
+    @Bind(R.id.tv_agritimeinfo_specialist_address)
+    TextView tvAgritimeinfoSpecialistAddress;
     private SpecialistloginBean specialistloginBean;
     private SpecialistloginBean.SpecialistloginresultBean specialistloginresultBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agritechninfo);
+        setContentView(R.layout.activity_agritimeinfo);
         ButterKnife.bind(this);
-        ibAgritechinfoBack.setOnClickListener(this);
-
-
+        //点击事件
+        ibAgritimeinfoBack.setOnClickListener(this);
         Intent intent = getIntent();
         // String seedimage = intent.getStringExtra("图片信息");
         String seedname = intent.getStringExtra("种子名称");
@@ -61,25 +58,17 @@ public class AgritechninfoActivity extends Activity implements View.OnClickListe
         String pushinfo = intent.getStringExtra("农技推送详情");
         Integer specialistId = intent.getIntExtra("专家id", 0);
         String pushtime = intent.getStringExtra("推送时间");
-//  照片先不要
-//        if (Util.isOnMainThread() && !TextUtils.isEmpty(Constants.ImageBASE_URL + seedimage) && this != null && ivSeedinfoImage != null && ivSeedinfoImage.getContext() != null) {
-//        Glide.with(this).load(Constants.ImageBASE_URL + seedimage)
-//                .diskCacheStrategy(DiskCacheStrategy.ALL).into(ivSeedinfoImage);
-//    }
+
+        //设置信息
         tvTopTypeInfo.setText(seedname);
         //  tvSeedinfoType.setText(seedtype);
-        tvAgritechinfoIntroduce.setText(pushinfo);
-        tvAgritechinfoTime.setText(pushtime);
-        //注意int的id造成的java.lang.RuntimeException+Resources$NotFoundException:
-        Toast.makeText(this, String.valueOf(specialistId), Toast.LENGTH_SHORT).show();
-        //在种子详情信息中加入专家的基本信息：
-        addSpecialistinfoinseedinfo(specialistId);
+        tvAgritimeinfoIntroduce.setText(pushinfo);
+        tvAgritimeinfoTime.setText(pushtime);
+        //在农时详情信息中加入专家的基本信息：
+        addSpecialistinfoinnongshiinfo(specialistId);
     }
 
-    ;
-
-    //抽取方法，增加专家的基本信息
-    private void addSpecialistinfoinseedinfo(Integer specialistId) {
+    private void addSpecialistinfoinnongshiinfo(Integer specialistId) {
         String url = Constants.SPECIALISTINFOFORSEEDINFO;
         OkHttpUtils
                 .post()
@@ -103,26 +92,25 @@ public class AgritechninfoActivity extends Activity implements View.OnClickListe
                             Toast.makeText(getBaseContext(), "专家信息这块没有根据种子的外键得到", Toast.LENGTH_LONG).show();
                         } else {
 //在这里往布局里边设置内容：专家的基本信息：
-                            tvAgritechinfoSpecialistType.setText(specialistloginresultBean.getSpecialistType());
-                            tvAgritechinfoSpecialistName.setText(specialistloginresultBean.getSpecialistName());
-                            tvAgritechinfoSpecialistIntroduce.setText(specialistloginresultBean.getSpecialistInstructions());
-                            tvAgritechinfoSpecialistPhone.setText(specialistloginresultBean.getSpecialistPhone());
-                            tvAgritechinfoSpecialistAddress.setText(specialistloginresultBean.getSpecialistAddress());
+                            tvAgritimeinfoSpecialistType.setText(specialistloginresultBean.getSpecialistType());
+                            tvAgritimeinfoSpecialistName.setText(specialistloginresultBean.getSpecialistName());
+                            tvAgritimeinfoSpecialistIntroduce.setText(specialistloginresultBean.getSpecialistInstructions());
+                            tvAgritimeinfoSpecialistPhone.setText(specialistloginresultBean.getSpecialistPhone());
+                            tvAgritimeinfoSpecialistAddress.setText(specialistloginresultBean.getSpecialistAddress());
                         }
                     }
                 });
     }
 
-    private void loginprocessData(String json) {
-        specialistloginBean = JSON.parseObject(json, SpecialistloginBean.class);
+    private void loginprocessData(String response) {
+        specialistloginBean = JSON.parseObject(response, SpecialistloginBean.class);
         specialistloginresultBean = specialistloginBean.getSpecialistloginresult();
         Log.e(TAG, specialistloginBean.getMsg());
     }
 
-
     @Override
     public void onClick(View view) {
-        if (view == ibAgritechinfoBack) {
+        if (view==ibAgritimeinfoBack){
             finish();
         }
     }

@@ -4,11 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bigdata.agricultureplatform.R;
-import com.bigdata.agricultureplatform.specialist.activity.SpeclistagritechpushActivity;
+import com.bigdata.agricultureplatform.specialist.activity.nongji.SpeclistagritechpushActivity;
 import com.bigdata.agricultureplatform.specialist.bean.SpecialistagritechlistBean;
 
 import java.util.List;

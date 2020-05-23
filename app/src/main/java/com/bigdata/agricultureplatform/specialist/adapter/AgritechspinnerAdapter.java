@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.bigdata.agricultureplatform.R;
-import com.bigdata.agricultureplatform.specialist.activity.SpecialistaddagritechpushActivity;
 import com.bigdata.agricultureplatform.specialist.bean.SpecialistseedlistBean;
 
 import java.util.List;

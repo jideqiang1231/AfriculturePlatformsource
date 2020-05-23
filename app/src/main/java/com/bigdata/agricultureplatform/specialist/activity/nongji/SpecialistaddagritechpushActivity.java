@@ -1,6 +1,5 @@
-package com.bigdata.agricultureplatform.specialist.activity;
+package com.bigdata.agricultureplatform.specialist.activity.nongji;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -144,7 +143,7 @@ public class SpecialistaddagritechpushActivity extends AppCompatActivity impleme
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.ib_agritech_push_back:
+            case R.id.ib_specialist_nongji_addpushinfo_back:
                 finish();
                 break;
             case R.id.tv_specialist_pushinfo_nongji_pushdata:

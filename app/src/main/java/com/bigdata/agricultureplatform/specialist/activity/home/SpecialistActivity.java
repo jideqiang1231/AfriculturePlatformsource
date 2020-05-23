@@ -1,4 +1,4 @@
-package com.bigdata.agricultureplatform.specialist.activity;
+package com.bigdata.agricultureplatform.specialist.activity.home;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.bigdata.agricultureplatform.R;
+import com.bigdata.agricultureplatform.specialist.activity.nongji.SpeclistagritechpushActivity;
+import com.bigdata.agricultureplatform.specialist.activity.zhongzi.SpecialistseedpushActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

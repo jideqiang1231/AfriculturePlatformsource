@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".home.activity.SeedinfoActivity">
+    tools:context=".home.activity.zhongzi.SeedinfoActivity">
         <!--三部分，标题栏 分割线 framlayout-->
         <LinearLayout
             android:layout_width="match_parent"
