@@ -1,230 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/new_login_background"
+    android:orientation="vertical"
     tools:context=".myfield.fragment.EstimateFragment">
 
-
-    <TableRow>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="种子：" />
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:hint="成本"
-            android:inputType="textPersonName"
-            android:singleLine="true" />
-
-    </TableRow>
-
-    <!--textview中含有android:singleLine="true"或者false分别表示后边省略，和自动换行-->
-    <TableRow>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="化肥：" />
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:hint="成本" />
-    </TableRow>
-    <TableRow>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="农药：" />
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:hint="成本" />
-    </TableRow>
-    <TableRow>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="灌溉：" />
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:hint="成本" />
-    </TableRow>
-    <TableRow>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="收割费" />
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:hint="成本" />
-    </TableRow>
-
-
-    <!--总投入-->
-    <TableRow>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="总投入" />
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:hint="￥0.00" />
-        <!--android:singleLine="true"-->
-        <!--android:inputType="textPassword"-->
-
-    </TableRow>
-    <!--总产量-->
-    <TableRow>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="总产量" />
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:hint="约值" />
-    </TableRow>
-    <!--预期收益-->
-    <TableRow>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:hint="预期收益" />
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:hint="自动填充" />
-    </TableRow>
-
-    <!--星级评价-->
-    <TableRow android:layout_width="300dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:hint="五星评价:" />
-
-        <RatingBar
-            android:id="@+id/rb_ratingbar"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:progressTint="#47FD1E"
-            android:numStars="5"
-            android:rating="0"
-            android:stepSize="0.5" />
-
-        <TextView
-            android:id="@+id/tv_rating"
-            android:layout_width="99dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:hint="等级"
-            android:textSize="25dp" />
-        />
-    </TableRow>
-
-    <!--评论框-->
-    <View
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#BCDB90" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp">
-
-        <!--android:id="@+id/et_comment"-->
-        <EditText
-
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:background="@null"
-            android:gravity="top"
-            android:hint="请填写您的评价:字数不得超过50字"
-            android:minLines="5"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:textColorHint="#999999"
-            android:textCursorDrawable="@null"
-            android:textSize="14dp" />
-
-        <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal">-->
-
-        <!--&lt;!&ndash;android:id="@+id/fl_comment"&ndash;&gt;-->
-        <!--<com.first.demo.flowtaglayout.FlowTagLayout-->
-
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="10dp"-->
-        <!--android:focusable="true"-->
-        <!--android:focusableInTouchMode="true">-->
-        <!--</com.first.demo.flowtaglayout.FlowTagLayout>-->
-        <!--</LinearLayout>-->
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#98E06B" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="10dp"
-        android:background="#E7F1E7"
-        android:text="更新"
-        android:textSize="18dp"
-        android:textColor="#070707" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
-    <!--<GridView-->
-    <!--android:id="@+id/gv_budget"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:numColumns="3" />-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-</TableLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="种子：" />
+
+                <EditText
+                    android:layout_width="251dp"
+                    android:layout_height="wrap_content"
+                    android:hint="成本"
+                    android:inputType="textPersonName"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+
+            <!--textview中含有android:singleLine="true"或者false分别表示后边省略，和自动换行-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="化肥：" />
+
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="成本"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="农药：" />
+
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="成本"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="灌溉：" />
+
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="成本"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="收割费:" />
+
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="成本"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <!--总投入-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="总投入:" />
+
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="￥0.00"
+                    android:singleLine="true" />
+                <!--android:singleLine="true"-->
+                <!--android:inputType="textPassword"-->
+            </LinearLayout>
+            <!--总产量-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="总产量:" />
+
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="约值"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <!--预期收益-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:hint="预期收益:" />
+
+                <EditText
+                    android:layout_width="237dp"
+                    android:layout_height="wrap_content"
+                    android:hint="自动填充"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <!--星级评价-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:hint="五星评价:" />
+
+                <RatingBar
+                    android:id="@+id/rb_ratingbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:numStars="5"
+                    android:progressTint="#47FD1E"
+                    android:rating="0"
+                    android:stepSize="0.5" />
+
+                <TextView
+                    android:id="@+id/tv_rating"
+                    android:layout_width="99dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:hint="等级"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+
+            <!--评论框-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BCDB90" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <!--android:id="@+id/et_comment"-->
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="请填写您的评价:字数不得超过50字"
+                    android:minLines="5"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#98E06B" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:background="#E7F1E7"
+                android:text="更新"
+                android:textColor="#070707"
+                android:textSize="18dp" />
+
+
+            <!--<GridView-->
+            <!--android:id="@+id/gv_budget"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:numColumns="3" />-->
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

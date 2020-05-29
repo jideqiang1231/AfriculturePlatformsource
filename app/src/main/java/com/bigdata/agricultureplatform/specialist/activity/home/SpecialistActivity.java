@@ -16,7 +16,6 @@ import butterknife.ButterKnife;
 
 public class SpecialistActivity extends Activity implements View.OnClickListener {
 
-
     @Bind(R.id.tv_sprcialist_type)
     TextView tvSprcialistType;
     @Bind(R.id.tv_sprcialist_name)
