@@ -11,6 +11,7 @@ import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.base.BaseFragment;
 import com.bigdata.agricultureplatform.home.activity.nongji.AgritechpushActivity;
 import com.bigdata.agricultureplatform.home.activity.nongshi.AgritimepushActivity;
+import com.bigdata.agricultureplatform.home.activity.zhengce.PolicypushActivity;
 import com.bigdata.agricultureplatform.home.activity.zhongzi.PushActivity;
 import com.bigdata.agricultureplatform.home.activity.SearchActivity;
 import com.bigdata.agricultureplatform.home.adapter.HomeFragmentAdapter;
@@ -68,6 +69,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         tvSearchHome.setOnClickListener(this);
         rlNongji.setOnClickListener(this);
         rlNongshi.setOnClickListener(this);
+        rlZhengce.setOnClickListener(this);
     }
     //主页点击事件，搜索，种子，农时，农技，农资，政策
     @Override
@@ -86,6 +88,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         }else if (view==rlNongshi) {
             Log.e(TAG, "点击的搜索，跳入AgritimepushActivity");
             Intent intent = new Intent(mContext, AgritimepushActivity.class);
+            mContext.startActivity(intent);
+        }else if (view==rlZhengce) {
+            Log.e(TAG, "点击的搜索，跳入PolicypushActivity");
+            Intent intent = new Intent(mContext, PolicypushActivity.class);
             mContext.startActivity(intent);
         }
     }

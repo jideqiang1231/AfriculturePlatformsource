@@ -5,7 +5,7 @@ package com.bigdata.agricultureplatform.util;
  **/
 public class Constants {
     //用户接口
-    public static String BASE_URL = "http://192.168.1.7:8080";
+    public static String BASE_URL = "http://192.168.1.196:8080";
     //
     public static String LOGIN1_URL = BASE_URL + "/users/login1";
     public static String REGISTER_URL = BASE_URL + "/users/register";
@@ -39,6 +39,7 @@ public class Constants {
     //用户农时
     public static String NONGSHIINFO_URL=BASE_URL+"/recommends/nongshilist";
 
+    public static String ZHENGCEINFO_URL=BASE_URL+"/policies/zhengceinfo";
     //注册界面种子类型获取
     public static String GETSEEDTYPE_URL=BASE_URL+"/seeds/getcropstype";
     //注册界面种子名称获取
