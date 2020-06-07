@@ -37,8 +37,8 @@
 
         <TextView
             android:id="@+id/tv_specialist_search"
-            android:layout_width="401dp"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="3dp"
             android:layout_marginRight="5dp"
@@ -89,7 +89,9 @@
 
         <TextView
             android:id="@+id/tv_specialist_policypush"
-            android:layout_width="197dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+
             android:layout_height="wrap_content"
             android:drawableTop="@drawable/specialist_policy1"
             android:drawablePadding="10dp"
@@ -98,10 +100,11 @@
             android:textColor="#5d5d5d" />
 
         <TextView
-            android:layout_width="187dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:drawableTop="@drawable/specialist_other"
             android:drawablePadding="10dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="其它"
             android:textColor="#5d5d5d" />
