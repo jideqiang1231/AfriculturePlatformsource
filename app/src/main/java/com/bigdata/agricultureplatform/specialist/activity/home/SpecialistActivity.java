@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.specialist.activity.nongji.SpeclistagritechpushActivity;
+import com.bigdata.agricultureplatform.specialist.activity.zhengce.SpecialistpolicypushActivity;
 import com.bigdata.agricultureplatform.specialist.activity.zhongzi.SpecialistseedpushActivity;
 
 import butterknife.Bind;
@@ -26,6 +27,8 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
     TextView tvSpecialistSeedpush;
     @Bind(R.id.tv_specialist_agritech_push)
     TextView tvSpecialistAgritechPush;
+    @Bind(R.id.tv_specialist_policypush)
+    TextView tvSpecialistPolicypush;
 
 
     //    private String specialistid;
@@ -53,6 +56,8 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
         tvSpecialistSeedpush.setOnClickListener(this);
         //发布农技信息点击事件
         tvSpecialistAgritechPush.setOnClickListener(this);
+        //发布政策信息点击事件
+        tvSpecialistPolicypush.setOnClickListener(this);
     }
 
     @Override
@@ -75,6 +80,11 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
             //不需要类型
             // intent.putExtra("专家的类型", specialisttype);
             intent.setClass(SpecialistActivity.this, SpeclistagritechpushActivity.class);
+            startActivity(intent);
+        }else if (view==tvSpecialistPolicypush){
+            Intent intent = new Intent();
+            intent.putExtra("专家的id", specialistid);
+            intent.setClass(SpecialistActivity.this, SpecialistpolicypushActivity.class);
             startActivity(intent);
         }
     }

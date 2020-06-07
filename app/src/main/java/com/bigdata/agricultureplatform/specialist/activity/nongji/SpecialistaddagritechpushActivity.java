@@ -53,7 +53,7 @@ public class SpecialistaddagritechpushActivity extends AppCompatActivity impleme
     TextView tvSpecialistPushinfoNongjiPushdata;
     @Bind(R.id.specialist_agritech_spinner)
     Spinner specialistAgritechSpinner;
-    private int specialistId;
+
     private SpecialistseedlistBean specialistseedlistbean;
     private List<SpecialistseedlistBean.SpecialistseedresultBean> includeseednamelist;
     private AgritechspinnerAdapter adapter;
@@ -67,7 +67,7 @@ public class SpecialistaddagritechpushActivity extends AppCompatActivity impleme
     private String pushtime;
     private String content;
     private String area;
-
+    private int specialistId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -79,8 +79,8 @@ public class ZhengceGridViewAdapter extends BaseAdapter {
 //
 //        }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //设置推送时间，用substr函数截取字符串（因为日期固定格式了）
-        viewHolder.tv_nongjipush_time.setText(policyresultBean.getPolicyTime().substring(5, 7) + "月");
+        //这里推送时间不跟农技一样，不需要截取字符串
+        viewHolder.tv_nongjipush_time.setText(policyresultBean.getPolicyTime());
         viewHolder.tv_nongjipush_name.setText(policyresultBean.getPolicyTitle());
         //viewHolder.tv_zhongzipush_type.setText(nongjiresultBean.getSpecialistId());
         viewHolder.tv_nongji_context.setText(policyresultBean.getPolicyContent());

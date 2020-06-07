@@ -88,7 +88,17 @@
         android:padding="10dp">
 
         <TextView
-            android:layout_width="208dp"
+            android:id="@+id/tv_specialist_policypush"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/specialist_policy1"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="政策"
+            android:textColor="#5d5d5d" />
+
+        <TextView
+            android:layout_width="187dp"
             android:layout_height="wrap_content"
             android:drawableTop="@drawable/specialist_other"
             android:drawablePadding="10dp"
