@@ -46,11 +46,28 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     //$$$$$$$$$$$$$$$$$$$$$$$$把创建的homefragmentadapter给拉过来
     private HomeFragmentAdapter adapter;//就叫adapter，随便起
 
+
     @Override
     public View initView() {
+
         View view = View.inflate(mContext, R.layout.fragment_home, null);
         Log.e(TAG, "主页的fragmentui被初始化了");
+        //此种加载view的方式如果不用butterknife需要写成下边的形式
+        //如果不绑定视图，listview那种需要在adpter中引用当前framement布局的形式，则会出错。
+        //应该是：//里边的
+//        View view = View.inflate(mContext, R.layout.fragment_home, null);
+//        rvHome = (RecyclerView) view.findViewById(R.id.rv_home);
+//        //注释ib_top不再实例化
+//        //ib_top = (ImageView) view.findViewById(R.id.ib_top);
+//        tv_search_home = (TextView) view.findViewById(R.id.tv_search_home);
+//        tv_message_home = (TextView) view.findViewById(R.id.tv_message_home);
+//        return view;
+       //、、 、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+         //如果使用butterknife（百度不好解决，花费时间两天）
+        //如果没用到下边这个句子使用了butterknife则会出现一个非常牛*的错误
+        //会在底下adpter引用传入值得时候出现空指针：java.lang.NullPointerException: Attempt to invoke virtual method 'void android.widget.ListView.setAdapter(android.widget.ListAdapter)' on a null object reference
         ButterKnife.bind(this, view);
+        //、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
         initListner();
         return view;
     }

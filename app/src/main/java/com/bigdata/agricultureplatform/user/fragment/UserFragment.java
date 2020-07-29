@@ -73,8 +73,6 @@ public class UserFragment extends BaseFragment {
         //tvUsercenter.setAlpha(0);
         return view;
     }
-
-
     @Override
     public void initData() {
         super.initData();
@@ -88,8 +86,5 @@ public class UserFragment extends BaseFragment {
         } else {
             tvUsername.setText(username);
         }
-
-
-
     }
 }

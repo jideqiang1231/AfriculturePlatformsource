@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".specialist.activity.nongzi.threefragment.FertilizerFragment">
+    >
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#9EE74A"
+        android:layout_height="1dp"/>
+
+    <ImageButton
+        android:id="@+id/ib_SpecialistFertilizer_addpush"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:background="@drawable/top_bar_right_addpush"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+      <ListView
+          android:id="@+id/lv_fertilizer"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+      </ListView>
+
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#82DD85" />
+
+
+    </LinearLayout>

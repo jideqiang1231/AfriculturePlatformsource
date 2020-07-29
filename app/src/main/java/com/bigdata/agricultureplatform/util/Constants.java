@@ -5,7 +5,7 @@ package com.bigdata.agricultureplatform.util;
  **/
 public class Constants {
     //用户接口
-    public static String BASE_URL = "http://192.168.1.7:8080";
+    public static String BASE_URL = "http://192.168.0.105:8080";
     //
     public static String LOGIN1_URL = BASE_URL + "/users/login1";
     public static String REGISTER_URL = BASE_URL + "/users/register";
@@ -20,8 +20,7 @@ public class Constants {
     //public static  String LOGIN_URL=BASE_URL+"/login1?userName=admin&userPass=123456";
     //后端图片的直接路径：(水稻)
     public static String ImageBASE_URL = BASE_URL + "/zhongziinfo/";
-//public static final String BASE = "http://10.0.2.2:8080";
-
+    //public static final String BASE = "http://10.0.2.2:8080";
 
     //种子图片地址
     public static String SEEDIMAGE = BASE_URL + "/seeds/zhongziimagesave";
@@ -49,5 +48,10 @@ public class Constants {
     public static String SPECIALISTZHENGCEINFO_URL = BASE_URL + "/policies/specialistpoliciesinfo";
     //专家发布政策
     public static String SPECIALISTINSETZHENGCE_URL = BASE_URL + "/policies/policyinfoinsert";
+
+    //专家的三个农资（农机、农药、化肥）
+    public static String ZHONGZI_NONGJIINFO_URL = BASE_URL + "/machines/nongjiinfo";
+    public static String ZHONGZI_NONGYAOINFO_URL = BASE_URL + "/pesticides/nongyaoinfo";
+    public static String ZHONGZI_HUAFEIINFO_URL = BASE_URL + "/fertilizers/haufeiinfo";
 
 }

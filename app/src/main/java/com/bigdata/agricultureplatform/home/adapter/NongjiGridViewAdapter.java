@@ -34,7 +34,6 @@ public class NongjiGridViewAdapter extends BaseAdapter {
         layoutInflater = LayoutInflater.from(mcontext);
         this.datas = nongjiresultBeanList;
         this.nongjicontext=mcontext;
-        //mLayoutInflater= LayoutInflater.from(seedContext);
     }
 
 

@@ -1,6 +1,8 @@
 package com.bigdata.agricultureplatform.specialist.activity.home;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,8 @@ import android.widget.TextView;
 
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.specialist.activity.nongji.SpeclistagritechpushActivity;
+import com.bigdata.agricultureplatform.specialist.activity.nongzi.SpecialistAgriSuppliesActivity;
+import com.bigdata.agricultureplatform.specialist.activity.zhengce.PolicyfilepushActivity;
 import com.bigdata.agricultureplatform.specialist.activity.zhengce.SpecialistpolicypushActivity;
 import com.bigdata.agricultureplatform.specialist.activity.zhongzi.SpecialistseedpushActivity;
 
@@ -29,6 +33,8 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
     TextView tvSpecialistAgritechPush;
     @Bind(R.id.tv_specialist_policypush)
     TextView tvSpecialistPolicypush;
+    @Bind(R.id.tv_specialist_agrisupplies_push)
+    TextView tvSpecialistAgrisuppliesPush;
 
 
     //    private String specialistid;
@@ -58,6 +64,8 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
         tvSpecialistAgritechPush.setOnClickListener(this);
         //发布政策信息点击事件
         tvSpecialistPolicypush.setOnClickListener(this);
+        //点击进入农资发布的主activity
+        tvSpecialistAgrisuppliesPush.setOnClickListener(this);
     }
 
     @Override
@@ -81,10 +89,37 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
             // intent.putExtra("专家的类型", specialisttype);
             intent.setClass(SpecialistActivity.this, SpeclistagritechpushActivity.class);
             startActivity(intent);
-        }else if (view==tvSpecialistPolicypush){
+        } else if (view == tvSpecialistPolicypush) {
+
+          new AlertDialog.Builder(this)
+                  .setTitle("请选择下边两种推送模式")
+                  .setNegativeButton("文字形式发送", new DialogInterface.OnClickListener() {
+                      @Override
+                      public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent();
+                        intent.putExtra("专家的id", specialistid);
+                        intent.setClass(SpecialistActivity.this, SpecialistpolicypushActivity.class);
+                        startActivity(intent);
+                      }
+                  })
+                  .setPositiveButton("文件形式发送", new DialogInterface.OnClickListener() {
+                      @Override
+                      public void onClick(DialogInterface dialogInterface, int i) {
+                          Intent intent = new Intent();
+                          intent.putExtra("专家的id", specialistid);
+                          intent.setClass(SpecialistActivity.this, PolicyfilepushActivity.class);
+                          startActivity(intent);
+
+                      }
+                  })
+                  .create()
+                  .show();
+
+
+        } else if (view == tvSpecialistAgrisuppliesPush) {
             Intent intent = new Intent();
             intent.putExtra("专家的id", specialistid);
-            intent.setClass(SpecialistActivity.this, SpecialistpolicypushActivity.class);
+            intent.setClass(SpecialistActivity.this, SpecialistAgriSuppliesActivity.class);
             startActivity(intent);
         }
     }

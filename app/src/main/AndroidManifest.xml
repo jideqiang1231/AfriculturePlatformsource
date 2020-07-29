@@ -23,7 +23,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".specialist.activity.zhengce.SpecialistaddpolicypushActivity"></activity>
+        <activity android:name=".specialist.activity.zhengce.PolicyfileaddpushActivity"></activity>
+        <activity android:name=".specialist.activity.zhengce.PolicyfilepushActivity" />
+        <activity android:name=".specialist.activity.nongzi.SpecialistAgriSuppliesActivity" />
+        <activity android:name=".specialist.activity.zhengce.SpecialistaddpolicypushActivity" />
         <activity android:name=".specialist.activity.zhengce.SpecialistpolicypushActivity" />
         <activity android:name=".home.activity.zhengce.PoclicyinfoActivity" />
         <activity android:name=".home.activity.zhengce.PolicypushActivity" />
