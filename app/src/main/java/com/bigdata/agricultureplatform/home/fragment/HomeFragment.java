@@ -11,6 +11,7 @@ import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.base.BaseFragment;
 import com.bigdata.agricultureplatform.home.activity.nongji.AgritechpushActivity;
 import com.bigdata.agricultureplatform.home.activity.nongshi.AgritimepushActivity;
+import com.bigdata.agricultureplatform.home.activity.nongzi.AgrisuppliesActivity;
 import com.bigdata.agricultureplatform.home.activity.zhengce.PolicypushActivity;
 import com.bigdata.agricultureplatform.home.activity.zhongzi.PushActivity;
 import com.bigdata.agricultureplatform.home.activity.SearchActivity;
@@ -62,6 +63,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 //        tv_search_home = (TextView) view.findViewById(R.id.tv_search_home);
 //        tv_message_home = (TextView) view.findViewById(R.id.tv_message_home);
 //        return view;
+
        //、、 、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
          //如果使用butterknife（百度不好解决，花费时间两天）
         //如果没用到下边这个句子使用了butterknife则会出现一个非常牛*的错误
@@ -73,13 +75,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void initListner() {
-        //回到顶部设置
-//        rbback.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                rvHome.scrollToPosition(0);
-//            }
-//        });
         //顶部搜索
         rlZhongzi.setOnClickListener(this);
         //推送点击事件
@@ -87,6 +82,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         rlNongji.setOnClickListener(this);
         rlNongshi.setOnClickListener(this);
         rlZhengce.setOnClickListener(this);
+        rlNongzi.setOnClickListener(this);
     }
     //主页点击事件，搜索，种子，农时，农技，农资，政策
     @Override
@@ -110,6 +106,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             Log.e(TAG, "点击的搜索，跳入PolicypushActivity");
             Intent intent = new Intent(mContext, PolicypushActivity.class);
             mContext.startActivity(intent);
+        }else if (view==rlNongzi) {
+            Log.e(TAG, "点击的搜索，跳入AgrisuppliesActivity");
+            Intent intent = new Intent(mContext, AgrisuppliesActivity.class);
+            mContext.startActivity(intent);
         }
     }
     //注意：联网需要加权限
@@ -122,8 +122,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         //抽取方法，联网的
         //    getDataFromNet();
     }
-
-
 //
 //    //被抽取的联网okhttputils方法，在initdata里面调用
 //    private void getDataFromNet() {

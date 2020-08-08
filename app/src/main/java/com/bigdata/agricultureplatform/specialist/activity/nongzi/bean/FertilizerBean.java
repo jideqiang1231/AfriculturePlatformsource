@@ -32,25 +32,6 @@ public class FertilizerBean {
     }
 
     public static class FertilizerServiceresultBean {
-        /**
-         * fertilizerId : 1
-         * fertilizerName : 尿素
-         * fertilizerType : 1
-         * fertilizerN : 46%
-         * fertilizerP : 0
-         * fertilizerK : 0
-         * fertilizerOther : 0
-         * fertilizerInstructions : 追肥
-         * fertilizerPrice : 80.0
-         * fertilizerManufacturer : 宁夏化肥厂
-         * fertilizerPhone : 1802255
-         * fertilizerAddress : 怀远市场
-         * fertilizerProductiondate : 2019-11-16
-         * fertilizerShelflife : 1
-         * fertilizerModeratecrop : 水稻
-         * recommendData : 2020-07-17
-         */
-
         private int fertilizerId;
         private String fertilizerName;
         private int fertilizerType;

@@ -61,7 +61,6 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
             if (TextUtils.isEmpty(specialist_name) || TextUtils.isEmpty(specialist_pass)) {
                 Toast.makeText(this, "用户名密码不能为空", Toast.LENGTH_LONG).show();
             } else {
-                //Toast.makeText(this, user_name+user_pass,Toast.LENGTH_LONG).show();
                 //初始化数据，点击登录获取后台数据
                 initLoginData();
 
@@ -81,29 +80,18 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
         OkHttpUtils
                 .post()
                 .url(url)
-                //先干掉
                 .addParams("specialistName", specialist_name)
                 .addParams("specialistPass", specialist_pass)
                 .build()
                 .execute(new StringCallback() {
-                    /*
-                     * 当请求失败的时候回调，打
-                     */
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         Log.e(TAG, "登录数据请求数据失败==" + e.getMessage());
                     }
 
-                    /*当联网成功回调，这里的
-                    @param response表示成功请求的数据，
-                    @param id 区分http100和https101
-                    */
                     @Override
                     public void onResponse(String response, int id) {
-                        //请求成功打印
-                        Log.e(TAG, "专家登录数据请求数据成功==" + response);
-                        //22222222222222222222222222请求完数据，需要解析
-                        //抽出出来一个方法，传入response
+
                         loginprocessData(response);
                         if (specialistloginBean.getMsg().equals("登录失败")) {
                             Toast.makeText(getBaseContext(), "用户名密码错误", Toast.LENGTH_LONG).show();
@@ -111,7 +99,6 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
 
                             Intent intent = new Intent();
                             intent.setClass(SpecialistloginActivity.this, SpecialistActivity.class);
-//                             向着专家界面传值specialistacitvity
                             //注意putExtra和putExtras方法的区别.
                             intent.putExtra("专家姓名", specialistloginresultBean.getSpecialistName());
                             intent.putExtra("专家类型", specialistloginresultBean.getSpecialistType());
@@ -121,8 +108,7 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
                             finish();
                         }
                     }
-//                    这是github中的方法，已经过时了，提示的implementmethod生成了上边的这两个
-//                    @Overridepublic void onError(Request request, Exception e){ }@Overridepublic void onResponse(String response){ }
+
                 });
     }
 

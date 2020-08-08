@@ -23,7 +23,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".specialist.activity.zhengce.PolicyfileaddpushActivity"></activity>
+        <activity android:name=".home.activity.nongzi.nongziinfoActivity.FertilizerinfoActivity"></activity>
+        <activity android:name=".home.activity.nongzi.nongziinfoActivity.PesticideinfoActivity" />
+        <activity android:name=".home.activity.nongzi.nongziinfoActivity.MachineinfoActivity" />
+        <activity android:name=".home.activity.nongzi.AgrisuppliesActivity" />
+        <activity android:name=".specialist.activity.nongzi.threeactivity.PesticideAddActivity" />
+        <activity android:name=".specialist.activity.nongzi.threeactivity.FertilizerAddActivity" />
+        <activity android:name=".specialist.activity.nongzi.threeactivity.MachineAddActivity" />
+        <activity android:name=".specialist.activity.zhengce.PolicyfileaddpushActivity" />
         <activity android:name=".specialist.activity.zhengce.PolicyfilepushActivity" />
         <activity android:name=".specialist.activity.nongzi.SpecialistAgriSuppliesActivity" />
         <activity android:name=".specialist.activity.zhengce.SpecialistaddpolicypushActivity" />

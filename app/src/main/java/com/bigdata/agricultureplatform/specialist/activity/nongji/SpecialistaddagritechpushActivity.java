@@ -61,9 +61,8 @@ public class SpecialistaddagritechpushActivity extends AppCompatActivity impleme
     //日期时间的选择
     TimePickerDialog mDialogYearMonthDay1;
     SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-    //用于接受下拉框里种子名称，向后端插入
+    //下拉框里种子名称、时间，内容，区域的值
     private String Spinneritem_seedname;
-    //接受时间，内容，区域的值
     private String pushtime;
     private String content;
     private String area;
@@ -121,7 +120,7 @@ public class SpecialistaddagritechpushActivity extends AppCompatActivity impleme
                                 //数据必须用bean对象接受
                                 SpecialistseedlistBean.SpecialistseedresultBean specialistseedresultBean= (SpecialistseedlistBean.SpecialistseedresultBean) adapterView.getSelectedItem();
                                 Spinneritem_seedname=specialistseedresultBean.getSeedName();
-                                Log.e(TAG,"看看这次请求怎么样"+specialistseedresultBean.getSeedName());
+                                Log.e(TAG,"请求结果"+specialistseedresultBean.getSeedName());
                             }
                             @Override
                             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -147,18 +146,14 @@ public class SpecialistaddagritechpushActivity extends AppCompatActivity impleme
                 finish();
                 break;
             case R.id.tv_specialist_pushinfo_nongji_pushdata:
-                //使用这个别人的库需要继承appcompastActivity
+                //使用这个别人的库需要继承appcompatActivity
                 mDialogYearMonthDay1.show(getSupportFragmentManager(), "year_month_day");
                 break;
             case R.id.b_specialist_nongji_pushinfo_submit:
                 content=etSpecialistNongjiPushinfoIntroduce.getText().toString();
                 area=etSpecialistNongjiPushinfoPusharea.getText().toString();
                 //一共要传输下面五个值，不要为空
-                //specialistId
-                //Spinneritem_seedname
-                //pushtime
-                //content
-                //area
+                //specialistId、Spinneritem_seedname、pushtime、content、area
                 if (TextUtils.isEmpty(Spinneritem_seedname)
                         || TextUtils.isEmpty(pushtime)
                         || TextUtils.isEmpty(content)
@@ -169,7 +164,6 @@ public class SpecialistaddagritechpushActivity extends AppCompatActivity impleme
                     OkHttpUtils
                             .post()
                             .url(url)
-                            //先干掉
                             .addParams("specialistId", String.valueOf(specialistId))
                             .addParams("seedName", Spinneritem_seedname)
                             .addParams("recommendTime", pushtime)

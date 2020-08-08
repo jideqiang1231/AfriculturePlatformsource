@@ -77,7 +77,6 @@ public class SpecialistaddpolicypushActivity extends Activity implements View.On
                     OkHttpUtils
                             .post()
                             .url(url)
-                            //先干掉
                             .addParams("specialistId", String.valueOf(specialistId))
                             .addParams("policyTitle", policytitle)
                             .addParams("policyTime", nowdate)

@@ -11,17 +11,30 @@
         android:layout_width="match_parent"
         android:background="#9EE74A"
         android:layout_height="1dp"/>
-    <!--用于接受登录的用户信息-->
-    <ImageButton
-        android:id="@+id/ib_SpecialistPesticide_addpush"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_gravity="center"
-        android:background="@drawable/top_bar_right_addpush"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/ib_addpesticide_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/top_bar_left_back"
+            android:gravity="center" />
+
+        <ImageButton
+            android:id="@+id/ib_SpecialistPesticide_addpush"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:background="@drawable/top_bar_right_addpush"/>
+    </RelativeLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

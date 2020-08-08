@@ -144,7 +144,7 @@ public class SpecialistaddpushActivity extends AppCompatActivity implements View
         Log.e("TAG", specialistType);
         ///////先把能放的参数设置上（专家的id,type到时候直接okhttp发送）///////////
         tvSpecialistPushinfoType.setText(specialistType);
-        ////////////////////////////////////////////////////////////////
+
         ibSpecialistAddpushinfoBack.setOnClickListener(this);
         ibSpecialistPushinfoPhoto.setOnClickListener(this);
         ibSpecialistPushinfoCamera.setOnClickListener(this);
@@ -182,7 +182,7 @@ public class SpecialistaddpushActivity extends AppCompatActivity implements View
                 e.printStackTrace();
             }
             //将File对象转换为Uri并启动照相程序
-            //    imageUri = Uri.fromFile(outputImage);
+
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
                     imageUri = FileUtils.getUriForFile(SpecialistaddpushActivity.this, outputImage);

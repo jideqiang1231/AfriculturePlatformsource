@@ -1,7 +1,7 @@
 package com.bigdata.agricultureplatform.specialist.activity.nongzi.threefragment;
 
 
-import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,8 +12,9 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.bigdata.agricultureplatform.R;
 import com.bigdata.agricultureplatform.base.BaseFragment;
-import com.bigdata.agricultureplatform.specialist.activity.nongzi.MachineviewAdapter;
 import com.bigdata.agricultureplatform.specialist.activity.nongzi.bean.MachineBean;
+import com.bigdata.agricultureplatform.specialist.activity.nongzi.threeactivity.MachineAddActivity;
+import com.bigdata.agricultureplatform.specialist.activity.nongzi.threeadapter.MachineviewAdapter;
 import com.bigdata.agricultureplatform.util.Constants;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -29,11 +30,13 @@ import static android.content.ContentValues.TAG;
 /**
  * @description：$des$ 农机first
  **/
-public class MachineFragment extends BaseFragment {
+public class MachineFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.ib_SpecialistMachine_addpush)
     ImageButton ibSpecialistMachineAddpush;
     @Bind(android.R.id.list)
     ListView list;
+    @Bind(R.id.ib_addagrimachine_back)
+    ImageButton ibAddagrimachineBack;
 
     private List<MachineBean.AgrimachineresultBean> agrimachinesultBeanList;
     private MachineviewAdapter adapter;
@@ -41,10 +44,11 @@ public class MachineFragment extends BaseFragment {
     @Override
     public View initView() {
         View view = View.inflate(mContext, R.layout.fragment_machine, null);
-       //如果没用到下边这个句子使用了butterknife则会出现一个非常牛*的错误
+        //如果没用到下边这个句子使用了butterknife则会出现一个非常牛*的错误
         //会在底下adpter引用传入值得时候出现空指针：java.lang.NullPointerException: Attempt to invoke virtual method 'void android.widget.ListView.setAdapter(android.widget.ListAdapter)' on a null object reference
-
         ButterKnife.bind(this, view);
+        ibSpecialistMachineAddpush.setOnClickListener(this);
+        ibAddagrimachineBack.setOnClickListener(this);
         return view;
     }
 
@@ -58,7 +62,7 @@ public class MachineFragment extends BaseFragment {
     }
 
     private void initNongJiData() {
-        String url = Constants.ZHONGZI_NONGJIINFO_URL;
+        String url = Constants.NONGZI_NONGJIINFO_URL;
         OkHttpUtils
                 .get()
                 .url(url)
@@ -140,4 +144,13 @@ public class MachineFragment extends BaseFragment {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        if (view == ibSpecialistMachineAddpush) {
+            Intent intent = new Intent(getActivity(), MachineAddActivity.class);
+            startActivity(intent);
+        }else if (view==ibAddagrimachineBack){
+            getActivity().finish();
+        }
+    }
 }

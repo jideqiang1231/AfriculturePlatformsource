@@ -5,13 +5,12 @@ package com.bigdata.agricultureplatform.util;
  **/
 public class Constants {
     //用户接口
-    public static String BASE_URL = "http://192.168.0.105:8080";
+    public static String BASE_URL = "http://192.168.0.4:8888";
     //
     public static String LOGIN1_URL = BASE_URL + "/users/login1";
     public static String REGISTER_URL = BASE_URL + "/users/register";
     //专家登录
     public static String SPECIALISTLOGIN_URL = BASE_URL + "/specialists/login";
-
     //种子信息获取
     public static String ZHONGZIINFO_URL = BASE_URL + "/seeds/zhongziinfo";
     //根据专家id获取种子信息得
@@ -49,9 +48,12 @@ public class Constants {
     //专家发布政策
     public static String SPECIALISTINSETZHENGCE_URL = BASE_URL + "/policies/policyinfoinsert";
 
-    //专家的三个农资（农机、农药、化肥）
-    public static String ZHONGZI_NONGJIINFO_URL = BASE_URL + "/machines/nongjiinfo";
-    public static String ZHONGZI_NONGYAOINFO_URL = BASE_URL + "/pesticides/nongyaoinfo";
-    public static String ZHONGZI_HUAFEIINFO_URL = BASE_URL + "/fertilizers/haufeiinfo";
-
+    //专家的三个农资（农机、农药、化肥）查找
+    public static String NONGZI_NONGJIINFO_URL = BASE_URL + "/machines/nongjiinfo";
+    public static String NONGZI_NONGYAOINFO_URL = BASE_URL + "/pesticides/nongyaoinfo";
+    public static String NONGZI_HUAFEIINFO_URL = BASE_URL + "/fertilizers/haufeiinfo";
+   //专家的三个农资（农机、农药、化肥）发布
+    public static String NONGZI_INSERTNONGJIINFO_URL = BASE_URL + "/machines/agrimachineinfoinsert";
+    public static String NONGZI_INSERTNONGYAOINFO_URL = BASE_URL + "/pesticides/pesticideinfoinsert";
+    public static String NONGZI_INSERTHUAFEIINFO_URL = BASE_URL + "/fertilizers/fertilizerinfoinsert";
 }

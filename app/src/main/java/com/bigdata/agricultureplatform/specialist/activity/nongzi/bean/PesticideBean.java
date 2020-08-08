@@ -31,27 +31,6 @@ public class PesticideBean {
     }
 
     public static class PesticidesresultBean {
-        /**
-         * pesticideId : 1
-         * pesticideName : 稻杰
-         * pesticideComposition : 五氟磺草胺
-         * pesticideDosage : 乳油
-         * pesticideContent : 25克/L
-         * pesticidePredisease : 防治稗草、阔叶草、莎草等主要杂草
-         * pesticideInstructions : 喷雾 40～80毫升/亩，采用喷雾法施药。
-         * pesticidePrice : 80.0
-         * pesticideManufacturer : PD20170671
-         * pesticideLicensenumber : 陶氏化学公司
-         * pesticideAddress : 2019-11-16 21:21:36
-         * pesticideProductiondate : 2020-03-20
-         * pesticideModeratecrop : 水稻
-         * pesticideVirulence : 内吸光谱性
-         * pesticideNote : 低毒
-         * pesticidePhone : 123456
-         * pesticideShelflife : 2
-         * recommendData : 2020-07-16
-         */
-
         private int pesticideId;
         private String pesticideName;
         private String pesticideComposition;

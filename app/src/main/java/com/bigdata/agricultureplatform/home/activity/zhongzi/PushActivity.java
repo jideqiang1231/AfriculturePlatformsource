@@ -47,18 +47,8 @@ public class PushActivity extends Activity implements View.OnClickListener {
         ButterKnife.bind(this);
         ibZhongzipushBack.setOnClickListener(this);
         //1.首先定义在view上定义一个viewadpter，并且像其构造方法中传递上下文及数据
-        initZhongziData();
-        //adpter和对应的数据传输都放到获取数据内部
-    }
-    //启动种子详细信息界面
-    //*************************************************************
-    //这中抽取的方法在其它的activity中可以调用。
-    //*************************************************************
-//    private void startseedinfoActivity(SeedinfoBean seedinfoBean) {
-
-//    }
-    private void initZhongziData() {
         getZhongziDataFormat();
+        //adpter和对应的数据传输都放到获取数据内部
     }
 
     private void getZhongziDataFormat() {
@@ -66,9 +56,6 @@ public class PushActivity extends Activity implements View.OnClickListener {
         OkHttpUtils
                 .get()
                 .url(url)
-//先干掉
-//                .addParams("userName", user_name)
-//                .addParams("userPass", user_pass)
                 .build()
                 .execute(new StringCallback() {
                     /*
@@ -145,7 +132,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
         //打印第一条种子数据的name
         Log.e(TAG,"数组显示用.get0"+seedresultBeanList.get(0).getSeedName());
 
-//哎全废了，白浪费两个小时，基础知识很重要，
+//       全废了，浪费两个小时，基础知识很重要，
 //        if (!TextUtils.isEmpty(jsonarray)) {
 //        JSONObject jsonObject = JSON.parseObject(jsonarray);
 //        String msg=jsonObject.getString("msg");

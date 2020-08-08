@@ -32,18 +32,6 @@ public class MachineBean {
     }
 
     public static class AgrimachineresultBean {
-        /**
-         * machineId : 1
-         * machineName : 拖拉机
-         * machineFunction : 犁地、旋耕
-         * machineManufacturer : 宁夏
-         * machinePhone : 158235523
-         * machinePrice : 50.0
-         * machineAddress : 怀远市场
-         * machineType : LF453
-         * recommendData : 2020-07-23
-         */
-
         private int machineId;
         private String machineName;
         private String machineFunction;

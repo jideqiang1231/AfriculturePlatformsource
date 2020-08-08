@@ -58,13 +58,10 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
         tvSprcialistType.setText(specialisttype);
 
         Log.e("TAG", String.valueOf(specialistid));
-        //监听事件，专家发布信息列表跳转
+        //种子，农技，政策，农资
         tvSpecialistSeedpush.setOnClickListener(this);
-        //发布农技信息点击事件
         tvSpecialistAgritechPush.setOnClickListener(this);
-        //发布政策信息点击事件
         tvSpecialistPolicypush.setOnClickListener(this);
-        //点击进入农资发布的主activity
         tvSpecialistAgrisuppliesPush.setOnClickListener(this);
     }
 
@@ -80,17 +77,14 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
             intent.setClass(SpecialistActivity.this, SpecialistseedpushActivity.class);
             startActivity(intent);
         } else if (view == tvSpecialistAgritechPush) {
-//            Intent intent = new Intent(this, SpeclistagritechpushActivity.class);
-//            startActivity(intent);
+
             //同上传入专家的id
             Intent intent = new Intent();
             intent.putExtra("专家的id", specialistid);
-            //不需要类型
-            // intent.putExtra("专家的类型", specialisttype);
+
             intent.setClass(SpecialistActivity.this, SpeclistagritechpushActivity.class);
             startActivity(intent);
         } else if (view == tvSpecialistPolicypush) {
-
           new AlertDialog.Builder(this)
                   .setTitle("请选择下边两种推送模式")
                   .setNegativeButton("文字形式发送", new DialogInterface.OnClickListener() {
@@ -114,8 +108,6 @@ public class SpecialistActivity extends Activity implements View.OnClickListener
                   })
                   .create()
                   .show();
-
-
         } else if (view == tvSpecialistAgrisuppliesPush) {
             Intent intent = new Intent();
             intent.putExtra("专家的id", specialistid);

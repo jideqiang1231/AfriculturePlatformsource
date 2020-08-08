@@ -49,7 +49,6 @@ public class SpecialistAgriSuppliesActivity extends FragmentActivity {
         setContentView(R.layout.activity_specialist_agri_supplies);
         ButterKnife.bind(this);
         initFragment();
-        //设置videogroup的监听
         initListener();
     }
 
@@ -63,15 +62,6 @@ public class SpecialistAgriSuppliesActivity extends FragmentActivity {
                         break;
                     case R.id.rb_nongyao://农药
                         position=1;
-                        //像我的田传递用户信息username
-//                        MyfieldinfoFragment myfieldinfoFragment = new MyfieldinfoFragment();
-//                        Bundle bundle = new Bundle();
-//                        bundle.putString("username",userName);
-//                        myfieldinfoFragment.setArguments(bundle);//数据传递到fragment中
-//                        FragmentManager fragmentManager = getSupportFragmentManager();
-//                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                        fragmentTransaction.replace(R.id.frameLayout,myfieldinfoFragment);
-//                        fragmentTransaction.commit();
                         break;
                     case R.id.rb_huafei://化肥
                         position=2;
@@ -81,10 +71,7 @@ public class SpecialistAgriSuppliesActivity extends FragmentActivity {
                         position=0;
                         break;
                 }
-//                根据位置得到对应的fragment；//这里的fragment激素hi当前点击的fragment
                 BaseFragment baseFragment=getFragment(position);
-                //第一个参数是上一次显示的fragment，第二个是当前的
-
                 switchFragment(tempFragment,baseFragment);
             }
         });
@@ -96,7 +83,6 @@ public class SpecialistAgriSuppliesActivity extends FragmentActivity {
         fragments.add(new MachineFragment());
         fragments.add(new PesticideFragment());
         fragments.add(new FertilizerFragment());
-
     }
     private BaseFragment getFragment(int position){
         if (fragments!=null&&fragments.size()>0){

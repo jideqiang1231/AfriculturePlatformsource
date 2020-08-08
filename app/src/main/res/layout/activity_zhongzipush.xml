@@ -33,7 +33,7 @@
     <GridView
         android:id="@+id/gv_zhongzipush"
         android:layout_width="match_parent"
-        android:numColumns="1"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:numColumns="1" />
 
 </LinearLayout>
