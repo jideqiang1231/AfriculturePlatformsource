@@ -1,5 +1,6 @@
 package com.bigdata.agricultureplatform.home.activity.nongzi.nongziinfoActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ import com.bigdata.agricultureplatform.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MachineinfoActivity extends AppCompatActivity implements View.OnClickListener {
+public class MachineinfoActivity extends Activity implements View.OnClickListener {
 
     @Bind(R.id.ib_back)
     ImageButton ibBack;

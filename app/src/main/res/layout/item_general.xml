@@ -4,58 +4,45 @@
     android:layout_height="100dp"
     android:layout_margin="0dp"
     android:background="#fff"
-    android:gravity="center"
     android:orientation="horizontal">
 
 
     <LinearLayout
-        android:layout_width="128dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="137dp"
-            android:layout_height="51dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="名称"
-            android:textColor="#000"
-            android:textSize="25dp" />
-
-        <TextView
-            android:id="@+id/tv_adapterCrop"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="适种作物"
-            android:textColor="#92000000"
-            android:textSize="18dp" />
+            android:text="名称"
+            android:background="@drawable/policy_file"
+            android:textColor="#000"
+            android:textSize="25dp" />
 
 
     </LinearLayout>
 
 
     <TextView
-        android:id="@+id/tv_function"
-        android:layout_width="136dp"
+        android:id="@+id/tv_content"
+        android:layout_width="141dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:ellipsize="end"
         android:gravity="center"
         android:lines="1"
         android:padding="10dp"
-        android:text="用法、作用"
+        android:text="内容"
         android:textColor="#F8000000"
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/tv_push_time"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_time"
+        android:layout_width="144dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:ellipsize="end"
@@ -64,6 +51,6 @@
         android:padding="10dp"
         android:text="推送时间"
         android:textColor="#F8000000"
-        android:textSize="18dp" />
+        android:textSize="10dp" />
 
 </LinearLayout>

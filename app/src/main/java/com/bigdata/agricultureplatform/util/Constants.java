@@ -47,6 +47,8 @@ public class Constants {
     public static String SPECIALISTZHENGCEINFO_URL = BASE_URL + "/policies/specialistpoliciesinfo";
     //专家发布政策
     public static String SPECIALISTINSETZHENGCE_URL = BASE_URL + "/policies/policyinfoinsert";
+    //政策文件浏览
+    public static String ZHENGCEWENJIANINFO_URL = BASE_URL + "/policyfiles/policyfileinfo";
 
     //专家的三个农资（农机、农药、化肥）查找
     public static String NONGZI_NONGJIINFO_URL = BASE_URL + "/machines/nongjiinfo";
