@@ -211,12 +211,10 @@ public class SpecialistaddpushActivity extends AppCompatActivity implements View
             Intent intent = new Intent(Intent.ACTION_PICK);
             intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
             startActivityForResult(intent, SELECT_PIC);
-
         } else if (view == bSpecialistPushinfoSubmitpush) { //点击提交功能插入图片
             if (ivSpecialistPushinfoImage.getDrawable() == null || TextUtils.isEmpty(filename) || !outputImage.exists() || outputImage.length() == 0) {
                 Toast.makeText(SpecialistaddpushActivity.this, "内容不能为空偶", Toast.LENGTH_SHORT);
             } else {
-
                 Map<String, String> params = null;
                 //这里的ouloadimage是后端要get的表示，filename是咱这个名称，也要用到outputimage是这个image文件地址
                 OkHttpUtils.post()//*************************由于此处是根据专家的类型起的后端文件名字，所以，涉及到专家注册的时候，类型不能错，包括多一个少一个空格。

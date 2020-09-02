@@ -33,10 +33,8 @@ public class NongjiGridViewAdapter extends BaseAdapter {
         //注释原来的context
         layoutInflater = LayoutInflater.from(mcontext);
         this.datas = nongjiresultBeanList;
-        this.nongjicontext=mcontext;
+        this.nongjicontext = mcontext;
     }
-
-
 
 
     @Override
@@ -57,7 +55,7 @@ public class NongjiGridViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //6设置完viewholde之后定义出来
-        ViewHolder viewHolder=null;
+        ViewHolder viewHolder = null;
         //4.绑定试图
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.item_nongjipush_gridview, null);
@@ -65,11 +63,11 @@ public class NongjiGridViewAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             //种子图片注释
             //viewHolder.iv_nongjipush_image = convertView.findViewById(R.id.iv_nongjipush_image);
-            viewHolder.tv_nongjipush_name =  convertView.findViewById(R.id.tv_nongjipush_name);
+            viewHolder.tv_nongjipush_name = convertView.findViewById(R.id.tv_nongjipush_name);
             //种子类型先不要
-            viewHolder.tv_nongjipush_time=convertView.findViewById(R.id.tv_nongjipush_time);
+            viewHolder.tv_nongjipush_time = convertView.findViewById(R.id.tv_nongjipush_time);
             //viewHolder.tv_nongjipush_type =  convertView.findViewById(R.id.tv_nongjipush_type);
-            viewHolder.tv_nongji_context =  convertView.findViewById(R.id.tv_nongji_context);
+            viewHolder.tv_nongji_context = convertView.findViewById(R.id.tv_nongji_context);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -90,13 +88,14 @@ public class NongjiGridViewAdapter extends BaseAdapter {
 //        }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
         //设置推送时间，用substr函数截取字符串（因为日期固定格式了）
-        viewHolder.tv_nongjipush_time.setText(nongjiresultBean.getRecommendTime().substring(5,7)+"月");
+        viewHolder.tv_nongjipush_time.setText(nongjiresultBean.getRecommendTime().substring(5, 7) + "月");
         viewHolder.tv_nongjipush_name.setText(nongjiresultBean.getSeedName());
         //viewHolder.tv_zhongzipush_type.setText(nongjiresultBean.getSpecialistId());
         viewHolder.tv_nongji_context.setText(nongjiresultBean.getRecommendContent());
         return convertView;
     }
-    static class ViewHolder{
+
+    static class ViewHolder {
         //种子图片先不要
 //        ImageView iv_nongjipush_image;
         TextView tv_nongjipush_name;

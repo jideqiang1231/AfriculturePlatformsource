@@ -121,7 +121,7 @@ public class PolicypushActivity extends Activity implements View.OnClickListener
     public void onClick(View view) {
         if (view == ibPolicyPushBack) {
             finish();
-        } else if (view ==ibPostfileinfo) {
+        } else if (view == ibPostfileinfo) {
             Intent intent = new Intent(PolicypushActivity.this, PolicyfileActivity.class);
             startActivity(intent);
         }

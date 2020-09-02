@@ -71,7 +71,10 @@ public class PolicyfilepushActivity extends Activity implements View.OnClickList
                         lvPolicyfilePush.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                                Toast.makeText(PolicyfilepushActivity.this,"position"+position,Toast.LENGTH_SHORT).show();
+
+                              //  Toast.makeText(PolicyfilepushActivity.this,"position"+position,Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PolicyfilepushActivity.this,"专家还没有下载功能",Toast.LENGTH_SHORT).show();
+
                                 PolicyfileBean.PolicyfileresultBean policyfileresultBean=policyfileList.get(position);
                             }
                         });
@@ -83,7 +86,7 @@ public class PolicyfilepushActivity extends Activity implements View.OnClickList
     private void policyfileinfoprogress(String response) {
         policyfileinfobean= JSON.parseObject(response, PolicyfileBean.class);
         policyfileList=policyfileinfobean.getPolicyfileresult();
-        Log.e(TAG,"数组显示用.get0"+policyfileList.get(0).getPolicyfileTopic());
+        Log.e(TAG,"数组显示用.get0"+policyfileList.get(0).getPolicyfileLocation());
     }
     @Override
     public void onClick(View view) {

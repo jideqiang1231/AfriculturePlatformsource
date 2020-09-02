@@ -1,6 +1,7 @@
 package com.bigdata.agricultureplatform.home.activity.zhengce;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -55,35 +56,40 @@ public class PolicyfileActivity extends Activity implements View.OnClickListener
                     public void onError(Call call, Exception e, int id) {
                         Log.e(TAG, "政策文件获取失败了==" + e.getMessage());
                     }
+
                     @Override
                     public void onResponse(String response, int id) {
                         //解析数据
                         policyfileinfoprogress(response);
                         //设置adatper往视图放数据
-                        adapter = new PolicyfileAdapter(PolicyfileActivity.this,policyfileList);
+                        adapter = new PolicyfileAdapter(PolicyfileActivity.this, policyfileList);
                         gvPolicyfile.setAdapter(adapter);
                         //为每一项设置点击事件
                         gvPolicyfile.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                                Toast.makeText(PolicyfileActivity.this,"position"+position,Toast.LENGTH_SHORT).show();
-                                PolicyfileBean.PolicyfileresultBean policyfileresultBean=policyfileList.get(position);
+                                Toast.makeText(PolicyfileActivity.this, "position" + position, Toast.LENGTH_SHORT).show();
+                                PolicyfileBean.PolicyfileresultBean policyfileresultBean = policyfileList.get(position);
+                                Intent intent = new Intent();
+                                intent.setClass(PolicyfileActivity.this, PolicyfiledownloadActivity.class);
+                                intent.putExtra("文件位置/名称", policyfileresultBean.getPolicyfileLocation());
+                                startActivity(intent);
                             }
                         });
                     }
                 });
 
     }
-//处理数据
+    //处理数据
     private void policyfileinfoprogress(String response) {
-        policyfileinfobean= JSON.parseObject(response, PolicyfileBean.class);
-        policyfileList=policyfileinfobean.getPolicyfileresult();
-        Log.e(TAG,"数组显示用.get0"+policyfileList.get(0).getPolicyfileTopic());
+        policyfileinfobean = JSON.parseObject(response, PolicyfileBean.class);
+        policyfileList = policyfileinfobean.getPolicyfileresult();
+        Log.e(TAG, "数组显示用.get0" + policyfileList.get(0).getPolicyfileLocation());
     }
 
     @Override
     public void onClick(View view) {
-        if (view==ibBack){
+        if (view == ibBack) {
             finish();
         }
     }

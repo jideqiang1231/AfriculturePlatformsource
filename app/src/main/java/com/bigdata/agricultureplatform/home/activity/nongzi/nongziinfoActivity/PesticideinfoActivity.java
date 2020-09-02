@@ -49,26 +49,26 @@ public class PesticideinfoActivity extends Activity implements View.OnClickListe
         String productdate = intent.getStringExtra("生产日期");
         String shildlife = intent.getStringExtra("保质期");
         tvName.setText(name);
-        tvFunction.setText(instruction+dose);
+        tvFunction.setText(instruction + dose);
         tvInstruction.setText(
                 "组成成分与含量:"
-                        +compsition+"，"+content
-                        +"/n"+"适种作物："+"/r/n"+pesticide
-                        +"/n"+"毒性："+"/r/n"+modercrop
-                        +"/n"+"登记号："+"/r/n"+licencenumber
-                        +"/r/n"+"生产商："+"/n"+manufacture
-                        +"/n"+"地址："+"/n"+adress
-                        +"/n"+"联系方式："+"/n"+phone
-                        +"/n"+"价格："+"/n"+price
-                        +"/n"+"注意事项："+"/n"+note
-                        +"/n"+"生产日期："+"/n"+productdate
-                        +"/n"+"保质期："+"/n"+shildlife
+                        + compsition + "，" + content
+                        + "/n" + "适种作物：" + "/r/n" + pesticide
+                        + "/n" + "毒性：" + "/r/n" + modercrop
+                        + "/n" + "登记号：" + "/r/n" + licencenumber
+                        + "/r/n" + "生产商：" + "/n" + manufacture
+                        + "/n" + "地址：" + "/n" + adress
+                        + "/n" + "联系方式：" + "/n" + phone
+                        + "/n" + "价格：" + "/n" + price
+                        + "/n" + "注意事项：" + "/n" + note
+                        + "/n" + "生产日期：" + "/n" + productdate
+                        + "/n" + "保质期：" + "/n" + shildlife
         );
     }
 
     @Override
     public void onClick(View view) {
-        if (view==ibBack){
+        if (view == ibBack) {
             finish();
         }
     }

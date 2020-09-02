@@ -20,6 +20,7 @@ public class PolicyfileAdapter extends BaseAdapter {
     private final LayoutInflater layoutInflater;
     private final List<PolicyfileBean.PolicyfileresultBean> datas;
     private final Context seedlistcontext;
+
     public PolicyfileAdapter(Context mcontext, List<PolicyfileBean.PolicyfileresultBean> specialistseedresultBeans) {
         layoutInflater = LayoutInflater.from(mcontext);
         this.datas = specialistseedresultBeans;
@@ -30,6 +31,7 @@ public class PolicyfileAdapter extends BaseAdapter {
     public int getCount() {
         return datas.size();
     }
+
     @Override
     public Object getItem(int position) {
         return datas.get(position);
@@ -44,7 +46,7 @@ public class PolicyfileAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.item_general,null);
+            convertView = layoutInflater.inflate(R.layout.item_general, null);
             viewHolder = new ViewHolder();
 
             viewHolder.tvcontent = convertView.findViewById(R.id.tv_content);
@@ -58,7 +60,7 @@ public class PolicyfileAdapter extends BaseAdapter {
 //                .diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolder.ivSpecialistZhongzipushImage);
 //
 //        }
-        viewHolder.tvcontent.setText(specialistseedresultBean.getPolicyfileTopic());
+        viewHolder.tvcontent.setText(specialistseedresultBean.getPolicyfileLocation());
         return convertView;
     }
 

@@ -5,7 +5,7 @@ package com.bigdata.agricultureplatform.util;
  **/
 public class Constants {
     //用户接口
-    public static String BASE_URL = "http://192.168.0.4:8888";
+    public static String BASE_URL = "http://192.168.31.100:8888";
     //
     public static String LOGIN1_URL = BASE_URL + "/users/login1";
     public static String REGISTER_URL = BASE_URL + "/users/register";
@@ -43,12 +43,15 @@ public class Constants {
     //注册界面种子名称获取
     public static String GETSEEDNAME_URL=BASE_URL+"/seeds/getcropsname";
 
-    //专家根据其id获取他发布过的政策信息
+    //政策文本：专家根据其id浏览信息、发布信息
     public static String SPECIALISTZHENGCEINFO_URL = BASE_URL + "/policies/specialistpoliciesinfo";
-    //专家发布政策
     public static String SPECIALISTINSETZHENGCE_URL = BASE_URL + "/policies/policyinfoinsert";
-    //政策文件浏览
+    //政策文件：浏览、增加信息、上传、下载
     public static String ZHENGCEWENJIANINFO_URL = BASE_URL + "/policyfiles/policyfileinfo";
+    public static String ZHENGCEWENJIANINFOADD_URL = BASE_URL + "/policyfiles/policyfileinfoinsert";
+
+    public static String ZHENGCEWENJIANSHANGCHUAN_URL = BASE_URL + "/policyfiles/uploadPolicyfile";
+    public static String ZHENGCEWENJIANXIAZAI_URL = BASE_URL + "/policyfiles/policyfiledownload";
 
     //专家的三个农资（农机、农药、化肥）查找
     public static String NONGZI_NONGJIINFO_URL = BASE_URL + "/machines/nongjiinfo";

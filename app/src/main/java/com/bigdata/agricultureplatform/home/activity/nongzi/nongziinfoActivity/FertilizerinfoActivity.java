@@ -50,21 +50,22 @@ public class FertilizerinfoActivity extends Activity implements View.OnClickList
         tvFunction.setText(fertilizerinstruction);
         tvInstruction.setText(
                 "产品氮磷钾和其他含量如下:"
-                +fertilizern+"，"+fertilizerp+"，"+fertilizerk+"，"+fertilizerother
-                +"/n"+"适种作物："+"/r/n"+fertilizermodercorp
-                +"/r/n"+"生产商："+"/n"+fertilizerproducter
-                +"/n"+"地址："+"/n"+fertilizeradress
-                +"/n"+"联系方式："+"/n"+fertilizerphone
-                +"/n"+"价格："+"/n"+fertilizerprice
-                +"/n"+"型号："+"/n"+fertilizertype
-                +"/n"+"生产日期："+"/n"+fertilizerproductdate
-                +"/n"+"保质期："+"/n"+fertilizershildlife
+                        + fertilizern + "，" + fertilizerp + "，" + fertilizerk + "，" + fertilizerother
+                        + "/n" + "适种作物：" + "/r/n" + fertilizermodercorp
+                        + "/r/n" + "生产商：" + "/n" + fertilizerproducter
+                        + "/n" + "地址：" + "/n" + fertilizeradress
+                        + "/n" + "联系方式：" + "/n" + fertilizerphone
+                        + "/n" + "价格：" + "/n" + fertilizerprice
+                        + "/n" + "型号：" + "/n" + fertilizertype
+                        + "/n" + "生产日期：" + "/n" + fertilizerproductdate
+                        + "/n" + "保质期：" + "/n" + fertilizershildlife
         );
     }
 
     @Override
     public void onClick(View view) {
-        if (view==ibBack)
-        {finish();}
+        if (view == ibBack) {
+            finish();
+        }
     }
 }

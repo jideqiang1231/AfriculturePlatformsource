@@ -21,13 +21,9 @@ public class UseregisterspinnercropnameAdapter extends BaseAdapter {
     private final Context registerspinnerseedNameContext;
 
     public UseregisterspinnercropnameAdapter(Context mcontext, List<seednameBean.SeednameresultBean> seednamelist) {
-      this.datas = seednamelist;
-      this.registerspinnerseedNameContext = mcontext;
+        this.datas = seednamelist;
+        this.registerspinnerseedNameContext = mcontext;
     }
-
-
-
-
 
 
     @Override

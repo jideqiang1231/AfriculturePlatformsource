@@ -21,6 +21,8 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/top_bar_left_back" />
 
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="49dp"
@@ -32,6 +34,17 @@
             android:textColor="#464646"
             android:textSize="20sp" />
 
+
+        <ImageButton
+            android:id="@+id/ib_policyfile_downloaded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/policyfile_downloaded"
+            />
     </LinearLayout>
 
     <GridView

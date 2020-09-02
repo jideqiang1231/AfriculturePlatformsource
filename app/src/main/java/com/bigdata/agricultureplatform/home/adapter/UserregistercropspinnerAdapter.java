@@ -21,8 +21,8 @@ public class UserregistercropspinnerAdapter extends BaseAdapter {
     private final Context RegisterspinnerSeedtypeContext;
 
     public UserregistercropspinnerAdapter(Context mcontext, List<seedtypeBean.SeedtyperesultBean> seedtypelist) {
-          this.datas = seedtypelist;
-          this.RegisterspinnerSeedtypeContext = mcontext;
+        this.datas = seedtypelist;
+        this.RegisterspinnerSeedtypeContext = mcontext;
     }
 
     @Override

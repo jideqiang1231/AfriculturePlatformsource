@@ -9,7 +9,7 @@ public class PolicyfileBean {
 
     /**
      * msg : 政策文件数据请求成功
-     * policyfileresult : [{"policyfileId":1,"policyfileTopic":"禁止焚烧","policyfileLocation":"/政策/焚烧.dox","policyfileRead":1},{"policyfileId":2,"policyfileTopic":"农药政策","policyfileLocation":"/政策/农药.dox","policyfileRead":null},{"policyfileId":3,"policyfileTopic":"化肥政策","policyfileLocation":"/政策/化肥.dox","policyfileRead":null},{"policyfileId":4,"policyfileTopic":"政策","policyfileLocation":"/政策/政策.dox","policyfileRead":null}]
+     * policyfileresult : [{"policyfileId":1,"policyfileLocation":"1223.doc","policyfileRead":1},{"policyfileId":2,"policyfileLocation":"answer.doc","policyfileRead":0},{"policyfileId":3,"policyfileLocation":"policyfile.doc","policyfileRead":0},{"policyfileId":4,"policyfileLocation":"新建文本文档.txt","policyfileRead":0},{"policyfileId":5,"policyfileLocation":"test.txt","policyfileRead":null},{"policyfileId":6,"policyfileLocation":"机器学习_周志华.pdf","policyfileRead":null},{"policyfileId":7,"policyfileLocation":"机器学习_周志华.pdf","policyfileRead":null},{"policyfileId":8,"policyfileLocation":"1235.doc","policyfileRead":null}]
      */
 
     private String msg;
@@ -34,13 +34,11 @@ public class PolicyfileBean {
     public static class PolicyfileresultBean {
         /**
          * policyfileId : 1
-         * policyfileTopic : 禁止焚烧
-         * policyfileLocation : /政策/焚烧.dox
+         * policyfileLocation : 1223.doc
          * policyfileRead : 1
          */
 
         private int policyfileId;
-        private String policyfileTopic;
         private String policyfileLocation;
         private int policyfileRead;
 
@@ -50,14 +48,6 @@ public class PolicyfileBean {
 
         public void setPolicyfileId(int policyfileId) {
             this.policyfileId = policyfileId;
-        }
-
-        public String getPolicyfileTopic() {
-            return policyfileTopic;
-        }
-
-        public void setPolicyfileTopic(String policyfileTopic) {
-            this.policyfileTopic = policyfileTopic;
         }
 
         public String getPolicyfileLocation() {

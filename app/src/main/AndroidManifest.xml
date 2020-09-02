@@ -23,7 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home.activity.zhengce.PolicyfileActivity"></activity>
+        <activity android:name=".home.activity.zhengce.PolicyfiledownloadActivity"></activity>
+        <activity android:name=".home.activity.zhengce.PolicyfileActivity" />
         <activity android:name=".home.activity.nongzi.nongziinfoActivity.FertilizerinfoActivity" />
         <activity android:name=".home.activity.nongzi.nongziinfoActivity.PesticideinfoActivity" />
         <activity android:name=".home.activity.nongzi.nongziinfoActivity.MachineinfoActivity" />

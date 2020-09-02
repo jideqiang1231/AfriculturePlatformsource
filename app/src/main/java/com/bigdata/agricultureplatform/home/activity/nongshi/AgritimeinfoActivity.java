@@ -110,7 +110,7 @@ public class AgritimeinfoActivity extends Activity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        if (view==ibAgritimeinfoBack){
+        if (view == ibAgritimeinfoBack) {
             finish();
         }
     }

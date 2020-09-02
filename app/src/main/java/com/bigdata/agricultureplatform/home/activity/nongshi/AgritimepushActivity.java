@@ -52,13 +52,13 @@ public class AgritimepushActivity extends Activity implements View.OnClickListen
         //从缓存中获取
         sp = this.getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         userplanttype = sp.getString("usercroptypes", null);
-        useradress=sp.getString("useradress",null);
+        useradress = sp.getString("useradress", null);
         //获取月份
-        Time time=new Time("GMT+8");
+        Time time = new Time("GMT+8");
         time.setToNow();
-        nowData= String.valueOf(time.month);
+        nowData = String.valueOf(time.month);
         //打印当前月份,当前用户的种植类型和地址
-        Log.e("TAG",nowData+userplanttype+useradress);
+        Log.e("TAG", nowData + userplanttype + useradress);
         //请求农时数据：
         initNongshiData();
         //返回的点击事件
@@ -70,9 +70,9 @@ public class AgritimepushActivity extends Activity implements View.OnClickListen
         OkHttpUtils
                 .get()
                 .url(url)
-                .addParams("recommendTime",nowData)
-                .addParams("recommendArea",useradress)
-                .addParams("seedType",userplanttype)
+                .addParams("recommendTime", nowData)
+                .addParams("recommendArea", useradress)
+                .addParams("seedType", userplanttype)
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -87,7 +87,7 @@ public class AgritimepushActivity extends Activity implements View.OnClickListen
                         //解析数据
                         nongshiprocessData(response);
                         //设置adatper往视图放数据
-                        adapter = new NongshiGridViewAdapter(AgritimepushActivity.this,nongshiresultBeanList);
+                        adapter = new NongshiGridViewAdapter(AgritimepushActivity.this, nongshiresultBeanList);
                         gvAgritimePush.setAdapter(adapter);
                         //为每一项设置点击事件
                         gvAgritimePush.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -95,12 +95,12 @@ public class AgritimepushActivity extends Activity implements View.OnClickListen
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                                 //activity中的context不能写this，必须写本activity.this
-                                Toast.makeText(AgritimepushActivity.this,"position"+position,Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AgritimepushActivity.this, "position" + position, Toast.LENGTH_SHORT).show();
                                 //往seedinfoactivity中传入数据
                                 //点那个咱就传入哪个，seedinfobean里边有一个msg，一个list<seedreslutbean>
                                 //而我们的seedresultBeanList.get(position);早就获得了，
                                 //根据位置，点一个获取一个的，一枪一个小朋友。
-                                AgritimelistinfoBean.NongshiresultBean nongshiresultBean=nongshiresultBeanList.get(position);
+                                AgritimelistinfoBean.NongshiresultBean nongshiresultBean = nongshiresultBeanList.get(position);
                                 //抽取启动种子详情这个activity这个方法
                                 startseedinfoActivity(nongshiresultBean);
                             }
@@ -110,15 +110,15 @@ public class AgritimepushActivity extends Activity implements View.OnClickListen
 //                                        Intent intent=new Intent(PushActivity.this,SeedinfoActivity.class);
 //                                        startActivity(intent);
                                 // 带有参数的intent
-                                Intent intent=new Intent();
+                                Intent intent = new Intent();
                                 intent.setClass(AgritimepushActivity.this, AgritimeinfoActivity.class);
                                 // intent.putExtra("图片信息",seedresultBean.getSeedImage());
-                                intent.putExtra("种子名称",nongshiresultBean.getSeedName());
+                                intent.putExtra("种子名称", nongshiresultBean.getSeedName());
                                 //intent.putExtra("种子类型",seedresultBean.getSeedType());
-                                intent.putExtra("农技推送详情",nongshiresultBean.getRecommendContent());
-                                intent.putExtra("专家id",nongshiresultBean.getSpecialistId());
+                                intent.putExtra("农技推送详情", nongshiresultBean.getRecommendContent());
+                                intent.putExtra("专家id", nongshiresultBean.getSpecialistId());
                                 //截取日期substring函数
-                                intent.putExtra("推送时间",nongshiresultBean.getRecommendTime().substring(5,7)+"月"+nongshiresultBean.getRecommendTime().substring(8,10)+"日");
+                                intent.putExtra("推送时间", nongshiresultBean.getRecommendTime().substring(5, 7) + "月" + nongshiresultBean.getRecommendTime().substring(8, 10) + "日");
 
                                 startActivity(intent);
                             }
@@ -126,21 +126,22 @@ public class AgritimepushActivity extends Activity implements View.OnClickListen
                     }
                 });
     }
-//解析数据
+
+    //解析数据
     private void nongshiprocessData(String response) {
-        agritimelistinfobean= JSON.parseObject(response, AgritimelistinfoBean.class);
-        nongshiresultBeanList=agritimelistinfobean.getNongshiresult();
+        agritimelistinfobean = JSON.parseObject(response, AgritimelistinfoBean.class);
+        nongshiresultBeanList = agritimelistinfobean.getNongshiresult();
         //成功显示数据，数组对象其实已经赋值，我们要的就是对象啊，
         //知识用get位置来获取，当然不能直接打印所有
         //打印第一条种子数据的name
-        Log.e(TAG,"数组显示用.get0"+nongshiresultBeanList.get(0).getSeedName());
+        Log.e(TAG, "数组显示用.get0" + nongshiresultBeanList.get(0).getSeedName());
     }
 
 
     //点击事件
     @Override
     public void onClick(View view) {
-        if(view==ibAgritimePushBack){
+        if (view == ibAgritimePushBack) {
             finish();
         }
     }

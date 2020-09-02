@@ -57,8 +57,7 @@ public class MachineinfoActivity extends Activity implements View.OnClickListene
     @Override
     public void onClick(View view) {
 
-        if (view==ibBack)
-        {
+        if (view == ibBack) {
             finish();
         }
     }
