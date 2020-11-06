@@ -17,6 +17,19 @@ android {
             }
         }
     }
+
+//layout分类
+    sourceSets {
+        main {
+            res.srcDirs=[
+                    'src/main/res/layout',//必须有
+                    'src/main/res',//必须有
+                    'src/main/res/layout/specialist_nongji_fragments',
+                    'src/main/res/layout/new_calender_selected',
+                    'src/main/res/layout/item_list_or_grid'
+            ]
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false

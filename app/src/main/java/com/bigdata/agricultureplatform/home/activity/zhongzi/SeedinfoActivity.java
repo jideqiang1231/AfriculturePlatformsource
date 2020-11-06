@@ -81,10 +81,13 @@ public class SeedinfoActivity extends Activity implements View.OnClickListener {
         String seedplantarea = intent.getStringExtra("适种区域");
         String seedphone = intent.getStringExtra("联系电话");
         Integer specialistId = intent.getIntExtra("专家id", 0);
-//        ivSeedinfoImage.setImageBitmap(seedimage);
+        //若修改后端的图片路径信息，需要在定位到后端WebConfiguration里面。
+//      ivSeedinfoImage.setImageBitmap(seedimage);
         if (Util.isOnMainThread() && !TextUtils.isEmpty(Constants.ImageBASE_URL + seedimage) && this != null && ivSeedinfoImage != null && ivSeedinfoImage.getContext() != null) {
             Glide.with(this).load(Constants.ImageBASE_URL + seedimage)
                     .diskCacheStrategy(DiskCacheStrategy.ALL).into(ivSeedinfoImage);
+
+
             //连续吐司被注释：i详情可调式
 //            Toast.makeText(seedcontext,                              //咱这里是为了toast咱请求的种子地址，shuidao/1.jpg 只是为了拼接它前边用/
 //                    "http:服务器地址/config拦截地址zhongziinfo（拦截以后让其访问到file:G:/nongye_image/zhongzi/）/"

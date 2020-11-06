@@ -17,6 +17,7 @@
         android:layout_below="@id/titlebar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
 
         android:padding="5dp">
 
@@ -58,6 +59,7 @@
         android:layout_below="@id/aaa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:padding="5dp">
 
         <TextView
@@ -99,6 +101,8 @@
         android:layout_below="@id/bbb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
 
         android:padding="5dp">
 
@@ -121,6 +125,7 @@
         android:layout_below="@id/ccc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:padding="10dp">
 
         <TextView
@@ -157,7 +162,7 @@
                 android:id="@+id/rl_zhongzi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp">
+                android:padding="20dp">
 
                 <ImageButton
                     android:layout_width="50dp"
@@ -186,11 +191,12 @@
                     android:text="为您推荐热门种子，点击查看详情"
                     android:textColor="#5d5d5d" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/rl_nongshi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="20dp">
 
                 <ImageButton
                     android:layout_width="50dp"
@@ -216,14 +222,14 @@
                     android:gravity="center"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="0dp"
-                    android:text="此时您应该干点什么，点击查看详情"
+                    android:text="点击查看详情"
                     android:textColor="#5d5d5d" />
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/rl_nongji"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="20dp">
 
                 <ImageButton
                     android:layout_width="50dp"
@@ -256,7 +262,7 @@
                 android:id="@+id/rl_nongzi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="20dp">
 
                 <ImageButton
                     android:layout_width="50dp"
@@ -289,7 +295,7 @@
                 android:id="@+id/rl_zhengce"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="20dp">
 
                 <ImageButton
                     android:layout_width="50dp"

@@ -5,7 +5,7 @@ package com.bigdata.agricultureplatform.util;
  **/
 public class Constants {
     //用户接口
-    public static String BASE_URL = "http://192.168.31.100:8888";
+    public static String BASE_URL = "http://172.26.170.218:8888";
     //
     public static String LOGIN1_URL = BASE_URL + "/users/login1";
     public static String REGISTER_URL = BASE_URL + "/users/register";

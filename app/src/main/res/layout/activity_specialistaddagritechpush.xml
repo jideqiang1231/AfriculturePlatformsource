@@ -1,190 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".specialist.activity.nongji.SpecialistaddagritechpushActivity">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".specialist.activity.nongji.SpecialistaddagritechpushActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageButton
-            android:id="@+id/ib_specialist_nongji_addpushinfo_back"
-            android:layout_width="44dp"
-            android:layout_height="35dp"
-            android:background="@drawable/top_bar_left_back"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"/>
-        <TextView
-            android:layout_width="293dp"
-            android:layout_height="39dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:paddingRight="50dp"
-            android:text="农技详情信息填写"
-            android:textColor="#464646"
-            android:textSize="20sp" />
-    </LinearLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/ib_back"
+                android:layout_width="44dp"
+                android:layout_height="35dp"
+                android:background="@drawable/top_bar_left_back"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#fff"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="种子名称："
-                    android:textColor="#464646"
-                    android:textSize="15sp" />
-                <!--android:inputType="phone"-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/et_specialist_nongji_pushinfo_name"-->
-                    <!--android:singleLine="true"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_marginLeft="10dp"-->
-                    <!--android:background="@null"-->
-                    <!--android:hint="这个种子名称（类型名称）"-->
-                    <!--android:textSize="15sp" />-->
-                <Spinner
-                    android:id="@+id/specialist_agritech_spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#fff"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="详细介绍："
-                    android:textColor="#464646"
-                    android:textSize="15sp" />
-                <!--android:inputType="phone"-->
-
-                <EditText
-                    android:id="@+id/et_specialist_nongji_pushinfo_introduce"
-                    android:layout_width="match_parent"
-                    android:layout_height="146dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@null"
-                    android:hint="请输入详情"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#fff"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="推送区域："
-                    android:textColor="#464646"
-                    android:textSize="15sp" />
-                <!--android:inputType="phone"-->
-
-                <EditText
-                    android:id="@+id/et_specialist_nongji_pushinfo_pusharea"
-                    android:singleLine="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@null"
-                    android:hint="输入大致区域"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#fff"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="推送给用户的时间："
-                    android:layout_gravity="center"
-                    android:textColor="#464646"
-                    android:textSize="15sp" />
-                <!--android:inputType="phone"-->
-
-                <EditText
-                    android:id="@+id/et_specialist_pushinfo_nongji_pushdata"
-                    android:layout_width="128dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:background="@null"
-                    android:hint="格式：****-**-**"
-                    android:layout_gravity="center"
-                    android:inputType="date"
-                    android:singleLine="true"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/tv_specialist_pushinfo_nongji_pushdata"
-                    android:layout_width="96dp"
-                    android:layout_height="wrap_content"
-                    android:drawableTop="@drawable/calender1"
-                    android:text="点击选择日期" />
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/b_specialist_nongji_pushinfo_submit"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/loginbutton_background"
-                android:padding="10dp"
-                android:text="点击发布"
-                android:textColor="#fff" />
-
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:layout_width="293dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:paddingRight="50dp"
+                android:text="农技信息发布"
+                android:textColor="#464646"
+                android:textSize="20sp" />
         </LinearLayout>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
 
+                <LinearLayout
+                    android:id="@+id/l_choice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_water"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="灌水"
+                        android:textSize="24sp" />
+
+                    <Button
+                        android:id="@+id/btn_fertilizer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="施肥"
+                        android:textSize="24sp" />
+
+                    <Button
+                        android:id="@+id/btn_pesticide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="打药"
+                        android:textSize="24sp" />
+
+                    <Button
+                        android:id="@+id/btn_other"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="其他"
+                        android:textSize="24sp" />
+                </LinearLayout>
 
 
-    </ScrollView>
+                <LinearLayout
+                    android:id="@+id/l_fasten"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/l_choice"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="359dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="种子名称："
+                            android:textColor="#464646"
+                            android:gravity="center"
+                            android:textSize="36sp" />
+
+                        <Spinner
+                            android:id="@+id/s_seed_choose"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="36sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="发布时间："
+                            android:textSize="36sp" />
+
+                        <TextView
+                            android:id="@+id/tv_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="请选择日期"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="截止时间："
+                            android:textSize="36sp" />
+
+                        <TextView
+                            android:id="@+id/tv_endtime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="请选择日期"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/fragment_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/l_fasten"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="30dp"
+                    android:padding="15dp">
+                </FrameLayout>
 
 
+                <!--<Button-->
+                <!--android:id="@+id/b_specialistpolicy_submit"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:background="#AD5A3636"-->
+                <!--android:padding="10dp"-->
+                <!--android:text="点击发布"-->
+                <!--android:textColor="#fff" />-->
+            </LinearLayout>
 
-
+        </ScrollView>
 </LinearLayout>
