@@ -33,7 +33,6 @@ public class OpenFileTipDialog {
             context.startActivity(showOpenTypeDialog(filesPath));
         }
     }
-
     //显示打开方式
     public void show(String filesPath, Activity activity){
         Intent intent = new Intent();
@@ -41,7 +40,6 @@ public class OpenFileTipDialog {
         intent.setAction(Intent.ACTION_VIEW);
         activity.startActivity(showOpenTypeDialog(filesPath));
     }
-
     public static Intent showOpenTypeDialog(String param){
         Log.e("ViChildError", "showOpenTypeDialog");
         Intent intent = new Intent();
@@ -51,7 +49,6 @@ public class OpenFileTipDialog {
         intent.setDataAndType(uri, "*/*");
         return intent;
     }
-
     /**
      * --获取文件类型 --
      */
@@ -76,7 +73,6 @@ public class OpenFileTipDialog {
         }
         return type;
     }
-
     /**
      * -- MIME 列表 --
      */

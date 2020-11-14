@@ -17,7 +17,6 @@ import com.bigdata.agricultureplatform.home.bean.ResultBeanData;
 public class ChannelAdapter extends BaseAdapter {
     private final Context mcontext;
     private final String userName;
-
     public ChannelAdapter(Context mcontext, String userName) {
         this.mcontext=mcontext;
         this.userName=userName;

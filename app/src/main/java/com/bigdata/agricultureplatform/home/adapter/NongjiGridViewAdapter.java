@@ -18,9 +18,6 @@ import com.bumptech.glide.util.Util;
 
 import java.util.List;
 
-/**
- * @description：$des$
- **/
 public class NongjiGridViewAdapter extends BaseAdapter {
 
     private final LayoutInflater layoutInflater;

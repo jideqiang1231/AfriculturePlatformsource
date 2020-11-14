@@ -25,7 +25,6 @@ public class UseregisterspinnercropnameAdapter extends BaseAdapter {
         this.registerspinnerseedNameContext = mcontext;
     }
 
-
     @Override
     public int getCount() {
         return datas.size();

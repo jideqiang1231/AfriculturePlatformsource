@@ -55,17 +55,12 @@ public class SpecialistaddagritechpushActivity extends Activity implements View.
     FrameLayout fragmentContent;
     @Bind(R.id.ib_back)
     ImageButton ibBack;
-
     private FragmentManager fm;
     private FragmentTransaction ft;
     private List<Button> btnList = new ArrayList<Button>();
 //    private SpecialistseedlistBean specialistseedlistbean;
 //    private List<SpecialistseedlistBean.SpecialistseedresultBean> includeseednamelist;
 //    private AgritechspinnerAdapter adapter;
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +89,6 @@ public class SpecialistaddagritechpushActivity extends Activity implements View.
     }
 
     private void TimeAndEndtime() {
-
         // 進入系統默認為movie
         fm = getFragmentManager();
         ft = fm.beginTransaction();
@@ -173,9 +167,11 @@ public class SpecialistaddagritechpushActivity extends Activity implements View.
     private  void setBackgroundColorById(int btnId) {
         for (Button btn : btnList) {
             if (btn.getId() == btnId){
-                btn.setBackgroundColor(Color.rgb(170,255,255));
+                btn.setBackgroundColor(Color.rgb(90,120,200));
+                btn.setTextColor(Color.rgb(255,255,255));
             }else {
-                btn.setBackgroundColor(Color.rgb(136,255,160));
+                btn.setBackgroundColor(Color.rgb(140,150,160));
+                btn.setTextColor(Color.rgb(255,255,255));
             }
         }
     }

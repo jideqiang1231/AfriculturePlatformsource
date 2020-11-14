@@ -41,7 +41,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         mLayoutInflater=LayoutInflater.from(mContext);
     }
 
-
 //由要绑定返回来的这几个布局类型，所以还要重写这个方法,去得到我们弄得类型
     @Override
     public int getItemViewType(int position) {
@@ -76,7 +75,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         }
 
     }
-class ChannelViewHolder extends RecyclerView.ViewHolder{
+    class ChannelViewHolder extends RecyclerView.ViewHolder{
         private Context mcontext;
         private GridView gvChannel;
     public ChannelViewHolder(final Context mcontext, View itemView) {
@@ -101,10 +100,6 @@ class ChannelViewHolder extends RecyclerView.ViewHolder{
 
     }
 }
-
-
-
-
 
 //总共有多少个item，这个recycleview有及部分就写几个！
     @Override

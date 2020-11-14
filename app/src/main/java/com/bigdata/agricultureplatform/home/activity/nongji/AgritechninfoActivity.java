@@ -76,8 +76,6 @@ public class AgritechninfoActivity extends Activity implements View.OnClickListe
         addSpecialistinfoinseedinfo(specialistId);
     }
 
-    ;
-
     //抽取方法，增加专家的基本信息
     private void addSpecialistinfoinseedinfo(Integer specialistId) {
         String url = Constants.SPECIALISTINFOFORSEEDINFO;

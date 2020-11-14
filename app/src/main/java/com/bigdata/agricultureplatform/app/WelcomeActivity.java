@@ -8,7 +8,6 @@ import android.os.Handler;
 import com.bigdata.agricultureplatform.R;
 
 public class WelcomeActivity extends Activity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

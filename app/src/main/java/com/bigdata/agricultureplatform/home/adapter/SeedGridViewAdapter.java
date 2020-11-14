@@ -101,13 +101,14 @@ public class SeedGridViewAdapter extends BaseAdapter {
 
 
     //注释掉，用下边的butterknife试试
-//    5.创建viewhoder实例化子视图
+    // 5.创建viewhoder实例化子视图
     static class ViewHolder {
         ImageView iv_zhongzipush_image;
         TextView tv_zhongzipush_name;
         TextView tv_zhongzipush_type;
         TextView tv_zhongzi_context;
     }
+
 //    static class ViewHolder {
 //        @Bind(R.id.iv_zhongzipush_image)
 //        ImageView ivZhongzipushImage;

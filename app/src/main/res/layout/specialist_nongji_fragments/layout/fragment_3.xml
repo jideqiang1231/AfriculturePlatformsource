@@ -73,6 +73,12 @@
             android:textSize="24sp"
             android:gravity="center"/>
     </LinearLayout>
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:background="#4F6CC2"
+        android:textColor="#fff"
+        android:text="发布"/>
 
 </LinearLayout>

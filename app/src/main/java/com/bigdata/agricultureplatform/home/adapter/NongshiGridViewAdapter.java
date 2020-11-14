@@ -17,7 +17,6 @@ import java.util.List;
  **/
 public class NongshiGridViewAdapter extends BaseAdapter {
 
-
     private final LayoutInflater layoutInflater;
     private final List<AgritimelistinfoBean.NongshiresultBean> datas;
     private final Context nongshicontext;
@@ -27,7 +26,6 @@ public class NongshiGridViewAdapter extends BaseAdapter {
         this.datas = nongshiresultBeanList;
         this.nongshicontext = mcontext;
     }
-
 
     @Override
     public int getCount() {
@@ -43,7 +41,6 @@ public class NongshiGridViewAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
-
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

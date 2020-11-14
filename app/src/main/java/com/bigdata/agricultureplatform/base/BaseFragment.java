@@ -44,7 +44,6 @@ public abstract class BaseFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         initData();
     }
-
     /*
     当子类需要联网请求数据的时候，可以重写该方法，可以在这里边进行联网请求
     好处是因为这个方法晚于oncreatview执行，先有view后有数据
