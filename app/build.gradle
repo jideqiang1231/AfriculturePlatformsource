@@ -36,6 +36,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    //第二处hutool依赖，必须加，不然报错
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 //这个应该往总的gradle里面放
 repositories {
@@ -82,5 +89,14 @@ dependencies {
     implementation 'com.jzxiang.pickerview:TimePickerDialog:1.0.1'
     //相机那块引入的Androidx出错，需要v4包
     implementation 'com.android.support:support-v4:27.1.1'
+
+    //hutool工具类
+    //此处运行报错，Error: Default interface methods are only supported starting with Android N (--min-api 24): java.lang.Object cn.hutool.cache.Cache.get(java.lang.Object)
+    // compileOptions {
+    //        sourceCompatibility JavaVersion.VERSION_1_8
+    //        targetCompatibility JavaVersion.VERSION_1_8
+    //    }
+    //且gradle.properties 里边改成org.gradle.jvmargs=-Xmx1536m————》org.gradle.jvmargs=-Xmx4608m -Dfile.encoding=UTF-8
+    implementation 'cn.hutool:hutool-all:5.5.1'
 
 }

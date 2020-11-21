@@ -33,11 +33,9 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return initView();
     }
-
     //把抽象类由孩子实现
-    //每个页面实现不同的fragment，实现五个不同的布局
+    //每个页面实现不同的fragment，实现五个不同的布局·
     public abstract View initView();
-
     //当每一个fragment被创建的时候调用这个方法
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

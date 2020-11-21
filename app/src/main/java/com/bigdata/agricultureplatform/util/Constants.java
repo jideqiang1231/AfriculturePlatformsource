@@ -5,7 +5,7 @@ package com.bigdata.agricultureplatform.util;
  **/
 public class Constants {
     //服务器地址 public static final String BASE = "http://10.0.2.2:8080";
-    public static String BASE_URL = "http://10.130.161.37:8888";
+    public static String BASE_URL = "http://10.130.160.142:8888";
     //用户登录、注册、专家登录
     public static String LOGIN1_URL = BASE_URL + "/users/login1";
     public static String REGISTER_URL = BASE_URL + "/users/register";
@@ -28,7 +28,15 @@ public class Constants {
     //用户农技信息、专家根据id获取农技信息、农技信息插入
     public static String NONGJIINFO_URL = BASE_URL + "/recommends/nongjiinfo";
     public static String SPECIALISTNONGJIINFO_URL = BASE_URL + "/recommends/nongjilistfromspecialistId";
-   public static String INSERTNONGJIINFO_URL=BASE_URL+"/recommends/nongjiinfoinsert";
+    public static String INSERTNONGJIINFO_URL=BASE_URL+"/recommends/nongjiinfoinsert";
+
+    //最新农技
+    public static String NEWNONGJIRECOMMENDINSERT=BASE_URL+"/recommends/recommendNewinfoinsert";
+
+
+
+
+
 
     //用户农时、政策信息
     public static String NONGSHIINFO_URL=BASE_URL+"/recommends/nongshilist";

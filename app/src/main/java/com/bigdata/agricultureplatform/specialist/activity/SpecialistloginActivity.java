@@ -1,7 +1,9 @@
 package com.bigdata.agricultureplatform.specialist.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -40,13 +42,28 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
     //把bean对象声明过来才可以用
     private SpecialistloginBean specialistloginBean;
     private SpecialistloginBean.SpecialistloginresultBean specialistloginresultBean;
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specialistlogin);
         ButterKnife.bind(this);
-
+/////////////////////////////////////////////////////////////////////////
+        //1.得到sp对象,用于存储登录状态
+        //specialistinfo:存在底层的文件名，读取要用到
+        sp = getSharedPreferences("specialistinfo", Context.MODE_PRIVATE);
+        //5.保存用户登录信息///////////////////////////////////
+        String specname=sp.getString("specname",null);
+        String specpass=sp.getString("specpass",null);
+        String specid=sp.getString("specid",null);
+        if (specname==null||specpass==null|specid==null){
+            Toast.makeText(this,"首次登录，请输入用户信息或者注册",Toast.LENGTH_SHORT).show();
+        }else{
+            etSpecialistLoginname.setText(specname);
+            etSpecialistLoginpass.setText(specpass);
+        }
+        /////////////////////////////////////////////////////////////////////////
         btnSpecialistlogin.setOnClickListener(this);
         ibSpecialistBack.setOnClickListener(this);
     }
@@ -96,6 +113,22 @@ public class SpecialistloginActivity extends Activity implements View.OnClickLis
                         if (specialistloginBean.getMsg().equals("登录失败")) {
                             Toast.makeText(getBaseContext(), "用户名密码错误", Toast.LENGTH_LONG).show();
                         } else {
+                            ////////////////////////////////////////////////////////////////////////
+                                //把请求来的登录信息放入到sheraperfernce中保存专家状态！
+                                //得到edtior,用于保存用户的id,name,pass这里多了一步获取这个Editor的前缀SharePreferences
+                                SharedPreferences.Editor editor = sp.edit();
+                                //得到输入用户名和密码的key和value
+                                String specialistnamevalue = specialistloginresultBean.getSpecialistName();
+                                String specialistpassvalue=specialistloginresultBean.getSpecialistPass();
+                                Integer specialistidvalue=specialistloginresultBean.getSpecialistId();
+                                //此处用到的apply与commit有所区别，注意对照网上
+                                editor.putString("specname", specialistnamevalue).apply();
+                                editor.putString("specpass", specialistpassvalue).apply();
+                                editor.putString("specid", String.valueOf(specialistidvalue)).apply();
+                                //提示
+                                Log.e(TAG,"专家基本状态id,name，pass保存成功");
+                              ////////////////////////////////////////////////////////////////////////////
+
 
                             Intent intent = new Intent();
                             intent.setClass(SpecialistloginActivity.this, SpecialistActivity.class);

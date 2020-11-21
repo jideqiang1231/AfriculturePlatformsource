@@ -88,8 +88,13 @@ public class SpeclistagritechpushActivity extends Activity implements View.OnCli
         specialistagritechlistBean = JSON.parseObject(nongjijsonlist, SpecialistagritechlistBean.class);
         //表面bean里面的listbean
         specialistnongjiresultBeans = specialistagritechlistBean.getSpecialistnongjiresult();
-        //打印一下
+        //////////////////////////////////////////////////////////////////////////////////////////////
+       // ===============================================================================================
+        //此处存在异常！需要重写，其他地方也一样，如果请求数据失败，还要强行打印的话，应该实惠报错的！
+        //具体情况具体分析
         Log.e(TAG, "数组显示用.get0" + specialistnongjiresultBeans.get(0).getRecommendTime());
+        // ===============================================================================================
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     }
 

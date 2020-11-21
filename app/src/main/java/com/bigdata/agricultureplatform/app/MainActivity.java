@@ -42,10 +42,8 @@ public class MainActivity extends FragmentActivity {
     private int position=0;
     //就是当前缓存的fragment，就是上次显示的fragment
     private Fragment tempFragment;
-
     //用于接受login的用户名
     private String userName;
-
     //用于向fragment传参的容器
 
     @Override
@@ -56,6 +54,7 @@ public class MainActivity extends FragmentActivity {
         //接收登录信息-用户名
         Intent intent = getIntent();
         userName=intent.getStringExtra("用户名");
+
         //接受login中传过来的username
         Log.e(TAG,userName);
         /////////////////////////////////////////////////////////////////
@@ -125,6 +124,7 @@ public class MainActivity extends FragmentActivity {
         fragments.add(new QuestionFragment());
         fragments.add(new UserFragment());
     }
+
     private BaseFragment getFragment(int position){
         if (fragments!=null&&fragments.size()>0){
             BaseFragment baseFragment=fragments.get(position);

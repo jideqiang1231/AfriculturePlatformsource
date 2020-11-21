@@ -79,5 +79,13 @@
         <item>向日葵3</item>
     </string-array>
 
+    <string-array name = "sowmethod">
+        <!--上来默认是不选的-->
+        <item></item>
+        <item>插秧</item>
+        <item>保墒旱直播</item>
+        <item>播后上水</item>
+        <item>催芽撒播</item>
+    </string-array>
 
 </resources>
