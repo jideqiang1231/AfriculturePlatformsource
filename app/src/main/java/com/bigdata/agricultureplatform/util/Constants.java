@@ -30,10 +30,11 @@ public class Constants {
     public static String SPECIALISTNONGJIINFO_URL = BASE_URL + "/recommends/nongjilistfromspecialistId";
     public static String INSERTNONGJIINFO_URL=BASE_URL+"/recommends/nongjiinfoinsert";
 
-    //最新农技
+    //最新农技基本信息、查询最近插入、插入肥料信息、插入农药信息
     public static String NEWNONGJIRECOMMENDINSERT=BASE_URL+"/recommends/recommendNewinfoinsert";
-
-
+    public static String ONENERLYINSERTRECOMMENDINFO=BASE_URL+"/recommends/findNearlyRecommdendid";
+    public static String NONGJIFERTILIZERINERT=BASE_URL+"/recommendfertilizers/recommendfertilizerinfoinsert";
+    public static String NONGJIPESTICIDEINERT=BASE_URL+"/recommendpesticides/recommendpesticideinfoinsert";
 
 
 

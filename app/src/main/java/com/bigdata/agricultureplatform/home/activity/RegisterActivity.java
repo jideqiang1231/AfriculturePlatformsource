@@ -712,7 +712,6 @@ public class RegisterActivity extends Activity implements RadioGroup.OnCheckedCh
                 .addParams("userName", registername)
                 .addParams("userPass", registerpass1)
                 .addParams("userPhone", registerphone)
-
                 .addParams("userCard", userIdentityCard)
                 .addParams("userFieldadress", userAdress)
                 .addParams("userFieldacres", userSumAcres)

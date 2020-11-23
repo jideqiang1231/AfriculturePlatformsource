@@ -7,29 +7,31 @@
     android:orientation="vertical"
     android:background="@drawable/specialistbackground2"
     tools:context=".specialist.activity.SpecialistloginActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff">
+        android:background="@drawable/gradientbackground_blue">
+
         <ImageButton
             android:id="@+id/ib_specialist_back"
             android:layout_width="44dp"
             android:layout_height="35dp"
-            android:background="@drawable/top_bar_left_back"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"/>
+            android:background="@drawable/top_bar_left_back" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="278dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
-            android:text="专家登录"
             android:paddingRight="50dp"
+            android:text="专家登录"
             android:textColor="#464646"
-            android:textSize="20sp"
-            android:layout_marginTop="10dp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
 

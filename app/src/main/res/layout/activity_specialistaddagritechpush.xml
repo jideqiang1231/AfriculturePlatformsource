@@ -6,6 +6,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".specialist.activity.nongji.SpecialistaddagritechpushActivity">
+    <!--注意此布局只要发生变化，必须清楚缓存，删掉app/build所有文件，不然报错或者相当于没写-->
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,14 +33,10 @@
                 android:textSize="20sp" />
         </LinearLayout>
 
-
             <LinearLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
-
                 <LinearLayout
                     android:id="@+id/l_choice"
                     android:layout_width="match_parent"
@@ -81,17 +80,23 @@
                         android:textSize="24sp" />
                 </LinearLayout>
 
+                <!--此帧布局用户放fragment由于其占用空间，所以下面像iamgeview布局可以随便放东西-->
                 <FrameLayout
                     android:id="@+id/fragment_content"
                     android:layout_width="match_parent"
-                    android:layout_height="293dp"
+                    android:layout_height="513dp"
                     android:layout_below="@id/l_choice"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="20dp"
-                    android:padding="15dp">
-
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    >
                 </FrameLayout>
 
+                <ImageView
+
+                    android:src="#FAE4DEDE"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
 

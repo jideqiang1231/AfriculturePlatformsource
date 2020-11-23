@@ -2,7 +2,9 @@ package com.bigdata.agricultureplatform.specialist.activity.nongji.fragments;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -34,10 +36,11 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 
+import static android.view.View.SCROLL_AXIS_HORIZONTAL;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
-public class Fragment01 extends Fragment implements View.OnClickListener {
+public class Fragment01 extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     @Bind(R.id.s_growdata_choose)
     Spinner sGrowdataChoose;
@@ -67,11 +70,13 @@ public class Fragment01 extends Fragment implements View.OnClickListener {
     private UserregistercropspinnerAdapter adapter;
     private String Register_spinner_seedtype1;
     private String Register_spinner_seedname1;
+    private SharedPreferences sp;
+    private String specid;
+    private String sowmethod;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_1, null);
-
         ButterKnife.bind(this, view);
         return view;
     }
@@ -80,8 +85,21 @@ public class Fragment01 extends Fragment implements View.OnClickListener {
     public void onActivityCreated(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onActivityCreated(savedInstanceState);
+
+        //读取专家的缓存信息
+        sp = getActivity().getSharedPreferences("specialistinfo", Context.MODE_PRIVATE);
+        specid=sp.getString("specid",null);
+
         //为下拉框加载数据
         initseednametypedata();
+
+//        sCroptype1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                                                 @Override
+//                                                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                                                     Register_spinner_seedtype1 = seedtyperesultBean.getSeedType();
+//
+//                                                 })};
+        sGrowdataChoose.setOnItemSelectedListener(this);
         tvTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -239,7 +257,6 @@ public class Fragment01 extends Fragment implements View.OnClickListener {
                     }
                 });
     }
-
     private void userRegisterSpinnerCropdataprocessData(String response) {
         seedtypeBean = JSON.parseObject(response, seedtypeBean.class);
         //表面bean里面的listbean
@@ -257,17 +274,18 @@ public class Fragment01 extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view == waterSubmit) {
-            String specialistId = "1";
+            //打印一下sowmethod
+            Log.e("TAG","sowmethod的值是："+sowmethod);
+            String specialistId = specid;
             String time = tvTime.getText().toString();
             String endtime = tvEndtime.getText().toString();
             String seedid = "2";
             //水肥药其他
-            String recommend_type = "3";
+            String recommend_type = "1";
             String readed = "0";
             String detail = etDetail.getText().toString();
             String notice = etNotice.getText().toString();
-            String stage = "灌浆期";
-            String sowmethod = "2";
+            String stage = etGrowtimeStage.getText().toString();
             if (TextUtils.isEmpty(time) || TextUtils.isEmpty(endtime) || TextUtils.isEmpty(seedid) || TextUtils.isEmpty(detail) || TextUtils.isEmpty(notice) || TextUtils.isEmpty(stage) || TextUtils.isEmpty(sowmethod)) {
                 Toast.makeText(getActivity(), "请检查没有填写的地方", Toast.LENGTH_SHORT);
             } else {
@@ -284,6 +302,7 @@ public class Fragment01 extends Fragment implements View.OnClickListener {
                         .addParams("detail", detail)
                         .addParams("notice", notice)
                         .addParams("stage", stage)
+                        //sowmethod 定义在spinner的onitemselect点击事件中
                         .addParams("sowmethod", sowmethod)
                         .build()
                         .execute(new StringCallback() {
@@ -304,5 +323,23 @@ public class Fragment01 extends Fragment implements View.OnClickListener {
 
             }
         }
+    }
+
+    //spinner的选中的两个点击事件
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+      if(sGrowdataChoose.getSelectedItem().equals("插秧")){
+          sowmethod="1";
+      }else if (sGrowdataChoose.getSelectedItem().equals("保墒旱直播")){
+          sowmethod="2";
+      }else if (sGrowdataChoose.getSelectedItem().equals("播后上水")){
+          sowmethod="3";
+      }else if (sGrowdataChoose.getSelectedItem().equals("催芽撒播")){
+          sowmethod="4";
+      }
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

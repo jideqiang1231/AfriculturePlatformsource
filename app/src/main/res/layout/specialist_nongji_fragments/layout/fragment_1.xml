@@ -25,8 +25,10 @@
                 android:orientation="vertical"
                 android:padding="20dp">
                 <LinearLayout
-                    android:layout_width="359dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -47,8 +49,10 @@
                         />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="359dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -77,6 +81,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -97,6 +103,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -118,6 +126,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -139,15 +149,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
                     android:orientation="horizontal">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="注意事项："
                         android:textSize="18dp" />
-
                     <EditText
                         android:id="@+id/et_notice"
                         android:layout_width="match_parent"
@@ -159,6 +169,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -167,7 +179,6 @@
                         android:gravity="center"
                         android:text="具体操作："
                         android:textSize="18dp" />
-
                     <EditText
                         android:id="@+id/et_detail"
                         android:layout_width="match_parent"
@@ -181,9 +192,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 >
-
                 <Button
                     android:id="@+id/water_submit"
                     android:layout_width="match_parent"
